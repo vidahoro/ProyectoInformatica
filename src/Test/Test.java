@@ -5,6 +5,8 @@
  */
 package Test;
 
+import Vista.JFrameGestionarComidas;
+
 /**
  *
  * @author Victor
@@ -16,10 +18,8 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("jijijkkkki");
-        System.out.println("sasdasd");
-        System.out.println("132");        
-                
+        JFrameGestionarComidas objGestionarComidas = new JFrameGestionarComidas();
+        objGestionarComidas.setVisible(true);
     }
     
 }
