@@ -7,24 +7,40 @@ package Vista;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 
 /**
  *
  * @author Victor
  */
-public class JFrameGestionarComidas extends javax.swing.JPanel {
+public class JFrameGestionarComidas extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFrameGestionarComidas
+     * Creates new form JFrameGestionarComidass
      */
     public JFrameGestionarComidas() {
         initComponents();
+        
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/Facebook.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_Facebook_link.setIcon(img2);
         this.Image_Facebook_link.setText("");
-       // this.setExtendState(JFrame.MAXIMIZED_BOTH);
+        
+        
+        Image img4 = new ImageIcon(getClass().getResource("/Recursos/Facebook.png")).getImage();        
+        ImageIcon img3= new ImageIcon(img4.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_Twitter_link.setIcon(img3);
+        this.Image_Twitter_link.setText("");
+        
+        
+        Image img6 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
+        ImageIcon img5= new ImageIcon(img6.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_instagram_link.setIcon(img5);
+        this.Image_instagram_link.setText("");
+        
+        
+       
+ 
+        
         
         
     }
@@ -44,8 +60,10 @@ public class JFrameGestionarComidas extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Image_Facebook_link = new javax.swing.JLabel();
+        Image_Twitter_link = new javax.swing.JLabel();
+        Image_instagram_link = new javax.swing.JLabel();
 
-        setLayout(new java.awt.BorderLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Header.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -53,27 +71,29 @@ public class JFrameGestionarComidas extends javax.swing.JPanel {
         Header.setLayout(HeaderLayout);
         HeaderLayout.setHorizontalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 863, Short.MAX_VALUE)
+            .addGap(0, 753, Short.MAX_VALUE)
         );
         HeaderLayout.setVerticalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        add(Header, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(Header, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 753, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 231, Short.MAX_VALUE)
+            .addGap(0, 80, Short.MAX_VALUE)
         );
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         Footer.setBackground(new java.awt.Color(26, 85, 118));
         Footer.setForeground(new java.awt.Color(26, 85, 118));
@@ -88,40 +108,89 @@ public class JFrameGestionarComidas extends javax.swing.JPanel {
 
         Image_Facebook_link.setText("Facebook");
 
+        Image_Twitter_link.setText("Twitter");
+
+        Image_instagram_link.setText("Instagram");
+
         javax.swing.GroupLayout FooterLayout = new javax.swing.GroupLayout(Footer);
         Footer.setLayout(FooterLayout);
         FooterLayout.setHorizontalGroup(
             FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FooterLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(29, 29, 29)
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(219, 219, 219)
-                        .addComponent(Image_Facebook_link)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                        .addGap(139, 139, 139)
+                        .addComponent(Image_Facebook_link)
+                        .addGap(54, 54, 54)
+                        .addComponent(Image_Twitter_link)
+                        .addGap(40, 40, 40)
+                        .addComponent(Image_instagram_link)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         FooterLayout.setVerticalGroup(
             FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FooterLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(21, 21, 21)
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(Image_Facebook_link))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Image_Facebook_link)
+                    .addComponent(Image_Twitter_link)
+                    .addComponent(Image_instagram_link))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(Footer, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(Footer, java.awt.BorderLayout.PAGE_END);
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new JFrameGestionarComidas().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Footer;
     private javax.swing.JPanel Header;
     private javax.swing.JLabel Image_Facebook_link;
+    private javax.swing.JLabel Image_Twitter_link;
+    private javax.swing.JLabel Image_instagram_link;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
