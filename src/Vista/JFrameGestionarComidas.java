@@ -20,7 +20,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
     public JFrameGestionarComidas() {
         initComponents();
                 
-        Image img1 = new ImageIcon(getClass().getResource("/Recursos/Facebook.png")).getImage();        
+        Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
         this.Image_restaurant_link.setText("");
@@ -31,13 +31,13 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         this.Image_Facebook_link.setText("");
         
         
-        Image img4 = new ImageIcon(getClass().getResource("/Recursos/Facebook.png")).getImage();        
+        Image img4 = new ImageIcon(getClass().getResource("/Recursos/Twitter.png")).getImage();        
         ImageIcon img3= new ImageIcon(img4.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_Twitter_link.setIcon(img3);
         this.Image_Twitter_link.setText("");
         
         
-        Image img6 = new ImageIcon(getClass().getResource("/Recursos/Facebook.png")).getImage();        
+        Image img6 = new ImageIcon(getClass().getResource("/Recursos/instagram.png")).getImage();        
         ImageIcon img5= new ImageIcon(img6.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_instagram_link.setIcon(img5);
         this.Image_instagram_link.setText("");
@@ -214,7 +214,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         jLabelHeaderNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabelHeaderNombre.setText("Restaurante All Food");
 
-        Image_restaurant_link.setText("jLabel2");
+        Image_restaurant_link.setText("IconoRes");
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);

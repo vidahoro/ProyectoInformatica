@@ -56,7 +56,7 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
 
         jPanelHeader = new javax.swing.JPanel();
         jLabelHeaderNombre = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelSlogan = new javax.swing.JLabel();
         Image_restaurant_link = new javax.swing.JLabel();
         jPanelFooter = new javax.swing.JPanel();
         Footer = new javax.swing.JPanel();
@@ -84,9 +84,9 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
         jLabelHeaderNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabelHeaderNombre.setText("Restaurante All Food");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Uno de los mejores de la ciudad");
+        jLabelSlogan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelSlogan.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelSlogan.setText("Uno de los mejores de la ciudad");
 
         Image_restaurant_link.setText("IconoRes");
 
@@ -99,7 +99,7 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
                 .addComponent(Image_restaurant_link, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                    .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(215, Short.MAX_VALUE))
         );
@@ -109,7 +109,7 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(Image_restaurant_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -219,12 +219,9 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
                         .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonLogIN))
                 .addContainerGap(70, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonLogIN)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +313,6 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel Image_instagram_link;
     private javax.swing.JLabel Image_restaurant_link;
     private javax.swing.JButton jButtonLogIN;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelContrasena;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelError1;
@@ -325,6 +321,7 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelIniciarSesion;
     private javax.swing.JLabel jLabelNumero;
     private javax.swing.JLabel jLabelOlvidarC;
+    private javax.swing.JLabel jLabelSlogan;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelFooter;
