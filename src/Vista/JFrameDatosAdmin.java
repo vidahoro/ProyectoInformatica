@@ -157,7 +157,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
                         .addComponent(jButtonLogOut)
@@ -217,7 +217,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabelNumero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 308, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
                         .addGap(44, 44, 44)
                         .addComponent(Image_Twitter_link)
@@ -258,7 +258,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
             .addGroup(jPanelCenterLayout.createSequentialGroup()
                 .addGap(337, 337, 337)
                 .addComponent(jLabel1)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -1,0 +1,145 @@
+[33mcommit d9f7581bceeafbce4ac9f4d3f1ade9e1ad148055[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Mon Nov 9 12:14:47 2020 -0500
+
+    Editar comida sin animaciones2
+
+[33mcommit f550175e9d202466b96dce2921d5bc1dffc58b53[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Mon Nov 9 11:55:55 2020 -0500
+
+    Editar comida sin animaciones
+
+[33mcommit f2a38ad8315b08332ab0153527e72d23847a3afc[m
+Merge: 220a790 48762bb
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Mon Nov 9 10:55:20 2020 -0500
+
+    Merge origin/master into HEAD
+
+[33mcommit 48762bb34c854ead5bdd6274e853dc93e523167e[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Mon Nov 9 10:54:13 2020 -0500
+
+    Arreglau
+
+[33mcommit 220a790c8eda43bbc1ffac30b160aab756b90ee1[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Mon Nov 9 10:50:36 2020 -0500
+
+    clase xx
+
+[33mcommit 3f4d307aa75d83467c2903f400c7e0ceb11d3890[m
+Merge: 5d82bda 08bbe1d
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Mon Nov 9 10:19:33 2020 -0500
+
+    aaaaaaa
+
+[33mcommit 08bbe1d3395d2f1de7583ec09e0348fac2b590ca[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Sun Nov 8 12:47:56 2020 -0500
+
+    Editando container de Gestionar Comidas
+
+[33mcommit 5d82bda3ed6c39fffa93a7e36dd56db95442dada[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Sun Nov 8 12:44:17 2020 -0500
+
+    LoginAdminV2
+
+[33mcommit 49651a545548a54696bb1a166975b6520da9f34f[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Sun Nov 8 12:06:25 2020 -0500
+
+    LoginAdminV2
+
+[33mcommit 222c37d1d603c6f214f39ce52fe72617e37364ff[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Sun Nov 8 12:04:26 2020 -0500
+
+    LoginAdminV2
+
+[33mcommit 3079cb412855a655cbc996f8454cd39706f5e779[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Sun Nov 8 10:45:03 2020 -0500
+
+    Footer completo (Todos logos Facebook)
+
+[33mcommit 821b13de833e44e16cecc50ed78b17fcbb24786e[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Sun Nov 8 10:44:51 2020 -0500
+
+    Footer completo (Todos logos Facebook)
+
+[33mcommit 17ce8772e194a7f444f17926e6ab29ecd45a9152[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Sun Nov 8 09:46:47 2020 -0500
+
+    Footer con labels try one
+
+[33mcommit d06db9e7bd3a26e8324e592424ede4edc72c1eb1[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Tue Nov 3 19:52:33 2020 -0500
+
+    LoginAdminV1
+
+[33mcommit 2138dda32bf943ce610a6bbbfe152d01c87b5c7f[m
+Author: Victor Ome <vdome@unicauca.edu.co>
+Date:   Tue Nov 3 19:09:32 2020 -0500
+
+    Intento creación de Footer
+
+[33mcommit 68b323170e8348ad4f29160b72c66f0124a91b33[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Tue Nov 3 18:08:50 2020 -0500
+
+    Paquete Vista
+
+[33mcommit 8a61b8762208c166db22f48caf611058eacd4afe[m
+Author: vidahoro <vdome@unicauca.edu.co>
+Date:   Sat Oct 31 19:26:32 2020 -0500
+
+    añadiendo clase
+
+[33mcommit 558dbba21d9de198063e2e5953123bc4fc3e3725[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Sat Oct 31 19:21:14 2020 -0500
+
+    Creación Clases
+
+[33mcommit e2ac39f20f103d70365a00a6f9f7e934ed0fd28a[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Sat Oct 31 19:04:01 2020 -0500
+
+    Creación Clases
+
+[33mcommit 3e8e092dc5edd6e35981596376fe7e02375fa665[m
+Author: Juan D Barrera <jdbarrera@unicauca.edu.co>
+Date:   Sat Oct 31 18:56:46 2020 -0500
+
+    assasd
+
+[33mcommit bccdfe475a1454f092a18c21b9d5ae0b6bc30f6a[m
+Author: vidahoro <vdome@unicauca.edu.co>
+Date:   Sat Oct 31 18:11:29 2020 -0500
+
+    se está saludando al parcero Barrera
+
+[33mcommit 73e7ebaaabcc3d9e0119d6829fefc80eee71c035[m
+Author: vidahoro <vdome@unicauca.edu.co>
+Date:   Mon Oct 19 12:12:26 2020 -0500
+
+    1er cambio desde netbeans
+
+[33mcommit 007d9d0d4176897dfc0d1912d72385925bffc3dc[m
+Author: vidahoro <vdome@unicauca.edu.co>
+Date:   Mon Oct 19 12:00:07 2020 -0500
+
+    Primer versión
+
+[33mcommit 3dc446ca9c3b58064faadcf65adc220ab2e3fb22[m
+Author: vidahoro <vdome@unicauca.edu.co>
+Date:   Mon Oct 19 10:26:09 2020 -0500
+
+    añadiendo salida por pantalla
