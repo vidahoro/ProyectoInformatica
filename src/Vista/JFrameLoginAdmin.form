@@ -240,18 +240,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace pref="71" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabelError2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelError1" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextFieldUsuario" max="32767" attributes="0"/>
-                          <Component id="jTextFieldContrasena" max="32767" attributes="0"/>
-                          <Component id="jLabelIniciarSesion" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelUsuario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelContrasena" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelOlvidarC" min="-2" pref="214" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jTextFieldUsuario" max="32767" attributes="0"/>
+                      <Component id="jLabelIniciarSesion" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelUsuario" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelContrasena" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelOlvidarC" pref="214" max="32767" attributes="0"/>
                       <Component id="jButtonLogIN" alignment="0" max="-2" attributes="0"/>
+                      <Component id="jPasswordFieldContrasenia" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="70" max="32767" attributes="0"/>
               </Group>
@@ -271,10 +269,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabelContrasena" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextFieldContrasena" max="32767" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="jPasswordFieldContrasenia" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelError2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jButtonLogIN" max="32767" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabelOlvidarC" max="32767" attributes="0"/>
@@ -316,8 +314,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldContrasena">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelOlvidarC">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
@@ -344,6 +340,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ERROR"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="jPasswordFieldContrasenia">
         </Component>
       </SubComponents>
     </Container>

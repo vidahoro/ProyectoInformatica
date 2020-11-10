@@ -39,7 +39,7 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
         this.Image_instagram_link.setText("");
         
         jTextFieldUsuario.setToolTipText("Ingrese Usuario");
-        jTextFieldContrasena.setToolTipText("Ingrese contraseña");
+        jPasswordFieldContrasenia.setToolTipText("Ingrese contraseña");
         
         jLabelError1.setVisible(false);
         jLabelError2.setVisible(false);
@@ -70,11 +70,11 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
         jLabelUsuario = new javax.swing.JLabel();
         jLabelContrasena = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
-        jTextFieldContrasena = new javax.swing.JTextField();
         jLabelOlvidarC = new javax.swing.JLabel();
         jButtonLogIN = new javax.swing.JButton();
         jLabelError1 = new javax.swing.JLabel();
         jLabelError2 = new javax.swing.JLabel();
+        jPasswordFieldContrasenia = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -210,17 +210,16 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap(71, Short.MAX_VALUE)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelError2)
                     .addComponent(jLabelError1)
-                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldUsuario)
-                        .addComponent(jTextFieldContrasena)
-                        .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonLogIN))
+                    .addComponent(jTextFieldUsuario)
+                    .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                    .addComponent(jButtonLogIN)
+                    .addComponent(jPasswordFieldContrasenia))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
@@ -237,10 +236,10 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldContrasena)
-                .addGap(0, 0, 0)
+                .addComponent(jPasswordFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelError2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonLogIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,7 +325,7 @@ public class JFrameLoginAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelFooter;
     private javax.swing.JPanel jPanelHeader;
-    private javax.swing.JTextField jTextFieldContrasena;
+    private javax.swing.JPasswordField jPasswordFieldContrasenia;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }
