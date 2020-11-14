@@ -183,7 +183,12 @@ public class JFrameEditarComida extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(26, 85, 118));
         jLabel4.setText("*Tipo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C.C.", "T.I.", "Registro Civil", "Cédula de Extranjeria" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Especial", "Comida Rápida", "Postre", "Bebida" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(26, 85, 118));
@@ -348,6 +353,10 @@ public class JFrameEditarComida extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
