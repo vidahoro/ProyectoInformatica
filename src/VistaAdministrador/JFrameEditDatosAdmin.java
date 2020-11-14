@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package VistaAdministrador;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author 57321
  */
-public class JFrameDatosAdmin extends javax.swing.JFrame {
+public class JFrameEditDatosAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameDatosAdmin
      */
-    public JFrameDatosAdmin() {
+    public JFrameEditDatosAdmin() {
         initComponents();
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -78,7 +78,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameDatosAdmin().setVisible(true);
+                new JFrameEditDatosAdmin().setVisible(true);
             }
         });
     }
@@ -110,11 +110,13 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
         jLabelDatos = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellido = new javax.swing.JLabel();
-        jLabelPassword = new javax.swing.JLabel();
+        jLabelPasswordOld = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellido = new javax.swing.JTextField();
         jButtonEdit = new javax.swing.JButton();
-        jPasswordContrasenia = new javax.swing.JPasswordField();
+        jPasswordOld = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jPasswordNew = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -164,7 +166,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
                         .addComponent(jButtonLogOut)
@@ -224,7 +226,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabelNumero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
                         .addGap(44, 44, 44)
                         .addComponent(Image_Twitter_link)
@@ -256,45 +258,50 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
         getContentPane().add(Footer, java.awt.BorderLayout.PAGE_END);
 
         jLabelDatos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelDatos.setText("Datos Administrador");
+        jLabelDatos.setText("Editar Datos Administrador");
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabelNombre.setText("Nombres:");
+        jLabelNombre.setText("*Nombres:");
 
         jLabelApellido.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabelApellido.setText("Apellidos:");
+        jLabelApellido.setText("*Apellidos:");
 
-        jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabelPassword.setText("Contraseña:");
+        jLabelPasswordOld.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelPasswordOld.setText("*Contraseña actual:");
 
         jButtonEdit.setText("Editar Datos");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel1.setText("*Contraseña nueva:");
 
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
         jPanelCenter.setLayout(jPanelCenterLayout);
         jPanelCenterLayout.setHorizontalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(253, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonEdit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addContainerGap(232, Short.MAX_VALUE)
                 .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
                     .addComponent(jLabelApellido)
-                    .addComponent(jLabelPassword)
+                    .addComponent(jLabelPasswordOld)
                     .addComponent(jLabelNombre)
                     .addComponent(jLabelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldNombre)
                     .addComponent(jTextFieldApellido)
-                    .addComponent(jPasswordContrasenia))
-                .addContainerGap(254, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonEdit)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPasswordOld)
+                    .addComponent(jPasswordNew))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jLabelDatos)
-                .addGap(34, 34, 34)
+                .addGap(15, 15, 15)
                 .addComponent(jLabelNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,13 +309,17 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                 .addComponent(jLabelApellido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabelPasswordOld)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordOld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(9, 9, 9)
+                .addComponent(jPasswordNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonEdit)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCenter, java.awt.BorderLayout.CENTER);
@@ -342,6 +353,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel Image_restaurant_link;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonLogOut;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAdminName;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelDatos;
@@ -349,7 +361,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHeaderNombre;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelNumero;
-    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelPasswordOld;
     private javax.swing.JLabel jLabelSlogan;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -358,7 +370,8 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCenter;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelHeader;
-    private javax.swing.JPasswordField jPasswordContrasenia;
+    private javax.swing.JPasswordField jPasswordNew;
+    private javax.swing.JPasswordField jPasswordOld;
     private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables

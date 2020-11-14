@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package VistaAdministrador;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -90,7 +90,6 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        setPreferredSize(new java.awt.Dimension(712, 400));
 
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(720, 320));
