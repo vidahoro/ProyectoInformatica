@@ -5,6 +5,9 @@
  */
 package VistaAdministrador;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Victor
@@ -16,6 +19,34 @@ public class JFrameEditarComida extends javax.swing.JFrame {
      */
     public JFrameEditarComida() {
         initComponents();
+        Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
+        ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+        this.Image_restaurant_link.setIcon(img2);
+        this.Image_restaurant_link.setText("");
+        
+        Image img3 = new ImageIcon(getClass().getResource("/Recursos/Facebook.png")).getImage();        
+        ImageIcon img4= new ImageIcon(img3.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_Facebook_link.setIcon(img4);
+        this.Image_Facebook_link.setText("");
+        
+        Image img5 = new ImageIcon(getClass().getResource("/Recursos/Twitter.png")).getImage();        
+        ImageIcon img6= new ImageIcon(img5.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_Twitter_link.setIcon(img6);
+        this.Image_Twitter_link.setText("");
+        
+        Image img7 = new ImageIcon(getClass().getResource("/Recursos/instagram.png")).getImage();        
+        ImageIcon img8= new ImageIcon(img7.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_instagram_link.setIcon(img8);
+        this.Image_instagram_link.setText("");
+        
+        Image img9 = new ImageIcon(getClass().getResource("/Recursos/IconoAdmin.png")).getImage();        
+        ImageIcon img10= new ImageIcon(img9.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_iconoadmin_link.setIcon(img10);
+        this.Image_iconoadmin_link.setText("");
+        
+        jTextFieldCode.setToolTipText("Ingrese Código");
+        jTextFieldNombre.setToolTipText("Ingrese Nombre");
+        jTextFieldPrice.setToolTipText("Ingrese Valor");
     }
 
     /**
@@ -37,7 +68,7 @@ public class JFrameEditarComida extends javax.swing.JFrame {
         jPanelContainer = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldCode = new javax.swing.JTextField();
-        jTextFieldNombreAdmin = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldPrice = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -128,16 +159,12 @@ public class JFrameEditarComida extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(26, 85, 118));
         jLabel1.setText("Editar Comida");
 
-        jTextFieldCode.setText("Ingrese su código");
         jTextFieldCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCodeActionPerformed(evt);
             }
         });
 
-        jTextFieldNombreAdmin.setText("Ingrese su Nombre");
-
-        jTextFieldPrice.setText("Ingrese Valor");
         jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPriceActionPerformed(evt);
@@ -186,43 +213,42 @@ public class JFrameEditarComida extends javax.swing.JFrame {
         jPanelContainerLayout.setHorizontalGroup(
             jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContainerLayout.createSequentialGroup()
+                .addContainerGap(239, Short.MAX_VALUE)
                 .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelContainerLayout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanelContainerLayout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelContainerLayout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(75, 75, 75)
-                                .addComponent(jButton2))
-                            .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4)
-                                .addComponent(jTextFieldCode)
-                                .addComponent(jTextFieldNombreAdmin)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel8)))))
-                .addGap(167, 264, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addGap(75, 75, 75)
+                        .addComponent(jButton2))
+                    .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel4)
+                        .addComponent(jTextFieldCode)
+                        .addComponent(jTextFieldNombre)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel8)))
+                .addGap(167, 258, Short.MAX_VALUE))
+            .addGroup(jPanelContainerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelContainerLayout.setVerticalGroup(
             jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContainerLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldNombreAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -239,7 +265,7 @@ public class JFrameEditarComida extends javax.swing.JFrame {
                 .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(27, 27, 27))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelContainer, java.awt.BorderLayout.CENTER);
@@ -385,7 +411,7 @@ public class JFrameEditarComida extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelFooter;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JTextField jTextFieldCode;
-    private javax.swing.JTextField jTextFieldNombreAdmin;
+    private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldPrice;
     // End of variables declaration//GEN-END:variables
 }
