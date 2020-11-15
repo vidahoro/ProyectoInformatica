@@ -79,7 +79,7 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelSlogan2, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                     .addComponent(jLabelHeaderNombre2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +96,7 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118)));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118), 2));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelIniciarSesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -108,71 +108,77 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
         jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelUsuario.setForeground(new java.awt.Color(26, 85, 118));
         jLabelUsuario.setText("Identificación:");
-        jPanel4.add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 77, 255, 28));
+        jPanel4.add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 255, 28));
 
+        jTextFieldUsuario.setText("Ingrese Identificación");
         jTextFieldUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel4.add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 111, 255, 26));
+        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 255, 26));
 
         jLabelError1.setForeground(new java.awt.Color(255, 51, 51));
         jLabelError1.setText("ERROR");
-        jPanel4.add(jLabelError1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 143, -1, -1));
+        jPanel4.add(jLabelError1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
         jLabelContrasena.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelContrasena.setForeground(new java.awt.Color(26, 85, 118));
         jLabelContrasena.setText("Contraseña:");
-        jPanel4.add(jLabelContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 227, 255, 25));
-        jPanel4.add(jPasswordFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 263, 214, -1));
+        jPanel4.add(jLabelContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 255, 25));
+        jPanel4.add(jPasswordFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 260, -1));
 
         jLabelError2.setForeground(new java.awt.Color(255, 51, 51));
         jLabelError2.setText("ERROR");
-        jPanel4.add(jLabelError2, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 294, -1, -1));
+        jPanel4.add(jLabelError2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
 
         jButtonLogIN.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogIN.setForeground(new java.awt.Color(26, 85, 118));
         jButtonLogIN.setText("Iniciar Sesión");
-        jPanel4.add(jButtonLogIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 310, -1, -1));
+        jPanel4.add(jButtonLogIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, -1, -1));
 
         jLabelOlvidarC.setBackground(new java.awt.Color(26, 85, 118));
         jLabelOlvidarC.setForeground(new java.awt.Color(26, 85, 118));
         jLabelOlvidarC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelOlvidarC.setText("¿Olvidaste tu contraseña?");
-        jPanel4.add(jLabelOlvidarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 344, 255, 22));
+        jPanel4.add(jLabelOlvidarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 150, 22));
 
         jLabelUsuario1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelUsuario1.setForeground(new java.awt.Color(26, 85, 118));
         jLabelUsuario1.setText("Tipo de ID:");
-        jPanel4.add(jLabelUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 168, 214, -1));
+        jPanel4.add(jLabelUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 214, -1));
 
         jComboBox1.setForeground(new java.awt.Color(26, 85, 118));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C.C.", "T.I.", "Registro Civil", "Cédula de enxtranjeria" }));
-        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 196, 255, -1));
+        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 255, -1));
 
         jLabelOlvidarC1.setBackground(new java.awt.Color(26, 85, 118));
         jLabelOlvidarC1.setForeground(new java.awt.Color(26, 85, 118));
         jLabelOlvidarC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelOlvidarC1.setText("¿No tienes una cuenta? ");
-        jPanel4.add(jLabelOlvidarC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 377, 135, 19));
+        jPanel4.add(jLabelOlvidarC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 135, 19));
 
         jLabel1.setBackground(new java.awt.Color(26, 85, 118));
         jLabel1.setForeground(new java.awt.Color(242, 153, 74));
         jLabel1.setText("Registrate");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 379, -1, -1));
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
@@ -205,13 +211,13 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
                     .addComponent(jLabelNumero)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addComponent(Image_Twitter_link)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(Image_instagram_link)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,6 +237,10 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,8 +282,6 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
     private javax.swing.JLabel Image_Facebook_link;
     private javax.swing.JLabel Image_Twitter_link;
     private javax.swing.JLabel Image_instagram_link;
-    private javax.swing.JLabel Image_restaurant_link;
-    private javax.swing.JLabel Image_restaurant_link1;
     private javax.swing.JLabel Image_restaurant_link2;
     private javax.swing.JButton jButtonLogIN;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -282,15 +290,11 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelError1;
     private javax.swing.JLabel jLabelError2;
-    private javax.swing.JLabel jLabelHeaderNombre;
-    private javax.swing.JLabel jLabelHeaderNombre1;
     private javax.swing.JLabel jLabelHeaderNombre2;
     private javax.swing.JLabel jLabelIniciarSesion;
     private javax.swing.JLabel jLabelNumero;
     private javax.swing.JLabel jLabelOlvidarC;
     private javax.swing.JLabel jLabelOlvidarC1;
-    private javax.swing.JLabel jLabelSlogan;
-    private javax.swing.JLabel jLabelSlogan1;
     private javax.swing.JLabel jLabelSlogan2;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JLabel jLabelUsuario1;
@@ -299,8 +303,6 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanelHeader1;
-    private javax.swing.JPanel jPanelHeader2;
     private javax.swing.JPasswordField jPasswordFieldContrasenia;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
