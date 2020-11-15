@@ -164,7 +164,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
                         .addComponent(jButtonLogOut)
@@ -224,7 +224,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabelNumero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
                         .addGap(44, 44, 44)
                         .addComponent(Image_Twitter_link)
@@ -256,25 +256,35 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
         getContentPane().add(Footer, java.awt.BorderLayout.PAGE_END);
 
         jLabelDatos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelDatos.setForeground(new java.awt.Color(26, 85, 118));
         jLabelDatos.setText("Datos Administrador");
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(26, 85, 118));
         jLabelNombre.setText("Nombres:");
 
         jLabelApellido.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelApellido.setForeground(new java.awt.Color(26, 85, 118));
         jLabelApellido.setText("Apellidos:");
 
         jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(26, 85, 118));
         jLabelPassword.setText("Contraseña:");
 
+        jTextFieldNombre.setEditable(false);
+
+        jTextFieldApellido.setEditable(false);
+
         jButtonEdit.setText("Editar Datos");
+
+        jPasswordContrasenia.setEditable(false);
 
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
         jPanelCenter.setLayout(jPanelCenterLayout);
         jPanelCenterLayout.setHorizontalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(253, Short.MAX_VALUE)
+                .addContainerGap(266, Short.MAX_VALUE)
                 .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelApellido)
                     .addComponent(jLabelPassword)
@@ -283,7 +293,7 @@ public class JFrameDatosAdmin extends javax.swing.JFrame {
                     .addComponent(jTextFieldNombre)
                     .addComponent(jTextFieldApellido)
                     .addComponent(jPasswordContrasenia))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCenterLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonEdit)

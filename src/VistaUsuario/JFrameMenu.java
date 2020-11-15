@@ -7,8 +7,6 @@ package VistaUsuario;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JTable;
 
 /**
  *
@@ -46,11 +44,6 @@ public class JFrameMenu extends javax.swing.JFrame {
         this.Image_iconoadmin_link.setIcon(img10);
         this.Image_iconoadmin_link.setText("");
         
-        jTabbedPaneMenu.addTab("Especial", new JTable());
-        jTabbedPaneMenu.addTab("Comida Rápida", new JTable());
-        jTabbedPaneMenu.addTab("Postre", new JTable());
-        jTabbedPaneMenu.addTab("Bebidas", new JTable());
-        jTabbedPaneMenu.addTab("Pedido Actual", new JTable());
     }
 
     /**
@@ -78,6 +71,16 @@ public class JFrameMenu extends javax.swing.JFrame {
         Image_instagram_link = new javax.swing.JLabel();
         jLabelQuestion = new javax.swing.JLabel();
         jTabbedPaneMenu = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableEspecial = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableFastFood = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTablePostres = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableBebidas = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTablePedidoActual = new javax.swing.JTable();
         jButtonCancelar = new javax.swing.JButton();
         jButtonOrdenar = new javax.swing.JButton();
 
@@ -200,7 +203,83 @@ public class JFrameMenu extends javax.swing.JFrame {
         jLabelQuestion.setForeground(new java.awt.Color(26, 85, 118));
         jLabelQuestion.setText("¿Qué quieres comer hoy?");
 
+        jTabbedPaneMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTabbedPaneMenu.setName(""); // NOI18N
+
+        jTableEspecial.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fotografía", "Nombre", "Valor", "Cantidad"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableEspecial);
+
+        jTabbedPaneMenu.addTab("Especial", jScrollPane1);
+
+        jTableFastFood.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fotografía", "Nombre", "Valor", "Cantidad"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableFastFood);
+
+        jTabbedPaneMenu.addTab("Comida Rápida", jScrollPane2);
+
+        jTablePostres.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fotografía", "Nombre", "Valor", "Cantidad"
+            }
+        ));
+        jScrollPane3.setViewportView(jTablePostres);
+
+        jTabbedPaneMenu.addTab("Postres", jScrollPane3);
+
+        jTableBebidas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fotografía", "Nombre", "Valor", "Cantidad"
+            }
+        ));
+        jScrollPane4.setViewportView(jTableBebidas);
+
+        jTabbedPaneMenu.addTab("Bebidas", jScrollPane4);
+
+        jTablePedidoActual.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Fotografía", "Nombre", "Valor", "Tipo", "Cantidad"
+            }
+        ));
+        jScrollPane5.setViewportView(jTablePedidoActual);
+
+        jTabbedPaneMenu.addTab("Pedido Actual", jScrollPane5);
 
         jButtonCancelar.setText("Cancelar");
 
@@ -298,6 +377,16 @@ public class JFrameMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSlogan;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
+    private javax.swing.JTable jTableBebidas;
+    private javax.swing.JTable jTableEspecial;
+    private javax.swing.JTable jTableFastFood;
+    private javax.swing.JTable jTablePedidoActual;
+    private javax.swing.JTable jTablePostres;
     // End of variables declaration//GEN-END:variables
 }
