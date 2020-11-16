@@ -5,7 +5,7 @@
  */
 package Test;
 
-import VistaAdministrador.JFrameGestionarComidas;
+import VistaAdministrador.GUIGestionarComidas;
 
 /**
  *

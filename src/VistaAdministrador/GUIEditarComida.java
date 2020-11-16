@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author Victor
  */
-public class JFrameEditarComida extends javax.swing.JFrame {
+public class GUIEditarComida extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameEditarComida
      */
-    public JFrameEditarComida() {
+    public GUIEditarComida() {
         initComponents();
        /* Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -485,20 +485,21 @@ public class JFrameEditarComida extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIEditarComida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameEditarComida().setVisible(true);
+                new GUIEditarComida().setVisible(true);
             }
         });
     }

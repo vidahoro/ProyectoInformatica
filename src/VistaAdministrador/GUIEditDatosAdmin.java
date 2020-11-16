@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author 57321
  */
-public class JFrameEditDatosAdmin extends javax.swing.JFrame {
+public class GUIEditDatosAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameDatosAdmin
      */
-    public JFrameEditDatosAdmin() {
+    public GUIEditDatosAdmin() {
         initComponents();
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -64,13 +64,13 @@ public class JFrameEditDatosAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -78,7 +78,7 @@ public class JFrameEditDatosAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameEditDatosAdmin().setVisible(true);
+                new GUIEditDatosAdmin().setVisible(true);
             }
         });
     }
