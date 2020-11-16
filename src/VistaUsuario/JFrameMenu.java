@@ -104,6 +104,7 @@ public class JFrameMenu extends javax.swing.JFrame {
         jLabelAdminName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAdminName.setText("AdminName");
 
+        jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogOut.setText("Cerrar Sesión");
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);

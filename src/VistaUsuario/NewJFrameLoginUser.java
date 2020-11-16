@@ -139,7 +139,7 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
 
         jLabelError2.setForeground(new java.awt.Color(255, 51, 51));
         jLabelError2.setText("ERROR");
-        jPanel4.add(jLabelError2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
+        jPanel4.add(jLabelError2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, 10));
 
         jButtonLogIN.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogIN.setForeground(new java.awt.Color(26, 85, 118));
@@ -398,9 +398,6 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogIN;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -417,8 +414,6 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JLabel jLabelUsuario1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
@@ -427,10 +422,6 @@ public class NewJFrameLoginUser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JPasswordField jPasswordFieldContrasenia;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
