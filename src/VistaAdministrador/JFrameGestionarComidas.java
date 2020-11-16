@@ -62,7 +62,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableComidas = new javax.swing.JTable();
         jButtonAgregarComida = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         jPanel4 = new javax.swing.JPanel();
@@ -97,7 +97,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(720, 320));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableComidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -111,12 +111,19 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableComidas);
 
         jButtonAgregarComida.setBackground(new java.awt.Color(26, 85, 118));
         jButtonAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -478,7 +485,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableComidas;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar2;
     // End of variables declaration//GEN-END:variables
