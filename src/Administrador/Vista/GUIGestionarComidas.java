@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VistaAdministrador;
+package Administrador.Vista;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -12,14 +12,16 @@ import javax.swing.ImageIcon;
  *
  * @author Victor
  */
-public class JFrameGestionarComidas extends javax.swing.JFrame {
+public class GUIGestionarComidas extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameGestionarComidass
      */
-    public JFrameGestionarComidas() {
+    public GUIGestionarComidas() {
         initComponents();
-          /*      
+        
+        
+         /*       
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
@@ -29,14 +31,14 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         ImageIcon img8= new ImageIcon(img7.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_Facebook_link.setIcon(img8);
         this.Image_Facebook_link.setText("");
-        
+        */
         
         Image img4 = new ImageIcon(getClass().getResource("/Recursos/Twitter.png")).getImage();        
         ImageIcon img3= new ImageIcon(img4.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_Twitter_link.setIcon(img3);
         this.Image_Twitter_link.setText("");
         
-        
+        /*
         Image img6 = new ImageIcon(getClass().getResource("/Recursos/instagram.png")).getImage();        
         ImageIcon img5= new ImageIcon(img6.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_instagram_link.setIcon(img5);
@@ -62,7 +64,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableComidas = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jButtonAgregarComida = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         jPanel4 = new javax.swing.JPanel();
@@ -81,9 +83,9 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         Footer = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         Image_Facebook_link = new javax.swing.JLabel();
-        Image_Twitter_link = new javax.swing.JLabel();
         Image_instagram_link = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        Image_Twitter_link = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -97,7 +99,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(720, 320));
 
-        jTableComidas.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -123,7 +125,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableComidas);
+        jScrollPane1.setViewportView(jTable1);
 
         jButtonAgregarComida.setBackground(new java.awt.Color(26, 85, 118));
         jButtonAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -339,13 +341,13 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
 
         Image_Facebook_link.setText("Facebook");
 
-        Image_Twitter_link.setText("Twitter");
-
         Image_instagram_link.setText("Instagram");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Dirección: Cra 18 No 62 an 056");
+
+        Image_Twitter_link.setText("Twitter");
 
         javax.swing.GroupLayout FooterLayout = new javax.swing.GroupLayout(Footer);
         Footer.setLayout(FooterLayout);
@@ -356,11 +358,11 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
-                        .addGap(44, 44, 44)
+                        .addGap(34, 34, 34)
                         .addComponent(Image_Twitter_link)
-                        .addGap(46, 46, 46)
+                        .addGap(44, 44, 44)
                         .addComponent(Image_instagram_link)
                         .addGap(47, 47, 47))
                     .addGroup(FooterLayout.createSequentialGroup()
@@ -377,8 +379,8 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Image_Facebook_link)
-                            .addComponent(Image_Twitter_link)
-                            .addComponent(Image_instagram_link)))
+                            .addComponent(Image_instagram_link)
+                            .addComponent(Image_Twitter_link)))
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel2)))
@@ -439,21 +441,23 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIGestionarComidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameGestionarComidas().setVisible(true);
+                new GUIGestionarComidas().setVisible(true);
             }
         });
     }
@@ -485,7 +489,7 @@ public class JFrameGestionarComidas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JTable jTableComidas;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar2;
     // End of variables declaration//GEN-END:variables

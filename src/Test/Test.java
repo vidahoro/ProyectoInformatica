@@ -5,7 +5,7 @@
  */
 package Test;
 
-import VistaAdministrador.GUIGestionarComidas;
+import Administrador.Vista.GUIGestionarComidas;
 
 /**
  *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VistaAdministrador;
+package Administrador.Vista;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author 57321
  */
-public class GUIEditDatosAdmin extends javax.swing.JFrame {
+public class GUIDatosAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameDatosAdmin
      */
-    public GUIEditDatosAdmin() {
+    public GUIDatosAdmin() {
         initComponents();
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -78,7 +78,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIEditDatosAdmin().setVisible(true);
+                new GUIDatosAdmin().setVisible(true);
             }
         });
     }
@@ -110,15 +110,11 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jLabelDatos = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellido = new javax.swing.JLabel();
-        jLabelPasswordOld = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellido = new javax.swing.JTextField();
         jButtonEdit = new javax.swing.JButton();
-        jPasswordOld = new javax.swing.JPasswordField();
-        jLabelPasswordNew = new javax.swing.JLabel();
-        jPasswordNew = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jButtonCancelar = new javax.swing.JButton();
+        jPasswordContrasenia = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -261,64 +257,54 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
 
         jLabelDatos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelDatos.setForeground(new java.awt.Color(26, 85, 118));
-        jLabelDatos.setText("Editar Datos Administrador");
+        jLabelDatos.setText("Datos Administrador");
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(26, 85, 118));
-        jLabelNombre.setText("*Nombres:");
+        jLabelNombre.setText("Nombres:");
 
         jLabelApellido.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabelApellido.setForeground(new java.awt.Color(26, 85, 118));
-        jLabelApellido.setText("*Apellidos:");
+        jLabelApellido.setText("Apellidos:");
 
-        jLabelPasswordOld.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabelPasswordOld.setForeground(new java.awt.Color(26, 85, 118));
-        jLabelPasswordOld.setText("*Contraseña actual:");
+        jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelPassword.setText("Contraseña:");
+
+        jTextFieldNombre.setEditable(false);
+
+        jTextFieldApellido.setEditable(false);
 
         jButtonEdit.setText("Editar Datos");
 
-        jLabelPasswordNew.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabelPasswordNew.setForeground(new java.awt.Color(26, 85, 118));
-        jLabelPasswordNew.setText("*Contraseña nueva:");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(26, 85, 118));
-        jLabel1.setText("*Campos Requeridos");
-
-        jButtonCancelar.setText("Cancelar");
+        jPasswordContrasenia.setEditable(false);
 
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
         jPanelCenter.setLayout(jPanelCenterLayout);
         jPanelCenterLayout.setHorizontalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
-                .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanelCenterLayout.createSequentialGroup()
-                        .addComponent(jButtonCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonEdit))
-                    .addComponent(jLabelPasswordNew, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPasswordOld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDatos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordOld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordNew, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(232, Short.MAX_VALUE))
-            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addContainerGap(266, Short.MAX_VALUE)
+                .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelApellido)
+                    .addComponent(jLabelPassword)
+                    .addComponent(jLabelNombre)
+                    .addComponent(jLabelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNombre)
+                    .addComponent(jTextFieldApellido)
+                    .addComponent(jPasswordContrasenia))
+                .addContainerGap(267, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCenterLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jButtonEdit)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelDatos)
-                .addGap(15, 15, 15)
+                .addGap(34, 34, 34)
                 .addComponent(jLabelNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,21 +312,13 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
                 .addComponent(jLabelApellido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelPasswordOld)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordOld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelPasswordNew)
-                .addGap(9, 9, 9)
-                .addComponent(jPasswordNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEdit)
-                    .addComponent(jButtonCancelar))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(jLabelPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonEdit)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCenter, java.awt.BorderLayout.CENTER);
@@ -372,10 +350,8 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel Image_iconoadmin_link;
     private javax.swing.JLabel Image_instagram_link;
     private javax.swing.JLabel Image_restaurant_link;
-    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonLogOut;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAdminName;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelDatos;
@@ -383,8 +359,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHeaderNombre;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelNumero;
-    private javax.swing.JLabel jLabelPasswordNew;
-    private javax.swing.JLabel jLabelPasswordOld;
+    private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelSlogan;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -393,8 +368,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCenter;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelHeader;
-    private javax.swing.JPasswordField jPasswordNew;
-    private javax.swing.JPasswordField jPasswordOld;
+    private javax.swing.JPasswordField jPasswordContrasenia;
     private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
