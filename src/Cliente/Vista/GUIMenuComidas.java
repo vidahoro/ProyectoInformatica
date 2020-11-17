@@ -156,7 +156,9 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jLabelQuestion.setForeground(new java.awt.Color(26, 85, 118));
         jLabelQuestion.setText("¿Qué quieres comer hoy?");
 
+        jTabbedPaneMenu.setBackground(new java.awt.Color(242, 153, 74));
         jTabbedPaneMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTabbedPaneMenu.setForeground(new java.awt.Color(26, 85, 118));
         jTabbedPaneMenu.setName(""); // NOI18N
 
         jTableEspecial.setModel(new javax.swing.table.DefaultTableModel(
@@ -234,8 +236,12 @@ public class GUIMenuComidas extends javax.swing.JFrame {
 
         jTabbedPaneMenu.addTab("Pedido Actual", jScrollPane5);
 
+        jButtonCancelar.setBackground(new java.awt.Color(242, 153, 74));
+        jButtonCancelar.setForeground(new java.awt.Color(26, 85, 118));
         jButtonCancelar.setText("Cancelar");
 
+        jButtonOrdenar.setBackground(new java.awt.Color(242, 153, 74));
+        jButtonOrdenar.setForeground(new java.awt.Color(26, 85, 118));
         jButtonOrdenar.setText("Ordenar");
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
