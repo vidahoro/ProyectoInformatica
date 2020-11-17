@@ -32,12 +32,12 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         this.Image_Facebook_link.setIcon(img8);
         this.Image_Facebook_link.setText("");
         */
-        
+        /*
         Image img4 = new ImageIcon(getClass().getResource("/Recursos/Twitter.png")).getImage();        
         ImageIcon img3= new ImageIcon(img4.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_Twitter_link.setIcon(img3);
         this.Image_Twitter_link.setText("");
-        
+        */
         /*
         Image img6 = new ImageIcon(getClass().getResource("/Recursos/instagram.png")).getImage();        
         ImageIcon img5= new ImageIcon(img6.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
@@ -80,6 +80,9 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabelHeaderNombre = new javax.swing.JLabel();
         Image_restaurant_link = new javax.swing.JLabel();
+        Image_iconoadmin_link = new javax.swing.JLabel();
+        jLabelAdminName = new javax.swing.JLabel();
+        jButtonLogOut = new javax.swing.JButton();
         Footer = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         Image_Facebook_link = new javax.swing.JLabel();
@@ -302,18 +305,34 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
 
         Image_restaurant_link.setText("IconoRes");
 
+        Image_iconoadmin_link.setText("IconoAdmin");
+
+        jLabelAdminName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelAdminName.setText("AdminName");
+
+        jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
+        jButtonLogOut.setText("Cerrar Sesión");
+
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);
         jPanelHeaderLayout.setHorizontalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addComponent(Image_restaurant_link)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonLogOut)
+                    .addGroup(jPanelHeaderLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelAdminName)
+                            .addComponent(Image_iconoadmin_link))))
+                .addGap(48, 48, 48))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,6 +346,14 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(jPanelHeaderLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(Image_iconoadmin_link)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jButtonLogOut)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelHeader, java.awt.BorderLayout.PAGE_START);
@@ -466,9 +493,11 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     private javax.swing.JPanel Footer;
     private javax.swing.JLabel Image_Facebook_link;
     private javax.swing.JLabel Image_Twitter_link;
+    private javax.swing.JLabel Image_iconoadmin_link;
     private javax.swing.JLabel Image_instagram_link;
     private javax.swing.JLabel Image_restaurant_link;
     private javax.swing.JButton jButtonAgregarComida;
+    private javax.swing.JButton jButtonLogOut;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -476,6 +505,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelAdminName;
     private javax.swing.JLabel jLabelHeaderNombre;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

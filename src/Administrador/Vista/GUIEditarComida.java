@@ -115,6 +115,7 @@ public class GUIEditarComida extends javax.swing.JFrame {
         jLabelAdminName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAdminName.setText("AdminName");
 
+        jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogOut.setText("Cerrar Sesión");
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
@@ -122,7 +123,7 @@ public class GUIEditarComida extends javax.swing.JFrame {
         jPanelHeaderLayout.setHorizontalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addComponent(Image_restaurant_link)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +137,7 @@ public class GUIEditarComida extends javax.swing.JFrame {
                         .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelAdminName)
                             .addComponent(Image_iconoadmin_link))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

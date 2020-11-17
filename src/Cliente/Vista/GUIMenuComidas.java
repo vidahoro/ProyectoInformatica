@@ -19,6 +19,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
      */
     public GUIMenuComidas() {
         initComponents();
+        /*
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
@@ -43,7 +44,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         ImageIcon img10= new ImageIcon(img9.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_iconoadmin_link.setIcon(img10);
         this.Image_iconoadmin_link.setText("");
-        
+        */
     }
 
     /**
@@ -63,12 +64,6 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jLabelAdminName = new javax.swing.JLabel();
         jButtonLogOut = new javax.swing.JButton();
         jPanelCentral = new javax.swing.JPanel();
-        Footer = new javax.swing.JPanel();
-        jLabelDireccion = new javax.swing.JLabel();
-        jLabelNumero = new javax.swing.JLabel();
-        Image_Facebook_link = new javax.swing.JLabel();
-        Image_Twitter_link = new javax.swing.JLabel();
-        Image_instagram_link = new javax.swing.JLabel();
         jLabelQuestion = new javax.swing.JLabel();
         jTabbedPaneMenu = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -83,11 +78,18 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jTablePedidoActual = new javax.swing.JTable();
         jButtonCancelar = new javax.swing.JButton();
         jButtonOrdenar = new javax.swing.JButton();
+        Footer = new javax.swing.JPanel();
+        jLabelDireccion = new javax.swing.JLabel();
+        jLabelNumero = new javax.swing.JLabel();
+        Image_Facebook_link = new javax.swing.JLabel();
+        Image_Twitter_link = new javax.swing.JLabel();
+        Image_instagram_link = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(748, 600));
 
         jPanelHeader.setBackground(new java.awt.Color(26, 85, 118));
-        jPanelHeader.setPreferredSize(new java.awt.Dimension(720, 107));
+        jPanelHeader.setPreferredSize(new java.awt.Dimension(714, 107));
 
         jLabelSlogan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelSlogan.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,20 +116,19 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(Image_restaurant_link)
-                .addGap(71, 71, 71)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
-                        .addComponent(jButtonLogOut)
-                        .addGap(31, 31, 31))
+                    .addComponent(jButtonLogOut, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
                         .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(Image_iconoadmin_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelAdminName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(52, 52, 52))))
+                            .addComponent(jLabelAdminName))
+                        .addGap(21, 21, 21)))
+                .addGap(123, 123, 123))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +138,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
                         .addComponent(Image_iconoadmin_link)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -150,55 +151,6 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanelHeader, java.awt.BorderLayout.PAGE_START);
-
-        Footer.setBackground(new java.awt.Color(26, 85, 118));
-        Footer.setForeground(new java.awt.Color(26, 85, 118));
-
-        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDireccion.setText("Dirección: Cra 18 No 62 an 056");
-
-        jLabelNumero.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelNumero.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNumero.setText("Número: 310 811 1199");
-
-        Image_Facebook_link.setText("Facebook");
-
-        Image_Twitter_link.setText("Twitter");
-
-        Image_instagram_link.setText("Instagram");
-
-        javax.swing.GroupLayout FooterLayout = new javax.swing.GroupLayout(Footer);
-        Footer.setLayout(FooterLayout);
-        FooterLayout.setHorizontalGroup(
-            FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FooterLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNumero)
-                    .addGroup(FooterLayout.createSequentialGroup()
-                        .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                        .addComponent(Image_Facebook_link)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                        .addComponent(Image_Twitter_link)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addComponent(Image_instagram_link)))
-                .addContainerGap(187, Short.MAX_VALUE))
-        );
-        FooterLayout.setVerticalGroup(
-            FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FooterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDireccion)
-                    .addComponent(Image_Facebook_link)
-                    .addComponent(Image_Twitter_link)
-                    .addComponent(Image_instagram_link))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelNumero)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jLabelQuestion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelQuestion.setForeground(new java.awt.Color(26, 85, 118));
@@ -290,37 +242,87 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Footer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelQuestion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(0, 142, Short.MAX_VALUE)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
                         .addComponent(jButtonCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonOrdenar))
                     .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(180, 180, 180))
+                .addContainerGap(103, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelQuestion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabelQuestion)
-                .addGap(36, 36, 36)
+                .addGap(26, 26, 26)
                 .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonOrdenar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(Footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
+
+        Footer.setBackground(new java.awt.Color(26, 85, 118));
+        Footer.setForeground(new java.awt.Color(26, 85, 118));
+        Footer.setPreferredSize(new java.awt.Dimension(714, 91));
+
+        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setText("Dirección: Cra 18 No 62 an 056");
+
+        jLabelNumero.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelNumero.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNumero.setText("Número: 310 811 1199");
+
+        Image_Facebook_link.setText("Facebook");
+
+        Image_Twitter_link.setText("Twitter");
+
+        Image_instagram_link.setText("Instagram");
+
+        javax.swing.GroupLayout FooterLayout = new javax.swing.GroupLayout(Footer);
+        Footer.setLayout(FooterLayout);
+        FooterLayout.setHorizontalGroup(
+            FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FooterLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNumero)
+                    .addGroup(FooterLayout.createSequentialGroup()
+                        .addComponent(jLabelDireccion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                        .addComponent(Image_Facebook_link)
+                        .addGap(46, 46, 46)
+                        .addComponent(Image_Twitter_link)
+                        .addGap(32, 32, 32)
+                        .addComponent(Image_instagram_link)))
+                .addGap(43, 43, 43))
+        );
+        FooterLayout.setVerticalGroup(
+            FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FooterLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDireccion)
+                    .addComponent(Image_Twitter_link)
+                    .addComponent(Image_instagram_link)
+                    .addComponent(Image_Facebook_link))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelNumero)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(Footer, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
