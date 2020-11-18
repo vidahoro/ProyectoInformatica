@@ -4,6 +4,28 @@ import java.util.*;
 
 public class Administrador {
 
-    private String Nombre, Apellido, Usuario, Contraseña;
+ private String login;
+    private String constrasenia;
 
+    public Administrador(String login, String constrasenia) {
+        this.login = login;
+        this.constrasenia = constrasenia;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getConstrasenia() {
+        return constrasenia;
+    }
+
+    public void setConstrasenia(String constrasenia) {
+        this.constrasenia = constrasenia;
+    }
+    
 }

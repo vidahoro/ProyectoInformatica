@@ -5,7 +5,7 @@ import java.util.*;
 public class Restaurante {
 
     private ArrayList<Administrador> Admins;
-    private ArrayList<Usuario> Cliente;
+    private ArrayList<Persona> Cliente;
     private ArrayList<Comida> Comidas;
     private ArrayList<Factura> RegistroFacturas;
 

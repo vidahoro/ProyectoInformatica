@@ -6,7 +6,7 @@ public class Factura {
 
     private int ID;
     private ArrayList<Comida> RegistroComidas;
-    private Usuario Cliente;
+    private Persona Cliente;
 
     public void AgregarComida() {
         

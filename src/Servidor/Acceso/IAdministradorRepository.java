@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Administrador.servicios;
+package Servidor.Acceso;
 
-public interface AdministradorServicios {
-    
+/**
+ *
+ * @author Victor
+ */
+public interface IAdministradorRepository {
+    public boolean existeAdministrador(String login, String contrasenia);
 }
