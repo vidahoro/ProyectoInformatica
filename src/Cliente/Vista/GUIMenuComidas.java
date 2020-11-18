@@ -60,21 +60,18 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jLabelSlogan = new javax.swing.JLabel();
         jLabelHeaderNombre = new javax.swing.JLabel();
         Image_restaurant_link = new javax.swing.JLabel();
-        Image_iconoadmin_link = new javax.swing.JLabel();
-        jLabelAdminName = new javax.swing.JLabel();
-        jButtonLogOut = new javax.swing.JButton();
         jPanelCentral = new javax.swing.JPanel();
         jLabelQuestion = new javax.swing.JLabel();
         jTabbedPaneMenu = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneEspecialTab = new javax.swing.JScrollPane();
         jTableEspecial = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneFastFoodTab = new javax.swing.JScrollPane();
         jTableFastFood = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPanePostresTab = new javax.swing.JScrollPane();
         jTablePostres = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPaneBebidasTab = new javax.swing.JScrollPane();
         jTableBebidas = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        jScrollPaneActualTab = new javax.swing.JScrollPane();
         jTablePedidoActual = new javax.swing.JTable();
         jButtonCancelar = new javax.swing.JButton();
         jButtonOrdenar = new javax.swing.JButton();
@@ -86,7 +83,6 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         Image_instagram_link = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(748, 600));
 
         jPanelHeader.setBackground(new java.awt.Color(26, 85, 118));
         jPanelHeader.setPreferredSize(new java.awt.Dimension(714, 107));
@@ -101,14 +97,6 @@ public class GUIMenuComidas extends javax.swing.JFrame {
 
         Image_restaurant_link.setText("IconoRes");
 
-        Image_iconoadmin_link.setText("IconoAdmin");
-
-        jLabelAdminName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelAdminName.setText("AdminName");
-
-        jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
-        jButtonLogOut.setText("Cerrar Sesión");
-
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);
         jPanelHeaderLayout.setHorizontalGroup(
@@ -120,15 +108,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLogOut, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
-                        .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Image_iconoadmin_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelAdminName))
-                        .addGap(21, 21, 21)))
-                .addGap(123, 123, 123))
+                .addGap(319, 319, 319))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,17 +117,10 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 .addComponent(Image_restaurant_link)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
-                        .addComponent(Image_iconoadmin_link)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelAdminName)))
+                .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonLogOut)
-                    .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
+                .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
         );
 
         getContentPane().add(jPanelHeader, java.awt.BorderLayout.PAGE_START);
@@ -171,10 +144,18 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             new String [] {
                 "Fotografía", "Nombre", "Valor", "Cantidad"
             }
-        ));
-        jScrollPane1.setViewportView(jTableEspecial);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jTabbedPaneMenu.addTab("Especial", jScrollPane1);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneEspecialTab.setViewportView(jTableEspecial);
+
+        jTabbedPaneMenu.addTab("Especial", jScrollPaneEspecialTab);
 
         jTableFastFood.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,10 +167,18 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             new String [] {
                 "Fotografía", "Nombre", "Valor", "Cantidad"
             }
-        ));
-        jScrollPane2.setViewportView(jTableFastFood);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jTabbedPaneMenu.addTab("Comida Rápida", jScrollPane2);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneFastFoodTab.setViewportView(jTableFastFood);
+
+        jTabbedPaneMenu.addTab("Comida Rápida", jScrollPaneFastFoodTab);
 
         jTablePostres.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -201,10 +190,18 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             new String [] {
                 "Fotografía", "Nombre", "Valor", "Cantidad"
             }
-        ));
-        jScrollPane3.setViewportView(jTablePostres);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jTabbedPaneMenu.addTab("Postres", jScrollPane3);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPanePostresTab.setViewportView(jTablePostres);
+
+        jTabbedPaneMenu.addTab("Postres", jScrollPanePostresTab);
 
         jTableBebidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -216,25 +213,41 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             new String [] {
                 "Fotografía", "Nombre", "Valor", "Cantidad"
             }
-        ));
-        jScrollPane4.setViewportView(jTableBebidas);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jTabbedPaneMenu.addTab("Bebidas", jScrollPane4);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneBebidasTab.setViewportView(jTableBebidas);
+
+        jTabbedPaneMenu.addTab("Bebidas", jScrollPaneBebidasTab);
 
         jTablePedidoActual.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Fotografía", "Nombre", "Valor", "Tipo", "Cantidad"
+                "Nombre", "Valor", "Cantidad"
             }
-        ));
-        jScrollPane5.setViewportView(jTablePedidoActual);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
-        jTabbedPaneMenu.addTab("Pedido Actual", jScrollPane5);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneActualTab.setViewportView(jTablePedidoActual);
+
+        jTabbedPaneMenu.addTab("Pedido Actual", jScrollPaneActualTab);
 
         jButtonCancelar.setBackground(new java.awt.Color(242, 153, 74));
         jButtonCancelar.setForeground(new java.awt.Color(26, 85, 118));
@@ -248,26 +261,26 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addGap(0, 142, Short.MAX_VALUE)
+            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addGap(0, 120, Short.MAX_VALUE)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
                         .addComponent(jButtonCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonOrdenar))
                     .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelQuestion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabelQuestion)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -306,7 +319,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                     .addComponent(jLabelNumero)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
                         .addGap(46, 46, 46)
                         .addComponent(Image_Twitter_link)
@@ -373,13 +386,10 @@ public class GUIMenuComidas extends javax.swing.JFrame {
     private javax.swing.JPanel Footer;
     private javax.swing.JLabel Image_Facebook_link;
     private javax.swing.JLabel Image_Twitter_link;
-    private javax.swing.JLabel Image_iconoadmin_link;
     private javax.swing.JLabel Image_instagram_link;
     private javax.swing.JLabel Image_restaurant_link;
     private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JButton jButtonLogOut;
     private javax.swing.JButton jButtonOrdenar;
-    private javax.swing.JLabel jLabelAdminName;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelHeaderNombre;
     private javax.swing.JLabel jLabelNumero;
@@ -387,11 +397,11 @@ public class GUIMenuComidas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSlogan;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelHeader;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPaneActualTab;
+    private javax.swing.JScrollPane jScrollPaneBebidasTab;
+    private javax.swing.JScrollPane jScrollPaneEspecialTab;
+    private javax.swing.JScrollPane jScrollPaneFastFoodTab;
+    private javax.swing.JScrollPane jScrollPanePostresTab;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
     private javax.swing.JTable jTableBebidas;
     private javax.swing.JTable jTableEspecial;

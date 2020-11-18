@@ -117,12 +117,15 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jPasswordOld = new javax.swing.JPasswordField();
         jLabelPasswordNew = new javax.swing.JLabel();
         jPasswordNew = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelCamposRequeridos = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jPanelMenu = new javax.swing.JPanel();
+        jPanelGestionar = new javax.swing.JPanel();
+        jLabelGestionar = new javax.swing.JLabel();
+        jPanelTendencias = new javax.swing.JPanel();
+        jLabelTendencias = new javax.swing.JLabel();
+        jPanelComidas = new javax.swing.JPanel();
+        jLabelComidas = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
@@ -281,42 +284,137 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jLabelPasswordNew.setForeground(new java.awt.Color(26, 85, 118));
         jLabelPasswordNew.setText("*Contraseña nueva:");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(26, 85, 118));
-        jLabel1.setText("*Campos Requeridos");
+        jLabelCamposRequeridos.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelCamposRequeridos.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelCamposRequeridos.setText("*Campos Requeridos");
 
         jButtonCancelar.setText("Cancelar");
+
+        jPanelMenu.setBackground(new java.awt.Color(26, 85, 118));
+        jPanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118), 4));
+
+        jPanelGestionar.setBackground(new java.awt.Color(242, 153, 74));
+        jPanelGestionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
+
+        jLabelGestionar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelGestionar.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelGestionar.setText("Gestionar Comidas");
+        jLabelGestionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelGestionarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelGestionarLayout = new javax.swing.GroupLayout(jPanelGestionar);
+        jPanelGestionar.setLayout(jPanelGestionarLayout);
+        jPanelGestionarLayout.setHorizontalGroup(
+            jPanelGestionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGestionarLayout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(jLabelGestionar)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        jPanelGestionarLayout.setVerticalGroup(
+            jPanelGestionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelGestionar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanelTendencias.setBackground(new java.awt.Color(242, 153, 74));
+        jPanelTendencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
+        jPanelTendencias.setForeground(new java.awt.Color(26, 85, 118));
+
+        jLabelTendencias.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTendencias.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelTendencias.setText("Tendencias");
+        jLabelTendencias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTendenciasMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelTendenciasLayout = new javax.swing.GroupLayout(jPanelTendencias);
+        jPanelTendencias.setLayout(jPanelTendenciasLayout);
+        jPanelTendenciasLayout.setHorizontalGroup(
+            jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTendenciasLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(jLabelTendencias)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jPanelTendenciasLayout.setVerticalGroup(
+            jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanelComidas.setBackground(new java.awt.Color(242, 153, 74));
+        jPanelComidas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
+
+        jLabelComidas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelComidas.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelComidas.setText("Comidas más solicitadas");
+
+        javax.swing.GroupLayout jPanelComidasLayout = new javax.swing.GroupLayout(jPanelComidas);
+        jPanelComidas.setLayout(jPanelComidasLayout);
+        jPanelComidasLayout.setHorizontalGroup(
+            jPanelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComidasLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jLabelComidas)
+                .addGap(37, 37, 37))
+        );
+        jPanelComidasLayout.setVerticalGroup(
+            jPanelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelComidas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
+        jPanelMenu.setLayout(jPanelMenuLayout);
+        jPanelMenuLayout.setHorizontalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMenuLayout.createSequentialGroup()
+                .addComponent(jPanelGestionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelMenuLayout.setVerticalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelGestionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelComidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
         jPanelCenter.setLayout(jPanelCenterLayout);
         jPanelCenterLayout.setHorizontalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
-                .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanelCenterLayout.createSequentialGroup()
-                        .addComponent(jButtonCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonEdit))
-                    .addComponent(jLabelPasswordNew, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPasswordOld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDatos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordOld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordNew, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(232, Short.MAX_VALUE))
-            .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGap(231, 231, 231)
+                .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelCenterLayout.createSequentialGroup()
+                            .addComponent(jButtonCancelar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonEdit))
+                        .addComponent(jLabelPasswordNew, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelPasswordOld, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelDatos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPasswordOld, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPasswordNew, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelCamposRequeridos))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCenterLayout.createSequentialGroup()
+                .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabelDatos)
                 .addGap(15, 15, 15)
                 .addComponent(jLabelNombre)
@@ -335,34 +433,26 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(jPasswordNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(jLabelCamposRequeridos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEdit)
                     .addComponent(jButtonCancelar))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         getContentPane().add(jPanelCenter, java.awt.BorderLayout.CENTER);
 
-        jMenuBar1.setBackground(new java.awt.Color(26, 85, 118));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118)));
-        jMenuBar1.setForeground(new java.awt.Color(26, 85, 118));
-        jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jMenu1.setText("Gestionar Comidas");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Tendencias");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Comidas más solicitadas");
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelGestionarMouseClicked
+
+    private void jLabelTendenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTendenciasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelTendenciasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -375,24 +465,39 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonLogOut;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAdminName;
     private javax.swing.JLabel jLabelApellido;
+    private javax.swing.JLabel jLabelCamposRequeridos;
+    private javax.swing.JLabel jLabelComidas;
     private javax.swing.JLabel jLabelDatos;
     private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelGestionar;
     private javax.swing.JLabel jLabelHeaderNombre;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelNumero;
     private javax.swing.JLabel jLabelPasswordNew;
     private javax.swing.JLabel jLabelPasswordOld;
     private javax.swing.JLabel jLabelSlogan;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jLabelTendencias;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelCenter;
     private javax.swing.JPanel jPanelCentral;
+    private javax.swing.JPanel jPanelComidas;
+    private javax.swing.JPanel jPanelGestionar;
     private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JPanel jPanelMenu;
+    private javax.swing.JPanel jPanelTendencias;
     private javax.swing.JPasswordField jPasswordNew;
     private javax.swing.JPasswordField jPasswordOld;
     private javax.swing.JTextField jTextFieldApellido;

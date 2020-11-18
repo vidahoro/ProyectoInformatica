@@ -62,47 +62,42 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu4 = new javax.swing.JMenu();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDesktopPaneCenter = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableLista = new javax.swing.JTable();
         jButtonAgregarComida = new javax.swing.JButton();
-        jToolBar2 = new javax.swing.JToolBar();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanelMenu = new javax.swing.JPanel();
+        jPanelGestionar = new javax.swing.JPanel();
+        jLabelGestionar = new javax.swing.JLabel();
+        jPanelTendencias = new javax.swing.JPanel();
+        jLabelTendencias = new javax.swing.JLabel();
+        jPanelComidas = new javax.swing.JPanel();
+        jLabelComidas = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldBuscar = new javax.swing.JTextField();
         jPanelHeader = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelSlogan = new javax.swing.JLabel();
         jLabelHeaderNombre = new javax.swing.JLabel();
         Image_restaurant_link = new javax.swing.JLabel();
         Image_iconoadmin_link = new javax.swing.JLabel();
         jLabelAdminName = new javax.swing.JLabel();
         jButtonLogOut = new javax.swing.JButton();
         Footer = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelNumero = new javax.swing.JLabel();
         Image_Facebook_link = new javax.swing.JLabel();
         Image_instagram_link = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelDireccion = new javax.swing.JLabel();
         Image_Twitter_link = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(720, 320));
+        jDesktopPaneCenter.setBackground(new java.awt.Color(255, 255, 255));
+        jDesktopPaneCenter.setPreferredSize(new java.awt.Dimension(720, 320));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -128,7 +123,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableLista);
 
         jButtonAgregarComida.setBackground(new java.awt.Color(26, 85, 118));
         jButtonAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -140,164 +135,158 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
             }
         });
 
-        jToolBar2.setRollover(true);
+        jPanelMenu.setBackground(new java.awt.Color(26, 85, 118));
+        jPanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118), 4));
 
-        jPanel4.setBackground(new java.awt.Color(26, 85, 118));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118), 4));
+        jPanelGestionar.setBackground(new java.awt.Color(242, 153, 74));
+        jPanelGestionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
 
-        jPanel1.setBackground(new java.awt.Color(242, 153, 74));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(26, 85, 118));
-        jLabel4.setText("Gestionar Comidas");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelGestionar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelGestionar.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelGestionar.setText("Gestionar Comidas");
+        jLabelGestionar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                jLabelGestionarMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelGestionarLayout = new javax.swing.GroupLayout(jPanelGestionar);
+        jPanelGestionar.setLayout(jPanelGestionarLayout);
+        jPanelGestionarLayout.setHorizontalGroup(
+            jPanelGestionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGestionarLayout.createSequentialGroup()
                 .addContainerGap(77, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(jLabelGestionar)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanelGestionarLayout.setVerticalGroup(
+            jPanelGestionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelGestionar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(242, 153, 74));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
-        jPanel2.setForeground(new java.awt.Color(26, 85, 118));
+        jPanelTendencias.setBackground(new java.awt.Color(242, 153, 74));
+        jPanelTendencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
+        jPanelTendencias.setForeground(new java.awt.Color(26, 85, 118));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(26, 85, 118));
-        jLabel5.setText("Tendencias");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelTendencias.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTendencias.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelTendencias.setText("Tendencias");
+        jLabelTendencias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                jLabelTendenciasMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap(37, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanelTendenciasLayout = new javax.swing.GroupLayout(jPanelTendencias);
+        jPanelTendencias.setLayout(jPanelTendenciasLayout);
+        jPanelTendenciasLayout.setHorizontalGroup(
+            jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTendenciasLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(jLabelTendencias)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelTendenciasLayout.setVerticalGroup(
+            jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(242, 153, 74));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
+        jPanelComidas.setBackground(new java.awt.Color(242, 153, 74));
+        jPanelComidas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 153, 74), 3));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(26, 85, 118));
-        jLabel6.setText("Comidas más solicitadas");
+        jLabelComidas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelComidas.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelComidas.setText("Comidas más solicitadas");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelComidasLayout = new javax.swing.GroupLayout(jPanelComidas);
+        jPanelComidas.setLayout(jPanelComidasLayout);
+        jPanelComidasLayout.setHorizontalGroup(
+            jPanelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComidasLayout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(jLabel6)
+                .addComponent(jLabelComidas)
                 .addGap(37, 37, 37))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanelComidasLayout.setVerticalGroup(
+            jPanelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelComidas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
+        jPanelMenu.setLayout(jPanelMenuLayout);
+        jPanelMenuLayout.setHorizontalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMenuLayout.createSequentialGroup()
+                .addComponent(jPanelGestionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelMenuLayout.setVerticalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelGestionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelComidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
 
-        jTextField1.setText("Buscar");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldBuscar.setText("Buscar");
+        jTextFieldBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldBuscarActionPerformed(evt);
             }
         });
 
-        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButtonAgregarComida, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jToolBar2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jPanel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jSlider1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneCenter.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneCenter.setLayer(jButtonAgregarComida, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneCenter.setLayer(jPanelMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneCenter.setLayer(jSlider1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneCenter.setLayer(jTextFieldBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jDesktopPaneCenterLayout = new javax.swing.GroupLayout(jDesktopPaneCenter);
+        jDesktopPaneCenter.setLayout(jDesktopPaneCenterLayout);
+        jDesktopPaneCenterLayout.setHorizontalGroup(
+            jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(133, 133, 133)
+                .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
                         .addComponent(jButtonAgregarComida))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
+                    .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
+                        .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldBuscar)
                             .addComponent(jScrollPane1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jDesktopPaneCenterLayout.setVerticalGroup(
+            jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneCenterLayout.createSequentialGroup()
+                .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAgregarComida))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonAgregarComida)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
 
-        getContentPane().add(jDesktopPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jDesktopPaneCenter, java.awt.BorderLayout.CENTER);
 
         jPanelHeader.setBackground(new java.awt.Color(26, 85, 118));
         jPanelHeader.setPreferredSize(new java.awt.Dimension(720, 107));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Uno de los mejores de la ciudad");
+        jLabelSlogan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelSlogan.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelSlogan.setText("Uno de los mejores de la ciudad");
 
         jLabelHeaderNombre.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabelHeaderNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -322,7 +311,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                 .addComponent(Image_restaurant_link)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,7 +333,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Image_restaurant_link)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
@@ -362,17 +351,17 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         Footer.setForeground(new java.awt.Color(26, 85, 118));
         Footer.setPreferredSize(new java.awt.Dimension(748, 100));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Número: ");
+        jLabelNumero.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelNumero.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNumero.setText("Número: 310 811 1199");
 
         Image_Facebook_link.setText("Facebook");
 
         Image_instagram_link.setText("Instagram");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Dirección: Cra 18 No 62 an 056");
+        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setText("Dirección: Cra 18 No 62 an 056");
 
         Image_Twitter_link.setText("Twitter");
 
@@ -384,7 +373,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FooterLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(jLabelNumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
                         .addGap(34, 34, 34)
@@ -393,14 +382,14 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                         .addComponent(Image_instagram_link)
                         .addGap(47, 47, 47))
                     .addGroup(FooterLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabelDireccion)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         FooterLayout.setVerticalGroup(
             FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FooterLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jLabelDireccion)
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -410,27 +399,11 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                             .addComponent(Image_Twitter_link)))
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabelNumero)))
                 .addGap(21, 21, 21))
         );
 
         getContentPane().add(Footer, java.awt.BorderLayout.PAGE_END);
-
-        jMenuBar1.setBackground(new java.awt.Color(26, 85, 118));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118)));
-        jMenuBar1.setForeground(new java.awt.Color(26, 85, 118));
-        jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jMenu1.setText("Gestionar Comidas");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Tendencias");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Comidas más solicitadas");
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -439,17 +412,17 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAgregarComidaActionPerformed
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void jLabelTendenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTendenciasMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_jLabelTendenciasMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_jLabelGestionarMouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -498,29 +471,24 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     private javax.swing.JLabel Image_restaurant_link;
     private javax.swing.JButton jButtonAgregarComida;
     private javax.swing.JButton jButtonLogOut;
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JDesktopPane jDesktopPaneCenter;
     private javax.swing.JLabel jLabelAdminName;
+    private javax.swing.JLabel jLabelComidas;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelGestionar;
     private javax.swing.JLabel jLabelHeaderNombre;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JLabel jLabelNumero;
+    private javax.swing.JLabel jLabelSlogan;
+    private javax.swing.JLabel jLabelTendencias;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelComidas;
+    private javax.swing.JPanel jPanelGestionar;
     private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JPanel jPanelMenu;
+    private javax.swing.JPanel jPanelTendencias;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToolBar jToolBar2;
+    private javax.swing.JTable jTableLista;
+    private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
 }
