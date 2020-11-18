@@ -40,7 +40,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Image_restaurant_link2" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="Image_restaurant_link" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace pref="169" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabelSlogan" alignment="0" pref="356" max="32767" attributes="0"/>
@@ -59,12 +59,12 @@
                   <Component id="jLabelSlogan" max="32767" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
-              <Component id="Image_restaurant_link2" alignment="0" max="32767" attributes="0"/>
+              <Component id="Image_restaurant_link" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="Image_restaurant_link2">
+        <Component class="javax.swing.JLabel" name="Image_restaurant_link">
           <Properties>
             <Property name="text" type="java.lang.String" value="IconoRes"/>
           </Properties>

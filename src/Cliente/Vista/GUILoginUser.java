@@ -5,17 +5,48 @@
  */
 package Cliente.Vista;
 
+import Administrador.Servicios.PersonaServicesInt;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Victor
  */
 public class GUILoginUser extends javax.swing.JFrame {
-
+    
+    private final PersonaServicesInt personaServices;
     /**
      * Creates new form NewJFrameUsuario
      */
-    public GUILoginUser() {
+    public GUILoginUser(PersonaServicesInt personaServices) {
         initComponents();
+        this.personaServices=personaServices;
+        setLocationRelativeTo(null);
+        Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
+        this.setIconImage(icon);
+
+        
+        Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
+        ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+        this.Image_restaurant_link.setIcon(img2);
+        this.Image_restaurant_link.setText("");
+        
+        Image img3 = new ImageIcon(getClass().getResource("/Recursos/Facebook.png")).getImage();        
+        ImageIcon img4= new ImageIcon(img3.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_Facebook_link.setIcon(img4);
+        this.Image_Facebook_link.setText("");
+        
+        Image img5 = new ImageIcon(getClass().getResource("/Recursos/Twitter.png")).getImage();        
+        ImageIcon img6= new ImageIcon(img5.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_Twitter_link.setIcon(img6);
+        this.Image_Twitter_link.setText("");
+        
+        Image img7 = new ImageIcon(getClass().getResource("/Recursos/instagram.png")).getImage();        
+        ImageIcon img8= new ImageIcon(img7.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_instagram_link.setIcon(img8);
+        this.Image_instagram_link.setText("");
     }
 
     /**
@@ -28,7 +59,7 @@ public class GUILoginUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelHeader = new javax.swing.JPanel();
-        Image_restaurant_link2 = new javax.swing.JLabel();
+        Image_restaurant_link = new javax.swing.JLabel();
         jLabelHeaderNombre = new javax.swing.JLabel();
         jLabelSlogan = new javax.swing.JLabel();
         jPanelCentral = new javax.swing.JPanel();
@@ -55,7 +86,7 @@ public class GUILoginUser extends javax.swing.JFrame {
 
         jPanelHeader.setBackground(new java.awt.Color(26, 85, 118));
 
-        Image_restaurant_link2.setText("IconoRes");
+        Image_restaurant_link.setText("IconoRes");
 
         jLabelHeaderNombre.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabelHeaderNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,7 +102,7 @@ public class GUILoginUser extends javax.swing.JFrame {
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Image_restaurant_link2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Image_restaurant_link, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
@@ -86,7 +117,7 @@ public class GUILoginUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(Image_restaurant_link2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Image_restaurant_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelHeader, java.awt.BorderLayout.PAGE_START);
@@ -272,46 +303,13 @@ public class GUILoginUser extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUILoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUILoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUILoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUILoginUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUILoginUser().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Image_Facebook_link;
     private javax.swing.JLabel Image_Twitter_link;
     private javax.swing.JLabel Image_instagram_link;
-    private javax.swing.JLabel Image_restaurant_link2;
+    private javax.swing.JLabel Image_restaurant_link;
     private javax.swing.JButton jButtonLogIN;
     private javax.swing.JComboBox<String> jComboBoxTipoID;
     private javax.swing.JLabel jLabelContrasena;
