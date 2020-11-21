@@ -6,8 +6,10 @@
 package Administrador.Vista;
 
 import Administrador.Servicios.PersonaServicesInt;
+import Utilidades.Utilidades;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 /**
  *
@@ -143,6 +145,17 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jLabelOlvidarC.setText("¿Olvidaste tu contraseña?");
 
         jButtonLogIN.setText("Iniciar Sesión");
+        jButtonLogIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogINActionPerformed(evt);
+            }
+        });
+
+        jPasswordFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldContraseniaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
@@ -271,6 +284,33 @@ public class GUILoginAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonLogINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogINActionPerformed
+        // TODO add your handling code here:
+        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
+        if(resultado==1)
+        {
+            GUIGestionarComidas vtnMenu = new GUIGestionarComidas(this.personaServices,jTextFieldUsuario.getText());
+            vtnMenu.setExtendedState(MAXIMIZED_BOTH);
+            this.setVisible(false);
+            vtnMenu.setVisible(true);
+        }
+        else if(resultado==0)
+        {
+            Utilidades.mensajeAdvertencia("Error al realizar la conexión", "Atención");
+        }
+        else
+        {
+            Utilidades.mensajeAdvertencia("Usuario o contraseña incorrecta", "Atención");
+        }
+    }//GEN-LAST:event_jButtonLogINActionPerformed
+
+    private void jPasswordFieldContraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseniaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonLogINActionPerformed(null);
+        }
+    }//GEN-LAST:event_jPasswordFieldContraseniaKeyPressed
 
     /**
      * @param args the command line arguments

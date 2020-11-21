@@ -5,7 +5,9 @@
  */
 package Administrador.Vista;
 
+import Administrador.Servicios.PersonaServicesInt;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,15 +15,19 @@ import javax.swing.ImageIcon;
  * @author Victor
  */
 public class GUIGestionarComidas extends javax.swing.JFrame {
-
+    
+    private PersonaServicesInt personaServices;
+    
     /**
      * Creates new form JFrameGestionarComidass
      */
-    public GUIGestionarComidas() {
+    public GUIGestionarComidas(PersonaServicesInt personaServices, String login) {
         initComponents();
         
+        Image icon = Toolkit.getDefaultToolkit().getImage("./src/recursos/logo.png");
+        this.setIconImage(icon);
+        this.personaServices=personaServices;
         
-         /*       
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
@@ -31,24 +37,23 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         ImageIcon img8= new ImageIcon(img7.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_Facebook_link.setIcon(img8);
         this.Image_Facebook_link.setText("");
-        */
-        /*
+        
+        
         Image img4 = new ImageIcon(getClass().getResource("/Recursos/Twitter.png")).getImage();        
         ImageIcon img3= new ImageIcon(img4.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_Twitter_link.setIcon(img3);
         this.Image_Twitter_link.setText("");
-        */
-        /*
+        
+        
         Image img6 = new ImageIcon(getClass().getResource("/Recursos/instagram.png")).getImage();        
         ImageIcon img5= new ImageIcon(img6.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_instagram_link.setIcon(img5);
-        this.Image_instagram_link.setText("");
+        this.Image_instagram_link.setText("");        
         
-        */
-       
- 
-        
-        
+        Image img9 = new ImageIcon(getClass().getResource("/Recursos/IconoAdmin.png")).getImage();        
+        ImageIcon img10= new ImageIcon(img9.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        this.Image_iconoadmin_link.setIcon(img10);
+        this.Image_iconoadmin_link.setText("");
         
     }
 
@@ -92,6 +97,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jDesktopPaneCenter.setBackground(new java.awt.Color(255, 255, 255));
@@ -182,9 +188,9 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         jPanelTendenciasLayout.setHorizontalGroup(
             jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTendenciasLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTendencias)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelTendenciasLayout.setVerticalGroup(
             jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,30 +257,29 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
             jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(134, 134, 134)
                 .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jButtonAgregarComida))
-                    .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
-                        .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldBuscar)
-                            .addComponent(jScrollPane1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTextFieldBuscar)
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(135, 135, 135))
+            .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAgregarComida)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPaneCenterLayout.setVerticalGroup(
             jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneCenterLayout.createSequentialGroup()
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(32, 32, 32)
                 .addComponent(jButtonAgregarComida)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );

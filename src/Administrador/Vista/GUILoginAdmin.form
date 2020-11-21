@@ -129,18 +129,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace pref="84" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextFieldUsuario" max="32767" attributes="0"/>
-                          <Component id="jLabelIniciarSesion" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelUsuario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelContrasena" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelOlvidarC" max="32767" attributes="0"/>
-                          <Component id="jPasswordFieldContrasenia" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="jButtonLogIN" alignment="0" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jTextFieldUsuario" max="32767" attributes="0"/>
+                      <Component id="jLabelIniciarSesion" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelUsuario" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelContrasena" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelOlvidarC" max="32767" attributes="0"/>
+                      <Component id="jPasswordFieldContrasenia" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="83" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jButtonLogIN" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -224,8 +226,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLogINActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPasswordFieldContrasenia">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordFieldContraseniaKeyPressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
