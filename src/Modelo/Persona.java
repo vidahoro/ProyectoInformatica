@@ -10,7 +10,6 @@ public class Persona {
     private String numeroIdentificacion;
     private String nombres;
     private String apellidos;
-    private String contrasena;
     /**
      * Default constructor
      
@@ -41,21 +40,17 @@ public class Persona {
     public Set<Factura> Factura;
     
     */
-    public Persona(String numeroIdentificacion, String tipoIdentificacion, String contrasena){
-        this.numeroIdentificacion= numeroIdentificacion;
-        this.tipoIdentificacion = tipoIdentificacion;
-        this.contrasena = contrasena;
-    
-    }
-    /*
+
     public Persona(String tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos) {
         this.tipoIdentificacion = tipoIdentificacion;
         this.numeroIdentificacion = numeroIdentificacion;
         this.nombres = nombres;
         this.apellidos = apellidos;
     }
-    */
-    
+
+    public Persona() {
+       
+    }
 
     public String getTipoIdentificacion() {
         return tipoIdentificacion;
@@ -87,14 +82,6 @@ public class Persona {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public String getcontrasena() {
-        return contrasena;
-    }
-
-    public void setcontrasena(String contrasena) {
-        this.contrasena = contrasena;
     }
 
     

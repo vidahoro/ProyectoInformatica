@@ -12,30 +12,7 @@ import Modelo.Persona;
 public class PersonaRepositoryImplArrays implements IPersonaRepository{
 
    private ArrayList<Persona> objPersonas;
-   
-   public PersonaRepositoryImplArrays(){
-   
-       this.objPersonas=new ArrayList();
-       Persona objPersona= new Persona("1061", "TI", "haha");
-       this.objPersonas.add(objPersona);
-   
-   }
-    @Override
-    public boolean existePersona(String numeroIdentificacion, String tipoIdentificacion, String contrasena) {
-        boolean bandera=false;
         
-        for (Persona objPersona : objPersonas) {
-            if(objPersona.getNumeroIdentificacion().equals(numeroIdentificacion) && objPersona.getTipoIdentificacion().equals(tipoIdentificacion) && objPersona.getcontrasena().equals(contrasena))
-            {
-                bandera=true;
-                break;
-            }
-        }
-        return bandera;
-    }
-   
-   
-    /*  
     public PersonaRepositoryImplArrays()
     {
         objPersonas=new ArrayList();
@@ -45,9 +22,6 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
         objPersonas.add(objPersona2);
     }
     
-   
-   
-   
     @Override
     public boolean registrarPersona(Persona objPersona)
     {
@@ -93,26 +67,5 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
         
         return bandera;
     }
-    */
-    /*
-    @Override
-    public boolean registrarPersona(Persona objPersona) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<Persona> listarPersonas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Persona consultarPersona(String tipoIdentificacion, String numeroIdentificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean existePersona(String tipoIdentificacion, String numeroIdentificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-*/
+    
 }

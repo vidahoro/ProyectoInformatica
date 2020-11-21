@@ -44,11 +44,11 @@ public class servidor {
                 objFlujoDeEntrada = new DataInputStream(objSocket.getInputStream());//referencia al canal para leer
                 objFlujoDeSalida = new DataOutputStream(objSocket.getOutputStream());//referencia al canal para escribir
  
-               /*
+               
                 String JSONRecibido = objFlujoDeEntrada.readUTF();
                 String resultado=objControlador.decodificarPeticion(JSONRecibido);
                 objFlujoDeSalida.writeUTF(resultado);
-                */
+ 
                 //Cierro el socket
                 objSocket.close();
                 System.out.println("Cliente desconectado");

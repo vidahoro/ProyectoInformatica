@@ -13,6 +13,8 @@ import Modelo.Persona;
  * @author LENOVO
  */
 public interface IPersonaRepository {
-    public boolean existePersona(String numeroIdentificacion, String tipoIdentificacion, String contrasena);
-    
+    public boolean registrarPersona(Persona objPersona);
+    public ArrayList<Persona> listarPersonas();
+    public Persona consultarPersona(String tipoIdentificacion, String numeroIdentificacion);    
+    public boolean existePersona(String tipoIdentificacion, String numeroIdentificacion);
 }
