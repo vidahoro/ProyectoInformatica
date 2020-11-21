@@ -26,6 +26,7 @@ public class GUILoginUser extends javax.swing.JFrame {
         initComponents();
         this.personaServices=personaServices;
         setLocationRelativeTo(null);
+        /*
         Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
         this.setIconImage(icon);
 
@@ -49,6 +50,7 @@ public class GUILoginUser extends javax.swing.JFrame {
         ImageIcon img8= new ImageIcon(img7.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_instagram_link.setIcon(img8);
         this.Image_instagram_link.setText("");
+        */
     }
 
     /**
@@ -309,7 +311,7 @@ public class GUILoginUser extends javax.swing.JFrame {
 
     private void jButtonLogINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogINActionPerformed
         // TODO add your handling code here:
-        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(),jComboBoxTipoID.getToolTipText(), jPasswordFieldContrasenia.getText());
+        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
         if(resultado==1)
         {
             GUIMenuComidas vtnMenu = new GUIMenuComidas(this.personaServices,jTextFieldUsuario.getText());

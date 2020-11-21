@@ -5,6 +5,7 @@
  */
 package Cliente.Vista;
 
+import Administrador.Servicios.PersonaServicesInt;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -17,7 +18,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
     /**
      * Creates new form JFrameMenu
      */
-    public GUIMenuComidas() {
+    public GUIMenuComidas(PersonaServicesInt personaServices, String login) {
         initComponents();
         /*
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
@@ -45,6 +46,9 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         this.Image_iconoadmin_link.setIcon(img10);
         this.Image_iconoadmin_link.setText("");
         */
+        
+        
+        
     }
 
     /**

@@ -29,13 +29,13 @@ public class PersonaServicesImpl implements PersonaServicesInt{
     }
     
     @Override
-    public int iniciarSesion(String usuario, String contrasenia) {
+    public int iniciarSesion(String numeroIdentificacion, String tipoIdentificacion, String contrasena) {
        int codigoResultado;
         try {
             objCliente.crearConexion();        
             Gson objConvertidor= new Gson();
             PeticionDTO objPeticion= new PeticionDTO();
-            String argumentos=usuario+","+contrasenia;
+            String argumentos=numeroIdentificacion+","+tipoIdentificacion+","+contrasena;
             objPeticion.setAccion("iniciarSesion");
             objPeticion.setArgumentos(argumentos);
             String JSON = objConvertidor.toJson(objPeticion);
