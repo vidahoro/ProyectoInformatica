@@ -5,10 +5,8 @@
  */
 package Cliente.Vista;
 
-import Administrador.Servicios.PersonaServicesInt;
-import Cliente.Servicios.PersonaServicesImpl;
-import Cliente.Servicios.cliente;
-
+import Administrador.Servicios.Admin;
+import Administrador.Servicios.PersonaServicesImpl;
 /**
  *
  * @author 57321
@@ -17,11 +15,11 @@ public class VistaPrincipalCliente {
     
         public static void main(String[] args) {
        
-        cliente objCliente= new cliente("localhost", 5000);//al cliente se le envia la dirección ip del servidor y puerto del servidor
-        PersonaServicesImpl objPersonaServices= new PersonaServicesImpl(objCliente);
+        Admin objAdmin= new Admin("localhost", 5000);//al cliente se le envia la dirección ip del servidor y puerto del servidor
+        PersonaServicesImpl objPersonaServices= new PersonaServicesImpl(objAdmin);
         
-        GUILoginUser vtnLoginCliente= new GUILoginUser(objPersonaServices);
-        vtnLoginCliente.setVisible(true);
+        GUILoginUser vtnLoginUser= new GUILoginUser(objPersonaServices);
+        vtnLoginUser.setVisible(true);
        
     }
         
