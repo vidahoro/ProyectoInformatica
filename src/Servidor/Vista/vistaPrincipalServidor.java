@@ -27,6 +27,7 @@ public class vistaPrincipalServidor {
         // TODO code application logic here
               try {         
             AdministradorService objAdministradorService= new AdministradorService(new AdministradorRepositoryImplArray());
+            
             PersonaService objPersonaService= new PersonaService(new PersonaRepositoryImplArrays());
             Controlador objControlador= new Controlador(objAdministradorService,objPersonaService);
             servidor objServidor= new servidor(5000,objControlador);

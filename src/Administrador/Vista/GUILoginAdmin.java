@@ -144,6 +144,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jLabelOlvidarC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelOlvidarC.setText("¿Olvidaste tu contraseña?");
 
+        jButtonLogIN.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogIN.setText("Iniciar Sesión");
         jButtonLogIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +163,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldUsuario)
                     .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -170,7 +171,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                     .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPasswordFieldContrasenia))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonLogIN)
@@ -189,9 +190,9 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                 .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(19, 19, 19)
                 .addComponent(jButtonLogIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
         );
@@ -226,11 +227,11 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                     .addComponent(jLabelNumero)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                         .addComponent(Image_Twitter_link)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                         .addComponent(Image_instagram_link)))
                 .addGap(44, 44, 44))
         );

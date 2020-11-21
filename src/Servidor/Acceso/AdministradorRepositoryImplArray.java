@@ -21,6 +21,8 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
         this.listaAdministradores= new ArrayList();
         Administrador objAdministrador= new Administrador("admin", "admin12345");
         this.listaAdministradores.add(objAdministrador);
+        Administrador objAdministrador1= new Administrador("Vic", "Holiwi");
+        this.listaAdministradores.add(objAdministrador1);
     }
     @Override
     public boolean existeAdministrador(String login, String contrasenia) {

@@ -14,13 +14,14 @@ import Servidor.Acceso.IPersonaRepository;
  * @author LENOVO
  */
 public class PersonaService {
+    
     private IPersonaRepository repositorioPersonas;
     
     public PersonaService(IPersonaRepository repositorioPersonas)
     {
         this.repositorioPersonas=repositorioPersonas;
     }
-    
+    /*
     public boolean registrarPersona(Persona objPersona)
     {
         return this.repositorioPersonas.registrarPersona(objPersona);
@@ -30,6 +31,7 @@ public class PersonaService {
     {
         return this.repositorioPersonas.listarPersonas();
     }
+    /*
     
     public Persona consultarPersona(String tipoIdentificacion, String numeroIdentificacion)
     {
@@ -40,4 +42,5 @@ public class PersonaService {
     {
         return this.repositorioPersonas.existePersona(tipoIdentificacion, numeroIdentificacion);
     }
+*/
 }

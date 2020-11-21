@@ -24,7 +24,7 @@ public class Controlador {
         this.objAdministradorService= objAdministradorService;
         this.objPersonaService= objPersonaService;
     }
-    
+    /*
      public String decodificarPeticion(String JSONPeticion) {    
         String accion, argumentosPeticion, resultado;        
         PeticionDTO objPeticion= objConvertidor.fromJson(JSONPeticion, PeticionDTO.class); 
@@ -41,6 +41,7 @@ public class Controlador {
      * @param argumentosPeticion corresponde a los argumentos de la operación remota
      * @return  objeto  de la clase Resultado que almacena el resultado de la operación ejecutada
      */
+     /*
     private String procesarAccion(String accion, String argumentosPeticion) {
         String resultadoJSON="";
         ResultadoDTO objResultado=new ResultadoDTO();
@@ -85,7 +86,7 @@ public class Controlador {
         }
         return objResultado;
     }
-    
+    /*
     private ResultadoDTO registrarPersona(Persona objPersona)
     {
         ResultadoDTO objResultado=new ResultadoDTO(); 
@@ -130,4 +131,5 @@ public class Controlador {
                
         return objResultado;
     }
+     */
 }
