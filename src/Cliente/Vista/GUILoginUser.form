@@ -140,27 +140,25 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace pref="135" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabelContrasena" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
-                          <Component id="jLabelUsuario" max="32767" attributes="0"/>
-                          <Component id="jLabelIniciarSesion" pref="260" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelNoAccount" pref="190" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelRegister" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabelContrasena" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
+                              <Component id="jLabelUsuario" max="32767" attributes="0"/>
+                              <Component id="jLabelIniciarSesion" pref="260" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabelNoAccount" pref="190" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabelRegister" min="-2" pref="63" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jPasswordFieldContrasenia" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabelOlvidarC" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jComboBoxTipoID" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jLabelTipoID" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jTextFieldUsuario" alignment="1" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jPasswordFieldContrasenia" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelOlvidarC" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBoxTipoID" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jLabelTipoID" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jTextFieldUsuario" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonLogIN" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="135" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonLogIN" min="-2" pref="117" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -256,6 +254,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLogINActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelOlvidarC">
               <Properties>

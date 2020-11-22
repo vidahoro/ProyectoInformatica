@@ -5,6 +5,7 @@
  */
 package Servidor.Acceso;
 
+
 import java.util.ArrayList;
 import Modelo.Persona;
 
@@ -15,12 +16,36 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
         
     public PersonaRepositoryImplArrays()
     {
-        objPersonas=new ArrayList();
-        Persona objPersona1= new  Persona("CC", "1.061", "juan", "lopez");
-        objPersonas.add(objPersona1);
-        Persona objPersona2= new  Persona("TI", "1.062", "catalina", "perez");        
-        objPersonas.add(objPersona2);
+        this.objPersonas=new ArrayList();
+        Persona objPersona= new Persona("12345","12345");
+        this.objPersonas.add(objPersona);
     }
+    /*
+    public ArrayList<Persona> getListaAdministradores() {
+    return objPersonas;
+    }
+    */
+   @Override
+    public boolean existePersona(String numeroIdentificacion, String contrasenia) {
+        boolean bandera=false;
+
+        for (Persona objPersona : objPersonas) {
+            if(objPersona.getNumeroIdentificacion().equals(numeroIdentificacion) && objPersona.getContrasenia().equals(contrasenia))
+            {
+                bandera=true;
+                break;
+            }
+        }
+    return bandera;
+    }
+
+    
+    
+    
+    
+    
+    
+    
     
     @Override
     public boolean registrarPersona(Persona objPersona)
@@ -49,12 +74,12 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
         
         return objPersona;
     }
-    
+    /*
     @Override
     public boolean existePersona(String tipoIdentificacion, String numeroIdentificacion)
     {
         boolean bandera=false;
-        System.out.println("ejcutando método existe persona");
+        System.out.println("ejecutando método existe persona");
         for (int i = 0; i < objPersonas.size(); i++) {
              System.out.println("tipo: -" + objPersonas.get(i).getTipoIdentificacion()+ "-numero -" + objPersonas.get(i).getNumeroIdentificacion()+"-");
             if(objPersonas.get(i).getTipoIdentificacion().equalsIgnoreCase(tipoIdentificacion) && objPersonas.get(i).getNumeroIdentificacion().equalsIgnoreCase(numeroIdentificacion))
@@ -66,6 +91,6 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
         }
         
         return bandera;
-    }
+    } */
     
 }

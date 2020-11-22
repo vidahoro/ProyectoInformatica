@@ -6,10 +6,12 @@ package Modelo;
  * 
  */
 public class Persona {
-    private String tipoIdentificacion;
     private String numeroIdentificacion;
+    private String tipoIdentificacion;
     private String nombres;
     private String apellidos;
+    private String contrasenia;
+    //private String contrasena;
     /**
      * Default constructor
      
@@ -41,15 +43,24 @@ public class Persona {
     
     */
 
-    public Persona(String tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos) {
-        this.tipoIdentificacion = tipoIdentificacion;
+ 
+
+    public Persona(String numeroIdentificacion, String contrasenia) {
         this.numeroIdentificacion = numeroIdentificacion;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+        //this.tipoIdentificacion = tipoIdentificacion;
+        this.contrasenia = contrasenia;
+       
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public Persona() {
-       
     }
 
     public String getTipoIdentificacion() {

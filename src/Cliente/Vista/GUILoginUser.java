@@ -5,7 +5,10 @@
  */
 package Cliente.Vista;
 
-import Administrador.Servicios.PersonaServicesInt;
+import Cliente.Servicios.PersonaServicesInt;
+import Cliente.Vista.GUIMenuComidas;
+import Utilidades.Utilidades;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -24,6 +27,7 @@ public class GUILoginUser extends javax.swing.JFrame {
         initComponents();
         this.personaServices=personaServices;
         setLocationRelativeTo(null);
+        /*
         Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
         this.setIconImage(icon);
 
@@ -47,6 +51,7 @@ public class GUILoginUser extends javax.swing.JFrame {
         ImageIcon img8= new ImageIcon(img7.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_instagram_link.setIcon(img8);
         this.Image_instagram_link.setText("");
+        */
     }
 
     /**
@@ -151,6 +156,11 @@ public class GUILoginUser extends javax.swing.JFrame {
         jButtonLogIN.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogIN.setForeground(new java.awt.Color(26, 85, 118));
         jButtonLogIN.setText("Iniciar Sesión");
+        jButtonLogIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogINActionPerformed(evt);
+            }
+        });
 
         jLabelOlvidarC.setBackground(new java.awt.Color(26, 85, 118));
         jLabelOlvidarC.setForeground(new java.awt.Color(26, 85, 118));
@@ -179,24 +189,22 @@ public class GUILoginUser extends javax.swing.JFrame {
             jPanelLogINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLogINLayout.createSequentialGroup()
                 .addContainerGap(135, Short.MAX_VALUE)
-                .addGroup(jPanelLogINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelContrasena, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLogINLayout.createSequentialGroup()
-                        .addComponent(jLabelNoAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPasswordFieldContrasenia)
-                    .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxTipoID, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelTipoID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanelLogINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLogINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelContrasena, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLogINLayout.createSequentialGroup()
+                            .addComponent(jLabelNoAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabelRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPasswordFieldContrasenia)
+                        .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jComboBoxTipoID, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelTipoID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jButtonLogIN, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(135, Short.MAX_VALUE))
-            .addGroup(jPanelLogINLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonLogIN, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelLogINLayout.setVerticalGroup(
             jPanelLogINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,6 +309,26 @@ public class GUILoginUser extends javax.swing.JFrame {
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
+
+    private void jButtonLogINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogINActionPerformed
+        // TODO add your handling code here:
+        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
+        if(resultado==1)
+        {
+            GUIMenuComidas vtnMenu = new GUIMenuComidas();
+            vtnMenu.setExtendedState(MAXIMIZED_BOTH);
+            this.setVisible(false);
+            vtnMenu.setVisible(true);
+        }
+        else if(resultado==0)
+        {
+            Utilidades.mensajeAdvertencia("Error al realizar la conexión", "Atención");
+        }
+        else
+        {
+            Utilidades.mensajeAdvertencia("Usuario o contraseña incorrecta", "Atención");
+        }
+    }//GEN-LAST:event_jButtonLogINActionPerformed
 
     /**
      * @param args the command line arguments

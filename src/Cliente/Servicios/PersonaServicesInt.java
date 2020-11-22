@@ -13,7 +13,7 @@ import Modelo.dominio.Persona;
  * @author LENOVO
  */
 public interface PersonaServicesInt {
-    public int iniciarSesion(String usuario, String contrasenia);
+    public int iniciarSesion(String numeroIdentificacion, String contrasenia);
     public int registrarPersona(String nombres, String apellidos,String  tipoIdentificacion,String  numeroIdentificacion, String imagenBase64);
     public Persona consultarPersona(String tipoIdentificacion,String  numeroIdentificacion);
     public ArrayList<Persona> listarPersonas();
