@@ -4,12 +4,13 @@ import java.util.*;
 
 public class Administrador {
 
- private String login;
-    private String constrasenia;
+ private String login, constrasenia, Nombre, Apellido;
 
-    public Administrador(String login, String constrasenia) {
+    public Administrador(String login, String constrasenia, String Nombre, String Apellido) {
         this.login = login;
         this.constrasenia = constrasenia;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
     }
 
     public String getLogin() {
@@ -27,5 +28,23 @@ public class Administrador {
     public void setConstrasenia(String constrasenia) {
         this.constrasenia = constrasenia;
     }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
+    }
+
+    
     
 }

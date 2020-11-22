@@ -9,7 +9,9 @@ import Administrador.Servicios.PersonaServicesInt;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-
+import Modelo.Administrador;
+//import Servidor.Acceso.AdministradorRepositoryImplArray;
+import java.util.ArrayList;
 /**
  *
  * @author Victor
@@ -17,16 +19,18 @@ import javax.swing.ImageIcon;
 public class GUIGestionarComidas extends javax.swing.JFrame {
     
     private PersonaServicesInt personaServices;
-    
+    private Administrador AdminReferencia;
+    private ArrayList<Administrador> listaAdministradores;
     /**
      * Creates new form JFrameGestionarComidass
      */
-    public GUIGestionarComidas(PersonaServicesInt personaServices, String login) {
+    public GUIGestionarComidas(PersonaServicesInt personaServices, String login, Administrador AdminReferencia) {
         initComponents();
         
         Image icon = Toolkit.getDefaultToolkit().getImage("./src/recursos/logo.png");
         this.setIconImage(icon);
         this.personaServices=personaServices;
+        this.AdminReferencia=AdminReferencia;
         
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -54,7 +58,21 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         ImageIcon img10= new ImageIcon(img9.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_iconoadmin_link.setIcon(img10);
         this.Image_iconoadmin_link.setText("");
-        
+        /*
+        if(AdminReferencia == null){
+            AdministradorRepositoryImplArray AdminRepo = new AdministradorRepositoryImplArray();
+            listaAdministradores = AdminRepo.getListaAdministradores();
+            for (int i = 0; i < listaAdministradores.size(); i++) {
+                Administrador AdminAux = listaAdministradores.get(i);
+                if(AdminAux.getLogin().equals(login)){
+                    AdminReferencia = AdminAux;
+                }
+            }
+        }
+        */
+        String AdminName = AdminReferencia.getNombre();
+        jLabelAdminName.setText(AdminName);
+            
     }
 
     /**
@@ -299,13 +317,26 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
 
         Image_restaurant_link.setText("IconoRes");
 
+        Image_iconoadmin_link.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Image_iconoadmin_link.setText("IconoAdmin");
+        Image_iconoadmin_link.setToolTipText("Datos Administrador");
+        Image_iconoadmin_link.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Image_iconoadmin_linkMouseClicked(evt);
+            }
+        });
 
         jLabelAdminName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelAdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelAdminName.setText("AdminName");
 
         jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogOut.setText("Cerrar Sesión");
+        jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogOutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);
@@ -314,40 +345,36 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(Image_restaurant_link)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLogOut)
-                    .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelAdminName)
-                            .addComponent(Image_iconoadmin_link))))
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Image_iconoadmin_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelAdminName, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Image_restaurant_link)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(Image_iconoadmin_link)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButtonLogOut)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(7, 7, 7)
+                        .addComponent(Image_iconoadmin_link)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabelAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonLogOut))
+                    .addComponent(Image_restaurant_link)
+                    .addGroup(jPanelHeaderLayout.createSequentialGroup()
+                        .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabelSlogan)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelHeader, java.awt.BorderLayout.PAGE_START);
@@ -423,11 +450,26 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
 
     private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
         // TODO add your handling code here:
+
     }//GEN-LAST:event_jLabelGestionarMouseClicked
 
     private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBuscarActionPerformed
+
+    private void Image_iconoadmin_linkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Image_iconoadmin_linkMouseClicked
+        // TODO add your handling code here:
+        setVisible(false);
+        GUIDatosAdmin vtnDatosAdmin = new GUIDatosAdmin(this.personaServices, AdminReferencia);
+        vtnDatosAdmin.setVisible(true);
+    }//GEN-LAST:event_Image_iconoadmin_linkMouseClicked
+
+    private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        GUILoginAdmin vtnLogIn = new GUILoginAdmin(personaServices);
+        vtnLogIn.setVisible(true);
+    }//GEN-LAST:event_jButtonLogOutActionPerformed
 
     /**
      * @param args the command line arguments

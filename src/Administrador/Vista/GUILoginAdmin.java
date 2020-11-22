@@ -6,10 +6,13 @@
 package Administrador.Vista;
 
 import Administrador.Servicios.PersonaServicesInt;
+import Modelo.Administrador;
+import Servidor.Acceso.AdministradorRepositoryImplArray;
 import Utilidades.Utilidades;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 /**
  *
@@ -18,6 +21,8 @@ import javax.swing.ImageIcon;
 public class GUILoginAdmin extends javax.swing.JFrame {
     
     private final PersonaServicesInt personaServices;
+    private Administrador AdminReferencia;
+    private ArrayList<Administrador> listaAdministradores;
     /**
      * Creates new form JFrameLoginAdmin
      */
@@ -144,6 +149,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jLabelOlvidarC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelOlvidarC.setText("¿Olvidaste tu contraseña?");
 
+        jButtonLogIN.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogIN.setText("Iniciar Sesión");
         jButtonLogIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +168,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldUsuario)
                     .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -170,8 +176,8 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                     .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPasswordFieldContrasenia))
-                .addContainerGap(83, Short.MAX_VALUE))
-            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonLogIN)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -189,9 +195,9 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                 .addComponent(jLabelContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(20, 20, 20)
                 .addComponent(jButtonLogIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelOlvidarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
         );
@@ -290,8 +296,15 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
         if(resultado==1)
         {
-            GUIGestionarComidas vtnMenu = new GUIGestionarComidas(this.personaServices,jTextFieldUsuario.getText());
-            vtnMenu.setExtendedState(MAXIMIZED_BOTH);
+            AdministradorRepositoryImplArray AdminRepo = new AdministradorRepositoryImplArray();
+            listaAdministradores = AdminRepo.getListaAdministradores();
+            for (int i = 0; i < listaAdministradores.size(); i++) {
+                Administrador AdminAux = listaAdministradores.get(i);
+                if(AdminAux.getLogin().equals(jTextFieldUsuario.getText())){
+                    AdminReferencia = AdminAux;
+                }
+            }
+            GUIGestionarComidas vtnMenu = new GUIGestionarComidas(this.personaServices,jTextFieldUsuario.getText(), AdminReferencia);
             this.setVisible(false);
             vtnMenu.setVisible(true);
         }

@@ -19,11 +19,14 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
     public AdministradorRepositoryImplArray()
     {
         this.listaAdministradores= new ArrayList();
-        Administrador objAdministrador= new Administrador("admin", "admin12345");
+        Administrador objAdministrador= new Administrador("admin", "admin12345", "ADM", "MIN");
         this.listaAdministradores.add(objAdministrador);
-        Administrador objAdministrador1= new Administrador("Vic", "Holiwi");
-        this.listaAdministradores.add(objAdministrador1);
     }
+
+    public ArrayList<Administrador> getListaAdministradores() {
+        return listaAdministradores;
+    }
+    
     @Override
     public boolean existeAdministrador(String login, String contrasenia) {
         boolean bandera=false;
