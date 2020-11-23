@@ -36,8 +36,8 @@ public class PersonaService {
         return this.repositorioPersonas.consultarPersona(tipoIdentificacion, numeroIdentificacion);
     }   
     
-    public boolean existePersona(String tipoIdentificacion, String numeroIdentificacion)
+    public boolean existePersona(String numeroIdentificacion,String tipoIdentificacion, String contrasenia)
     {
-        return this.repositorioPersonas.existePersona(tipoIdentificacion, numeroIdentificacion);
+        return this.repositorioPersonas.existePersona(numeroIdentificacion,tipoIdentificacion, contrasenia);
     }
 }

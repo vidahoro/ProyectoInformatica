@@ -5,7 +5,7 @@
  */
 package Test;
 
-import Administrador.Vista.GUIGestionarComidas;
+import Administrador.Vista.GUIAgregarComida;
 
 /**
  *
@@ -18,10 +18,10 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        /*
-        JFrameGestionarComidas objGestionarComidas = new JFrameGestionarComidas();
-        objGestionarComidas.setVisible(true);
-        */
+        
+        GUIAgregarComida objGUIAgregarComida = new GUIAgregarComida();
+        objGUIAgregarComida.setVisible(true);
+        
     }
     
 }

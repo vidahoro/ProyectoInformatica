@@ -312,7 +312,7 @@ public class GUILoginUser extends javax.swing.JFrame {
 
     private void jButtonLogINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogINActionPerformed
         // TODO add your handling code here:
-        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
+        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(),jComboBoxTipoID.getSelectedItem()+"", jPasswordFieldContrasenia.getText());
         if(resultado==1)
         {
             GUIMenuComidas vtnMenu = new GUIMenuComidas();

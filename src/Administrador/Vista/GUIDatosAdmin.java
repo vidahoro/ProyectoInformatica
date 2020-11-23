@@ -403,7 +403,7 @@ public class GUIDatosAdmin extends javax.swing.JFrame {
     private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        GUIGestionarComidas vtnMenu = new GUIGestionarComidas(this.personaServices, null, AdminReferencia);
+        GUIMenuPrincipal vtnMenu = new GUIMenuPrincipal(this.personaServices, null, AdminReferencia);
         vtnMenu.setVisible(true);
     }//GEN-LAST:event_jLabelGestionarMouseClicked
 

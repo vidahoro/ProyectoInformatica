@@ -16,5 +16,5 @@ public interface IPersonaRepository {
     public boolean registrarPersona(Persona objPersona);
     public ArrayList<Persona> listarPersonas();
     public Persona consultarPersona(String tipoIdentificacion, String numeroIdentificacion);    
-    public boolean existePersona(String tipoIdentificacion, String numeroIdentificacion);
+    public boolean existePersona(String numeroIdentificacion,String tipoIdentificacion, String contrasenia);
 }

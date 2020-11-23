@@ -9,9 +9,11 @@ package Servidor.Vista;
 import Servidor.Controlador.Controlador;
 import java.io.IOException;
 import Servidor.Acceso.AdministradorRepositoryImplArray;
+import Servidor.Acceso.ComidaRepositoryImplArray;
 import Servidor.Acceso.PersonaRepositoryImplArrays;
 import Servidor.Server.servidor;
 import Servidor.Servicios.AdministradorService;
+import Servidor.Servicios.ComidaService;
 import Servidor.Servicios.PersonaService;
 
 /**
@@ -28,9 +30,11 @@ public class vistaPrincipalServidor {
               try {         
             AdministradorService objAdministradorService= new AdministradorService(new AdministradorRepositoryImplArray());
             PersonaService objPersonaService= new PersonaService(new PersonaRepositoryImplArrays());
-            Controlador objControlador= new Controlador(objAdministradorService,objPersonaService);
+            ComidaService objComidaService= new ComidaService(new ComidaRepositoryImplArray());
+            Controlador objControlador= new Controlador(objAdministradorService,objPersonaService,objComidaService);
             servidor objServidor= new servidor(5000,objControlador);
             objServidor.ejecutarServidor();
+            
         } catch (IOException ex) {
             System.out.println("Error al ejecutar el servidor");
         }

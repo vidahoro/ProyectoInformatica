@@ -304,7 +304,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                     AdminReferencia = AdminAux;
                 }
             }
-            GUIGestionarComidas vtnMenu = new GUIGestionarComidas(this.personaServices,jTextFieldUsuario.getText(), AdminReferencia);
+            GUIMenuPrincipal vtnMenu = new GUIMenuPrincipal(this.personaServices,jTextFieldUsuario.getText(), AdminReferencia);
             this.setVisible(false);
             vtnMenu.setVisible(true);
         }

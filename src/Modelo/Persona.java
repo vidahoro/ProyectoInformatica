@@ -40,14 +40,15 @@ public class Persona {
 
     
     public Set<Factura> Factura;
-    
+     * @param numeroIdentificacion    
+     * @param contrasenia    
     */
 
  
 
-    public Persona(String numeroIdentificacion, String contrasenia) {
+    public Persona(String numeroIdentificacion,String tipoIdentificacion, String contrasenia) {
         this.numeroIdentificacion = numeroIdentificacion;
-        //this.tipoIdentificacion = tipoIdentificacion;
+        this.tipoIdentificacion = tipoIdentificacion;
         this.contrasenia = contrasenia;
        
     }

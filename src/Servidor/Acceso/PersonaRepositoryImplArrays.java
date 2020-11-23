@@ -17,7 +17,7 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
     public PersonaRepositoryImplArrays()
     {
         this.objPersonas=new ArrayList();
-        Persona objPersona= new Persona("12345","12345");
+        Persona objPersona= new Persona("1234","T.I.","12345");
         this.objPersonas.add(objPersona);
     }
     /*
@@ -26,11 +26,12 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
     }
     */
    @Override
-    public boolean existePersona(String numeroIdentificacion, String contrasenia) {
+    public boolean existePersona(String numeroIdentificacion,String tipoIdentificacion, String contrasenia) {
+         System.out.println("NumeroID: "+numeroIdentificacion+"Tipo: "+tipoIdentificacion+"Contraseña: "+contrasenia);
         boolean bandera=false;
 
         for (Persona objPersona : objPersonas) {
-            if(objPersona.getNumeroIdentificacion().equals(numeroIdentificacion) && objPersona.getContrasenia().equals(contrasenia))
+            if(objPersona.getNumeroIdentificacion().equals(numeroIdentificacion) && objPersona.getTipoIdentificacion().equals(tipoIdentificacion) && objPersona.getContrasenia().equals(contrasenia))
             {
                 bandera=true;
                 break;

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author Victor
  */
-public class GUIGestionarComidas extends javax.swing.JFrame {
+public class GUIMenuPrincipal extends javax.swing.JFrame {
     
     private PersonaServicesInt personaServices;
     private Administrador AdminReferencia;
@@ -24,7 +24,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     /**
      * Creates new form JFrameGestionarComidass
      */
-    public GUIGestionarComidas(PersonaServicesInt personaServices, String login, Administrador AdminReferencia) {
+    public GUIMenuPrincipal(PersonaServicesInt personaServices, String login, Administrador AdminReferencia) {
         initComponents();
         
         Image icon = Toolkit.getDefaultToolkit().getImage("./src/recursos/logo.png");
@@ -58,6 +58,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         ImageIcon img10= new ImageIcon(img9.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_iconoadmin_link.setIcon(img10);
         this.Image_iconoadmin_link.setText("");
+        
         /*
         if(AdminReferencia == null){
             AdministradorRepositoryImplArray AdminRepo = new AdministradorRepositoryImplArray();
@@ -85,10 +86,7 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu4 = new javax.swing.JMenu();
-        jDesktopPaneCenter = new javax.swing.JDesktopPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableLista = new javax.swing.JTable();
-        jButtonAgregarComida = new javax.swing.JButton();
+        jDesktopPaneCentral = new javax.swing.JDesktopPane();
         jPanelMenu = new javax.swing.JPanel();
         jPanelGestionar = new javax.swing.JPanel();
         jLabelGestionar = new javax.swing.JLabel();
@@ -96,8 +94,6 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         jLabelTendencias = new javax.swing.JLabel();
         jPanelComidas = new javax.swing.JPanel();
         jLabelComidas = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jTextFieldBuscar = new javax.swing.JTextField();
         jPanelHeader = new javax.swing.JPanel();
         jLabelSlogan = new javax.swing.JLabel();
         jLabelHeaderNombre = new javax.swing.JLabel();
@@ -118,46 +114,8 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jDesktopPaneCenter.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPaneCenter.setPreferredSize(new java.awt.Dimension(720, 320));
-
-        jTableLista.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Foto", "Código", "Nombre", "Tipo", "Valor", "Acciones"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTableLista);
-
-        jButtonAgregarComida.setBackground(new java.awt.Color(26, 85, 118));
-        jButtonAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAgregarComida.setForeground(new java.awt.Color(242, 153, 74));
-        jButtonAgregarComida.setText("Agregar Comida");
-        jButtonAgregarComida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAgregarComidaActionPerformed(evt);
-            }
-        });
+        jDesktopPaneCentral.setBackground(new java.awt.Color(255, 255, 255));
+        jDesktopPaneCentral.setPreferredSize(new java.awt.Dimension(720, 320));
 
         jPanelMenu.setBackground(new java.awt.Color(26, 85, 118));
         jPanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(26, 85, 118), 4));
@@ -206,9 +164,9 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         jPanelTendenciasLayout.setHorizontalGroup(
             jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTendenciasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jLabelTendencias)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanelTendenciasLayout.setVerticalGroup(
             jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,55 +212,22 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
             .addComponent(jPanelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
+        jDesktopPaneCentral.setLayer(jPanelMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTextFieldBuscar.setText("Buscar");
-        jTextFieldBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscarActionPerformed(evt);
-            }
-        });
-
-        jDesktopPaneCenter.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneCenter.setLayer(jButtonAgregarComida, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneCenter.setLayer(jPanelMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneCenter.setLayer(jSlider1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneCenter.setLayer(jTextFieldBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPaneCenterLayout = new javax.swing.GroupLayout(jDesktopPaneCenter);
-        jDesktopPaneCenter.setLayout(jDesktopPaneCenterLayout);
-        jDesktopPaneCenterLayout.setHorizontalGroup(
-            jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPaneCentralLayout = new javax.swing.GroupLayout(jDesktopPaneCentral);
+        jDesktopPaneCentral.setLayout(jDesktopPaneCentralLayout);
+        jDesktopPaneCentralLayout.setHorizontalGroup(
+            jDesktopPaneCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldBuscar)
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135))
-            .addGroup(jDesktopPaneCenterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonAgregarComida)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jDesktopPaneCenterLayout.setVerticalGroup(
-            jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneCenterLayout.createSequentialGroup()
+        jDesktopPaneCentralLayout.setVerticalGroup(
+            jDesktopPaneCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneCentralLayout.createSequentialGroup()
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButtonAgregarComida)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jDesktopPaneCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jDesktopPaneCenter, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jDesktopPaneCentral, java.awt.BorderLayout.CENTER);
 
         jPanelHeader.setBackground(new java.awt.Color(26, 85, 118));
         jPanelHeader.setPreferredSize(new java.awt.Dimension(720, 107));
@@ -352,9 +277,8 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Image_iconoadmin_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelAdminName, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
+                    .addComponent(Image_iconoadmin_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelAdminName, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelHeaderLayout.setVerticalGroup(
@@ -440,22 +364,16 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarComidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAgregarComidaActionPerformed
-
     private void jLabelTendenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTendenciasMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelTendenciasMouseClicked
 
     private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
         // TODO add your handling code here:
-
+        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
+        this.jDesktopPaneCentral.add(objvtnGestionarComidas);
+        objvtnGestionarComidas.setVisible(true);
     }//GEN-LAST:event_jLabelGestionarMouseClicked
-
-    private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscarActionPerformed
 
     private void Image_iconoadmin_linkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Image_iconoadmin_linkMouseClicked
         // TODO add your handling code here:
@@ -483,9 +401,8 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     private javax.swing.JLabel Image_iconoadmin_link;
     private javax.swing.JLabel Image_instagram_link;
     private javax.swing.JLabel Image_restaurant_link;
-    private javax.swing.JButton jButtonAgregarComida;
     private javax.swing.JButton jButtonLogOut;
-    private javax.swing.JDesktopPane jDesktopPaneCenter;
+    private javax.swing.JDesktopPane jDesktopPaneCentral;
     private javax.swing.JLabel jLabelAdminName;
     private javax.swing.JLabel jLabelComidas;
     private javax.swing.JLabel jLabelDireccion;
@@ -500,9 +417,5 @@ public class GUIGestionarComidas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelTendencias;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JTable jTableLista;
-    private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
 }

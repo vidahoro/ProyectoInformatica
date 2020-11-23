@@ -5,24 +5,28 @@
  */
 package Servidor.Controlador;
 
+import Modelo.Comida;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import Modelo.Persona;
 import Modelo.DTO.PeticionDTO;
 import Modelo.DTO.ResultadoDTO;
 import Servidor.Servicios.AdministradorService;
+import Servidor.Servicios.ComidaService;
 import Servidor.Servicios.PersonaService;
 
 public class Controlador {
     private final Gson objConvertidor;   
     private final AdministradorService objAdministradorService;
     private final PersonaService objPersonaService;
+    private final ComidaService objComidaService;
     
-    public Controlador(AdministradorService objAdministradorService,PersonaService objPersonaService)
+    public Controlador(AdministradorService objAdministradorService,PersonaService objPersonaService,ComidaService objComidaService)
     {
         this.objConvertidor= new Gson();        
         this.objAdministradorService= objAdministradorService;
         this.objPersonaService= objPersonaService;
+        this.objComidaService= objComidaService;
     }
     
      public String decodificarPeticion(String JSONPeticion) {    
@@ -50,11 +54,11 @@ public class Controlador {
                 String vector[]=argumentosPeticion.split(",");
                 tipoIdentificacion=vector[0];
                 numeroIdentificacion=vector[1];
-                objResultado=consultarPersona(tipoIdentificacion, numeroIdentificacion);                
+              //  objResultado=consultarPersona(tipoIdentificacion, numeroIdentificacion);                
             break;
             case "registrarPersona":                
                 Persona objPersona= objConvertidor.fromJson(argumentosPeticion, Persona.class);
-                objResultado=registrarPersona(objPersona);                
+                //objResultado=registrarPersona(objPersona);                
             break;            
             case "iniciarSesion":
                 String login, contrasenia;                
@@ -62,6 +66,22 @@ public class Controlador {
                 login=vectorL[0];
                 contrasenia=vectorL[1];
                 objResultado=iniciarSesion(login, contrasenia);
+            break;
+            case "iniciarSesionPersona":
+                
+                String loginP, TipoIdentificacionP, contraseniaP;                
+                String vectorP[]=argumentosPeticion.split(",");
+                loginP=vectorP[0];
+                TipoIdentificacionP=vectorP[1];
+                contraseniaP=vectorP[2];
+                System.out.println("login: "+loginP+"TipoId: "+TipoIdentificacionP+"Contraseña:"+contraseniaP);
+                objResultado=iniciarSesionPersona(loginP,TipoIdentificacionP, contraseniaP);
+                
+            break;    
+            case "AgregarComida":
+                Comida objComida= objConvertidor.fromJson(argumentosPeticion, Comida.class); 
+                objResultado=AgregarComida(objComida);
+                 
             break;
             case "listarPersonas":
                 objResultado=listarPersonas();   
@@ -85,7 +105,7 @@ public class Controlador {
         }
         return objResultado;
     }
-    
+    /*
     private ResultadoDTO registrarPersona(Persona objPersona)
     {
         ResultadoDTO objResultado=new ResultadoDTO(); 
@@ -101,7 +121,8 @@ public class Controlador {
          
          return objResultado;
     }
-    
+    */
+    /*
     private ResultadoDTO consultarPersona(String tipoIdentificacion, String numeroIdentificacion)
     {
         Persona objPersonaEncontrada;
@@ -119,7 +140,7 @@ public class Controlador {
         }
         return objResultado;
     }
-    
+    */
      private ResultadoDTO listarPersonas()
     {       
         ResultadoDTO objResultado=new ResultadoDTO(); 
@@ -129,5 +150,35 @@ public class Controlador {
         objResultado.setJSONResultado(listadoPersonasComoJSON);                    
                
         return objResultado;
+    }
+    private ResultadoDTO iniciarSesionPersona(String numeroIdentificacion,String TipoIdentificacion, String contrasenia){
+       
+        ResultadoDTO objResultado = new ResultadoDTO();
+        boolean bandera=this.objPersonaService.existePersona(numeroIdentificacion, TipoIdentificacion, contrasenia);
+        if (bandera==true){
+            objResultado.setCodigoResultado(1);
+        }
+        else
+        {
+        objResultado.setCodigoResultado(-1);
+        }
+        
+        
+        return objResultado;
+        
+    
+    }
+    private ResultadoDTO AgregarComida(Comida objComida){
+        ResultadoDTO objResultadoDTO = new ResultadoDTO();
+        boolean bandera=this.objComidaService.AgregarComida(objComida);
+        if (bandera==true){
+            objResultadoDTO.setCodigoResultado(1);
+        }
+        else
+        {
+        objResultadoDTO.setCodigoResultado(-1);
+        }
+    return objResultadoDTO;
+    
     }
 }

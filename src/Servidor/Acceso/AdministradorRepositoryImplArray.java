@@ -30,7 +30,7 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
     @Override
     public boolean existeAdministrador(String login, String contrasenia) {
         boolean bandera=false;
-        
+        System.out.println("Login:"+login+"contraseña: "+contrasenia);
         for (Administrador objAdministrador : listaAdministradores) {
             if(objAdministrador.getLogin().equals(login) && objAdministrador.getConstrasenia().equals(contrasenia))
             {
