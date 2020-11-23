@@ -27,7 +27,8 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
     public GUIMenuPrincipal(PersonaServicesInt personaServices, String login, Administrador AdminReferencia) {
         initComponents();
         
-        Image icon = Toolkit.getDefaultToolkit().getImage("./src/recursos/logo.png");
+        setLocationRelativeTo(null);
+        Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
         this.setIconImage(icon);
         this.personaServices=personaServices;
         this.AdminReferencia=AdminReferencia;
@@ -73,7 +74,10 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
         */
         String AdminName = AdminReferencia.getNombre();
         jLabelAdminName.setText(AdminName);
-            
+        
+        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
+        this.jDesktopPaneCentral.add(objvtnGestionarComidas);
+        objvtnGestionarComidas.setVisible(true);
     }
 
     /**
@@ -245,6 +249,7 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
         Image_iconoadmin_link.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Image_iconoadmin_link.setText("IconoAdmin");
         Image_iconoadmin_link.setToolTipText("Datos Administrador");
+        Image_iconoadmin_link.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Image_iconoadmin_link.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Image_iconoadmin_linkMouseClicked(evt);
@@ -257,6 +262,7 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
 
         jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogOut.setText("Cerrar Sesión");
+        jButtonLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogOutActionPerformed(evt);
@@ -278,7 +284,7 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Image_iconoadmin_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelAdminName, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+                    .addComponent(jLabelAdminName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelHeaderLayout.setVerticalGroup(
@@ -370,9 +376,11 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
 
     private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
         // TODO add your handling code here:
+        /*
         vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
         this.jDesktopPaneCentral.add(objvtnGestionarComidas);
         objvtnGestionarComidas.setVisible(true);
+        */
     }//GEN-LAST:event_jLabelGestionarMouseClicked
 
     private void Image_iconoadmin_linkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Image_iconoadmin_linkMouseClicked

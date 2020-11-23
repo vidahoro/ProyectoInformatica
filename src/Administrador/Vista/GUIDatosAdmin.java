@@ -9,6 +9,7 @@ import Administrador.Servicios.PersonaServicesInt;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import Modelo.Administrador;
+import java.awt.Toolkit;
 /**
  *
  * @author 57321
@@ -21,6 +22,10 @@ public class GUIDatosAdmin extends javax.swing.JFrame {
      */
     public GUIDatosAdmin(PersonaServicesInt personaServices, Administrador AdminReferencia) {
         initComponents();
+        
+        setLocationRelativeTo(null);
+        Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
+        this.setIconImage(icon);
         this.AdminReferencia= AdminReferencia;
         this.personaServices=personaServices;
         
@@ -114,6 +119,7 @@ public class GUIDatosAdmin extends javax.swing.JFrame {
         jLabelHeaderNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabelHeaderNombre.setText("Restaurante All Food");
 
+        Image_restaurant_link.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Image_restaurant_link.setText("IconoRes");
 
         Image_iconoadmin_link.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -125,6 +131,7 @@ public class GUIDatosAdmin extends javax.swing.JFrame {
 
         jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogOut.setText("Cerrar Sesión");
+        jButtonLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogOutActionPerformed(evt);
@@ -250,6 +257,7 @@ public class GUIDatosAdmin extends javax.swing.JFrame {
         jTextFieldApellido.setEditable(false);
 
         jButtonEdit.setText("Editar Datos");
+        jButtonEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditActionPerformed(evt);
@@ -267,6 +275,7 @@ public class GUIDatosAdmin extends javax.swing.JFrame {
         jLabelGestionar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelGestionar.setForeground(new java.awt.Color(26, 85, 118));
         jLabelGestionar.setText("Gestionar Comidas");
+        jLabelGestionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelGestionar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelGestionarMouseClicked(evt);
@@ -422,6 +431,7 @@ public class GUIDatosAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         GUILoginAdmin vtnLogIn = new GUILoginAdmin(personaServices);
+        vtnLogIn.setVisible(true);
     }//GEN-LAST:event_jButtonLogOutActionPerformed
 
 

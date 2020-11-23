@@ -9,6 +9,7 @@ import Administrador.Servicios.PersonaServicesInt;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import Modelo.Administrador;
+import java.awt.Toolkit;
 /**
  *
  * @author 57321
@@ -25,6 +26,10 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         initComponents();
         this.AdminReferencia = AdminReferencia;
         this.personaServices=personaServices;
+        
+        setLocationRelativeTo(null);
+        Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
+        this.setIconImage(icon);
         
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -138,6 +143,8 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         Image_iconoadmin_link.setBackground(new java.awt.Color(242, 153, 74));
         Image_iconoadmin_link.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Image_iconoadmin_link.setText("IconoAdmin");
+        Image_iconoadmin_link.setToolTipText("Datos Administrador");
+        Image_iconoadmin_link.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Image_iconoadmin_link.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Image_iconoadmin_linkMouseClicked(evt);
@@ -150,6 +157,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
 
         jButtonLogOut.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogOut.setText("Cerrar Sesión");
+        jButtonLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogOutActionPerformed(evt);
@@ -170,9 +178,8 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Image_iconoadmin_link, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabelAdminName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabelAdminName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonLogOut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31))
         );
         jPanelHeaderLayout.setVerticalGroup(
@@ -272,6 +279,12 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jLabelPasswordOld.setText("*Contraseña actual:");
 
         jButtonEdit.setText("Editar Datos");
+        jButtonEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditActionPerformed(evt);
+            }
+        });
 
         jLabelPasswordNew.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabelPasswordNew.setForeground(new java.awt.Color(26, 85, 118));
@@ -282,6 +295,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jLabelCamposRequeridos.setText("*Campos Requeridos");
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -297,6 +311,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jLabelGestionar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelGestionar.setForeground(new java.awt.Color(26, 85, 118));
         jLabelGestionar.setText("Gestionar Comidas");
+        jLabelGestionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelGestionar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelGestionarMouseClicked(evt);
@@ -466,6 +481,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         GUILoginAdmin vtnLogIn = new GUILoginAdmin(personaServices);
+        vtnLogIn.setVisible(true);
     }//GEN-LAST:event_jButtonLogOutActionPerformed
 
     private void Image_iconoadmin_linkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Image_iconoadmin_linkMouseClicked
@@ -474,6 +490,11 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         GUIDatosAdmin vtnDatosAdmin = new GUIDatosAdmin(this.personaServices,AdminReferencia);
         vtnDatosAdmin.setVisible(true);
     }//GEN-LAST:event_Image_iconoadmin_linkMouseClicked
+
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButtonEditActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

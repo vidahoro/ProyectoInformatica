@@ -56,14 +56,14 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Image_restaurant_link" min="-2" pref="52" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="Image_restaurant_link" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabelSlogan" pref="356" max="32767" attributes="0"/>
                       <Component id="jLabelHeaderNombre" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="219" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -76,7 +76,11 @@
                   <Component id="jLabelSlogan" max="32767" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
-              <Component id="Image_restaurant_link" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="Image_restaurant_link" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -105,6 +109,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Image_restaurant_link">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="IconoRes"/>
           </Properties>
         </Component>
@@ -122,6 +127,9 @@
             </LineBorder>
           </Border>
         </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -129,18 +137,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace pref="83" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextFieldUsuario" max="32767" attributes="0"/>
-                          <Component id="jLabelIniciarSesion" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelUsuario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelContrasena" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelOlvidarC" max="32767" attributes="0"/>
-                          <Component id="jPasswordFieldContrasenia" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="jButtonLogIN" alignment="0" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jTextFieldUsuario" max="32767" attributes="0"/>
+                      <Component id="jLabelIniciarSesion" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelUsuario" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelContrasena" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelOlvidarC" max="32767" attributes="0"/>
+                      <Component id="jPasswordFieldContrasenia" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="84" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jButtonLogIN" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -226,6 +236,9 @@
               <Color blue="4a" green="99" red="f2" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLogINActionPerformed"/>

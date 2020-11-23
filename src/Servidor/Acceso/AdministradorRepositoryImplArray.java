@@ -21,6 +21,8 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
         this.listaAdministradores= new ArrayList();
         Administrador objAdministrador= new Administrador("admin", "admin12345", "ADM", "MIN");
         this.listaAdministradores.add(objAdministrador);
+        Administrador objAdministrador1 = new Administrador("qwerty", "qwertyuiop", "JD", "BS");
+        this.listaAdministradores.add(objAdministrador1);
     }
 
     public ArrayList<Administrador> getListaAdministradores() {
