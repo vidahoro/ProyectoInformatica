@@ -35,7 +35,8 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
         vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
         objvtnGestionarComidas.setVisible(true);
         this.jDesktopPaneCentral.add(objvtnGestionarComidas);
-     
+        
+        /*
         vtnAgregarComida objvtnAgregarComida= new vtnAgregarComida();
         objvtnAgregarComida.setVisible(true);
         this.jDesktopPaneCentral.add(objvtnAgregarComida);        

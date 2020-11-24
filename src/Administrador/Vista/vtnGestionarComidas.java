@@ -165,7 +165,9 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     
     private void jButtonAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarComidaActionPerformed
         // TODO add your handling code here:
-
+        vtnAgregarComida vtnAdd = new vtnAgregarComida();
+        vtnAdd.setVisible(true);
+        this.getParent().add(vtnAdd);
     }//GEN-LAST:event_jButtonAgregarComidaActionPerformed
 
     private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
