@@ -104,11 +104,11 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(Image_restaurant_link)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(319, 319, 319))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +120,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelHeader, java.awt.BorderLayout.PAGE_START);
@@ -319,7 +319,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                     .addComponent(jLabelNumero)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
                         .addGap(46, 46, 46)
                         .addComponent(Image_Twitter_link)

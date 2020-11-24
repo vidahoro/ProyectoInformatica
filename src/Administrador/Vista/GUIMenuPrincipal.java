@@ -32,7 +32,16 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
         this.setIconImage(icon);
         this.personaServices=personaServices;
         this.AdminReferencia=AdminReferencia;
+        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
+        objvtnGestionarComidas.setVisible(true);
+        this.jDesktopPaneCentral.add(objvtnGestionarComidas);
+     
+        vtnAgregarComida objvtnAgregarComida= new vtnAgregarComida();
+        objvtnAgregarComida.setVisible(true);
+        this.jDesktopPaneCentral.add(objvtnAgregarComida);        
+ 
         
+        /*
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
@@ -72,12 +81,14 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
             }
         }
         */
+          
         String AdminName = AdminReferencia.getNombre();
         jLabelAdminName.setText(AdminName);
         
-        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
-        this.jDesktopPaneCentral.add(objvtnGestionarComidas);
-        objvtnGestionarComidas.setVisible(true);
+
+        
+      
+        
     }
 
     /**
@@ -228,7 +239,7 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
             jDesktopPaneCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneCentralLayout.createSequentialGroup()
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         getContentPane().add(jDesktopPaneCentral, java.awt.BorderLayout.CENTER);
@@ -376,11 +387,11 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
 
     private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
         // TODO add your handling code here:
-        /*
+        
         vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
         this.jDesktopPaneCentral.add(objvtnGestionarComidas);
         objvtnGestionarComidas.setVisible(true);
-        */
+        
     }//GEN-LAST:event_jLabelGestionarMouseClicked
 
     private void Image_iconoadmin_linkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Image_iconoadmin_linkMouseClicked

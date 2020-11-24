@@ -7,6 +7,7 @@ package Administrador.Vista;
 
 import Administrador.Servicios.Admin;
 import Administrador.Servicios.PersonaServicesImpl;
+import javax.swing.UIManager;
 /**
  *
  * @author 57321
@@ -20,7 +21,19 @@ public class VistaPrincipalAdmin {
         
         GUILoginAdmin vtnLoginAdmin= new GUILoginAdmin(objPersonaServices);
         vtnLoginAdmin.setVisible(true);
-       
-    }
         
+        
+}
+        
+        
+    private static void seleccionarLookAndField()
+    {
+        for(UIManager.LookAndFeelInfo laf:UIManager.getInstalledLookAndFeels()){
+            if("Nimbus".equals(laf.getName()))
+                try {
+                UIManager.setLookAndFeel(laf.getClassName());
+            } catch (Exception ex) {
+        }
+    }
+    }
 }

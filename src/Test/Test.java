@@ -5,7 +5,9 @@
  */
 package Test;
 
-import Administrador.Vista.GUIAgregarComida;
+import Administrador.Vista.vtnAgregarComida;
+
+
 
 /**
  *
@@ -19,9 +21,9 @@ public class Test {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        GUIAgregarComida objGUIAgregarComida = new GUIAgregarComida();
-        objGUIAgregarComida.setVisible(true);
-        
+        vtnAgregarComida objvtnAgregarComida = new vtnAgregarComida();
+        objvtnAgregarComida.setVisible(true);
+       
     }
     
 }

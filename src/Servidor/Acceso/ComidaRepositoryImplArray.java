@@ -5,7 +5,9 @@
  */
 package Servidor.Acceso;
 
+
 import Modelo.Comida;
+import Modelo.EnumTipoComida;
 import java.util.ArrayList;
 
 /**
@@ -13,20 +15,42 @@ import java.util.ArrayList;
  * @author Victor
  */
 public class ComidaRepositoryImplArray implements IComidaRepository {
-    private ArrayList<Comida> comidas;
+    private ArrayList<Comida> ListaDeComidas;
     
    public ComidaRepositoryImplArray(){
-       this.comidas= new ArrayList<Comida>();
-       
+       this.ListaDeComidas= new ArrayList();
+       Comida objComida = new Comida("123", "456", "hp", EnumTipoComida.Bebida, 12000);
+       this.ListaDeComidas.add(objComida);
        
    }
-
-    @Override
+     @Override
     public boolean AgregarComida(Comida objcomida) {
         
-        return this.comidas.add(objcomida);
+       return this.ListaDeComidas.add(objcomida);
         
     }
+
+    public ArrayList<Comida> getListaDeComidas() {
+        return ListaDeComidas;
+    }
+
+    @Override
+    public ArrayList<Comida> listarComidas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Comida consultarComida(String Codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean existeComida(String numeroIdentificacion, String tipoIdentificacion, String contrasenia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+  
   
     
     

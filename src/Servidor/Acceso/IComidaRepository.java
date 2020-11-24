@@ -6,6 +6,7 @@
 package Servidor.Acceso;
 
 import Modelo.Comida;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,5 +14,8 @@ import Modelo.Comida;
  */
 public interface IComidaRepository {
     public boolean AgregarComida(Comida objcomida);
+    public ArrayList<Comida> listarComidas();
+    public Comida consultarComida(String Codigo);    
+    public boolean existeComida(String numeroIdentificacion,String tipoIdentificacion, String contrasenia);
     
 }

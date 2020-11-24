@@ -5,19 +5,54 @@
  */
 package Administrador.Vista;
 
+
+import Servidor.Acceso.ComidaRepositoryImplArray;
+import Modelo.Comida;
+import Servidor.Acceso.ComidaRepositoryImplArray;
+import Servidor.Acceso.IComidaRepository;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+
+
 /**
  *
  * @author Victor
  */
 public class vtnGestionarComidas extends javax.swing.JInternalFrame {
-
+    private IComidaRepository ComidaRepository;
     /**
      * Creates new form vtnGestionarComidas
      */
     public vtnGestionarComidas() {
         initComponents();
     }
-
+     private void InicializarTabla(){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Foto");
+        model.addColumn("Código");
+        model.addColumn("Nombre");
+        model.addColumn("Tipo");
+        model.addColumn("Valor");
+        model.addColumn("Acciones");
+        this.jTableListaComidas.setModel(model);
+    
+    }
+    /*
+    private void llenarTabla(){
+        DefaultTableModel model =(DefaultTableModel) this.jTableListaComidas.getModel();
+        limpiarTabla();
+        ArrayList<Comida> lista = this.ComidaRepository.AgregarComida(objcomida);
+        
+     
+    }*/
+    private void limpiarTabla(){
+        DefaultTableModel modelo = (DefaultTableModel) this.jTableListaComidas.getModel();
+        int filas= this.jTableListaComidas.getRowCount();
+        for (int i=0; filas>i;i++ ){
+            modelo.removeRow(0);
+        
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,32 +62,18 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButtonAgregarComida = new javax.swing.JButton();
         jTextFieldBuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableLista = new javax.swing.JTable();
+        jTableListaComidas = new javax.swing.JTable();
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setLayout(new java.awt.BorderLayout());
-        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("Gestionar Comidas");
+        setInheritsPopupMenu(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -66,14 +87,14 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextFieldBuscar.setText("Buscar");
+        jTextFieldBuscar.setText("Buscar por código de Comida");
         jTextFieldBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBuscarActionPerformed(evt);
             }
         });
 
-        jTableLista.setModel(new javax.swing.table.DefaultTableModel(
+        jTableListaComidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -99,7 +120,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableLista);
+        jScrollPane1.setViewportView(jTableListaComidas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,7 +142,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 157, Short.MAX_VALUE)
+            .addGap(0, 359, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -137,11 +158,14 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
+    
+    
+    
+    
     private void jButtonAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarComidaActionPerformed
         // TODO add your handling code here:
-        GUIAgregarComida objGUIAgregarComida= new GUIAgregarComida();
-        objGUIAgregarComida.setVisible(true);
+
     }//GEN-LAST:event_jButtonAgregarComidaActionPerformed
 
     private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
@@ -152,10 +176,8 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregarComida;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableLista;
+    private javax.swing.JTable jTableListaComidas;
     private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
 }

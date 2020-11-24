@@ -12,6 +12,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -25,6 +26,8 @@ public class GUILoginUser extends javax.swing.JFrame {
      */
     public GUILoginUser(PersonaServicesInt personaServices) {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         this.personaServices=personaServices;
         setLocationRelativeTo(null);
         /*

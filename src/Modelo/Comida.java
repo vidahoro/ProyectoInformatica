@@ -10,6 +10,17 @@ public class Comida {
     private EnumTipoComida Tipo;
     private float Valor;
 
+    public Comida(String Codigo, String Nombre, String Foto, EnumTipoComida Tipo, float Valor) {
+        this.Codigo = Codigo;
+        this.Nombre = Nombre;
+        this.Foto = Foto;
+        this.Tipo = Tipo;
+        this.Valor = Valor;
+    }
+
+    
+    
+    
     public String getCodigo() {
         return Codigo;
     }

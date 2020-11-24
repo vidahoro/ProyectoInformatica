@@ -33,7 +33,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
         this.setIconImage(icon);
 
-        
+        /*
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
@@ -53,7 +53,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         ImageIcon img8= new ImageIcon(img7.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_instagram_link.setIcon(img8);
         this.Image_instagram_link.setText("");
-        
+        */
         jTextFieldUsuario.setToolTipText("Ingrese Usuario");
         jPasswordFieldContrasenia.setToolTipText("Ingrese contraseña");
         

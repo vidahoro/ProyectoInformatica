@@ -29,6 +29,7 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
         return listaAdministradores;
     }
     
+    
     @Override
     public boolean existeAdministrador(String login, String contrasenia) {
         boolean bandera=false;
