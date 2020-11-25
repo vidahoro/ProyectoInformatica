@@ -32,7 +32,7 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
         this.setIconImage(icon);
         this.personaServices=personaServices;
         this.AdminReferencia=AdminReferencia;
-        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
+        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas(this.personaServices);
         objvtnGestionarComidas.setVisible(true);
         this.jDesktopPaneCentral.add(objvtnGestionarComidas);
         
@@ -389,7 +389,7 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
     private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
         // TODO add your handling code here:
         
-        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas();
+        vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas(personaServices);
         this.jDesktopPaneCentral.add(objvtnGestionarComidas);
         objvtnGestionarComidas.setVisible(true);
         
