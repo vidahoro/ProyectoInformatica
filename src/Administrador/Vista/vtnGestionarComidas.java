@@ -12,6 +12,7 @@ import Servidor.Acceso.ComidaRepositoryImplArray;
 import Servidor.Acceso.IComidaRepository;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.JButton;
 
 
 /**
@@ -20,6 +21,7 @@ import java.util.ArrayList;
  */
 public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     private IComidaRepository ComidaRepository;
+    //private Comida objcomida;
     /**
      * Creates new form vtnGestionarComidas
      */
@@ -37,14 +39,17 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         this.jTableListaComidas.setModel(model);
     
     }
-    /*
+    
     private void llenarTabla(){
-        DefaultTableModel model =(DefaultTableModel) this.jTableListaComidas.getModel();
+        //DefaultTableModel model =(DefaultTableModel) this.jTableListaComidas.getModel();
         limpiarTabla();
-        ArrayList<Comida> lista = this.ComidaRepository.AgregarComida(objcomida);
-        
+        ArrayList<Comida> ListaDeComidas = this.ComidaRepository.listarComidas();
+        for (Comida objcomida : ListaDeComidas) {
+            llenarFila(objcomida);
+        }        
+         
      
-    }*/
+    }
     private void limpiarTabla(){
         DefaultTableModel modelo = (DefaultTableModel) this.jTableListaComidas.getModel();
         int filas= this.jTableListaComidas.getRowCount();
@@ -53,6 +58,35 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         
         }
     }
+    
+    
+    private void llenarFila(Comida objComidaPorListar)
+    {
+        
+        JButton JButtonEliminarUsuario = new JButton();
+        JButtonEliminarUsuario.setName("Eliminar");
+        JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trush.png")));
+
+        JButton JButtonEditarUsuario = new JButton();
+        JButtonEditarUsuario.setName("Editar");
+        JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Edit Button.png")));
+
+        Object [] fila= { objComidaPorListar.getFoto(),objComidaPorListar.getCodigo(),objComidaPorListar.getNombre(),
+            objComidaPorListar.getTipo(),JButtonEliminarUsuario, JButtonEditarUsuario};
+        
+       
+
+        DefaultTableModel model = (DefaultTableModel) this.jTableListaComidas.getModel();
+        model.addRow(fila);
+        
+        
+        
+        
+    }
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,6 +154,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableListaComidas.setRowHeight(25);
         jScrollPane1.setViewportView(jTableListaComidas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -8,6 +8,7 @@ package Administrador.Vista;
 import Administrador.Servicios.Admin;
 import Administrador.Servicios.PersonaServicesImpl;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 /**
  *
  * @author 57321
@@ -18,7 +19,7 @@ public class VistaPrincipalAdmin {
        
         Admin objAdmin= new Admin("localhost", 5000);//al cliente se le envia la dirección ip del servidor y puerto del servidor
         PersonaServicesImpl objPersonaServices= new PersonaServicesImpl(objAdmin);
-        
+        seleccionarLookAndField();
         GUILoginAdmin vtnLoginAdmin= new GUILoginAdmin(objPersonaServices);
         vtnLoginAdmin.setVisible(true);
         
@@ -32,7 +33,7 @@ public class VistaPrincipalAdmin {
             if("Nimbus".equals(laf.getName()))
                 try {
                 UIManager.setLookAndFeel(laf.getClassName());
-            } catch (Exception ex) {
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException ex) {
         }
     }
     }
