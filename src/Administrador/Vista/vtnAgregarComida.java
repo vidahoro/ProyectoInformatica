@@ -6,7 +6,7 @@
 
 package Administrador.Vista;
 
-import Administrador.Servicios.ComidaServicesInt;
+import Administrador.Servicios.PersonaServicesInt;
 import Modelo.EnumTipoComida;
 import java.io.File;
 import javax.swing.JFileChooser;
@@ -17,9 +17,9 @@ import javax.swing.filechooser.FileSystemView;
  * @author Victor
  */
 public class vtnAgregarComida extends javax.swing.JInternalFrame {
-    private ComidaServicesInt objComidaServices; 
+    private PersonaServicesInt personaServices;
     /** Creates new form vtnAgregarComida */
-    public vtnAgregarComida() {
+    public vtnAgregarComida(PersonaServicesInt personaServices) {
         initComponents();
     }
 
@@ -56,6 +56,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
 
         jLabelAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabelAgregarComida.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelAgregarComida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelAgregarComida.setText("Agregar Comida");
 
         jLabelCodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -124,50 +125,41 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabelArchivoSeleccionado.setText("JLabelArchivoSeleccionado");
+        jLabelArchivoSeleccionado.setText("No hay archivos seleccionados");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelValor)
-                            .addComponent(jLabelTipo)
-                            .addComponent(jLabelName)
-                            .addComponent(jLabelCodigo)
-                            .addComponent(jTextFieldCode)
-                            .addComponent(jTextFieldNombre)
-                            .addComponent(jComboBoxTipoComida, 0, 249, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPrice))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelFoto)
-                            .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelArchivoSeleccionado)
-                        .addGap(64, 64, 64))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonAgregar)
-                .addGap(98, 98, 98))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(90, 90, 90)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelCamposRequeridos, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelAgregarComida))
-                    .addContainerGap(112, Short.MAX_VALUE)))
+                    .addComponent(jLabelAgregarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCamposRequeridos)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButtonCancelar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                            .addComponent(jButtonAgregar))
+                        .addComponent(jLabelFoto, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelValor, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelTipo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelCodigo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldCode, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jComboBoxTipoComida, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldPrice, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelArchivoSeleccionado, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jLabelAgregarComida)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelCodigo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,25 +175,19 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                 .addComponent(jLabelValor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelFoto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelArchivoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelFoto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
-                    .addComponent(jLabelArchivoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addComponent(jButtonAgregar)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabelAgregarComida)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
-                    .addComponent(jLabelCamposRequeridos)
-                    .addGap(18, 18, 18)
+                .addComponent(jLabelCamposRequeridos)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
-                    .addContainerGap()))
+                    .addComponent(jButtonAgregar))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -251,7 +237,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             Nombre=jTextFieldNombre.getText();
             Tipo=(String) jComboBoxTipoComida.getSelectedItem();
             Valor= Float.parseFloat(this.jTextFieldPrice.getText());
-            int codigoResultado=this.objComidaServices.registrarComida(Foto, Codigo, Nombre, Tipo, Valor);
+            int codigoResultado=this.personaServices.registrarComida(Foto, Codigo, Nombre, Tipo, Valor);
             
             if(codigoResultado==1)
             {

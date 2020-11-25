@@ -20,10 +20,10 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        /*
         vtnAgregarComida objvtnAgregarComida = new vtnAgregarComida();
         objvtnAgregarComida.setVisible(true);
-       
+       */
     }
     
 }
