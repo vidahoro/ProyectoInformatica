@@ -23,14 +23,14 @@ import java.util.ArrayList;
 public class ComidaRepositoryImplArray implements IComidaRepository {
     private ArrayList<Comida> ListaDeComidas;
     private  cliente objCliente;
-   /* 
+    
    public ComidaRepositoryImplArray(){
        this.ListaDeComidas= new ArrayList();
-       Comida objComida = new Comida("123", "456", "hp", EnumTipoComida.Bebida, 12000);
+       Comida objComida = new Comida("", "1", "comida1", "Bebida", 12);
        this.ListaDeComidas.add(objComida);
-       
+      
    }
-   */
+   
      @Override
     public boolean AgregarComida(Comida objcomida) {
         

@@ -6,6 +6,8 @@
 
 package Administrador.Vista;
 
+import Administrador.Servicios.ComidaServicesInt;
+import Modelo.EnumTipoComida;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
@@ -15,7 +17,7 @@ import javax.swing.filechooser.FileSystemView;
  * @author Victor
  */
 public class vtnAgregarComida extends javax.swing.JInternalFrame {
-
+    private ComidaServicesInt objComidaServices; 
     /** Creates new form vtnAgregarComida */
     public vtnAgregarComida() {
         initComponents();
@@ -37,7 +39,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         jLabelName = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabelTipo = new javax.swing.JLabel();
-        jComboBoxTipo = new javax.swing.JComboBox<>();
+        jComboBoxTipoComida = new javax.swing.JComboBox<>();
         jLabelValor = new javax.swing.JLabel();
         jTextFieldPrice = new javax.swing.JTextField();
         jLabelFoto = new javax.swing.JLabel();
@@ -74,10 +76,10 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         jLabelTipo.setForeground(new java.awt.Color(26, 85, 118));
         jLabelTipo.setText("*Tipo");
 
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Especial", "Comida Rápida", "Postre", "Bebida" }));
-        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxTipoComida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Especial", "Comida Rápida", "Postre", "Bebida" }));
+        jComboBoxTipoComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoActionPerformed(evt);
+                jComboBoxTipoComidaActionPerformed(evt);
             }
         });
 
@@ -109,6 +111,11 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
 
         jButtonAgregar.setBackground(new java.awt.Color(242, 153, 74));
         jButtonAgregar.setText("Agregar");
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Seleccionar Archivos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,18 +141,18 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                             .addComponent(jLabelCodigo)
                             .addComponent(jTextFieldCode)
                             .addComponent(jTextFieldNombre)
-                            .addComponent(jComboBoxTipo, 0, 249, Short.MAX_VALUE)
+                            .addComponent(jComboBoxTipoComida, 0, 249, Short.MAX_VALUE)
                             .addComponent(jTextFieldPrice))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelFoto)
                             .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelArchivoSeleccionado)
                         .addGap(64, 64, 64))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jButtonAgregar)
                 .addGap(98, 98, 98))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +178,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTipo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxTipoComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelValor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -183,7 +190,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1))
                     .addComponent(jLabelArchivoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGap(59, 59, 59)
                 .addComponent(jButtonAgregar)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,9 +213,9 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCodeActionPerformed
 
-    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
+    private void jComboBoxTipoComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoComidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoActionPerformed
+    }//GEN-LAST:event_jComboBoxTipoComidaActionPerformed
 
     private void jTextFieldPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPriceActionPerformed
         // TODO add your handling code here:
@@ -231,12 +238,41 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
+        // TODO add your handling code here:
+                 
+            String Foto,  Codigo,  Nombre, Tipo;
+            float Valor;
+            
+            
+            Foto=jLabelArchivoSeleccionado.getText();
+            Codigo=jTextFieldCode.getText();
+     
+            Nombre=jTextFieldNombre.getText();
+            Tipo=(String) jComboBoxTipoComida.getSelectedItem();
+            Valor= Float.parseFloat(this.jTextFieldPrice.getText());
+            int codigoResultado=this.objComidaServices.registrarComida(Foto, Codigo, Nombre, Tipo, Valor);
+            
+            if(codigoResultado==1)
+            {
+                Utilidades.Utilidades.mensajeExito("Registro exitoso", "registro exitoso");
+            }
+            else if(codigoResultado==0)
+            {
+                Utilidades.Utilidades.mensajeAdvertencia("Error de conexión", "error en el registro");         
+            }
+            else
+            {
+                Utilidades.Utilidades.mensajeAdvertencia("la persona ya se encuentra registra en el sistema", "error en el registro");
+            } 
+    }//GEN-LAST:event_jButtonAgregarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JComboBox<String> jComboBoxTipo;
+    private javax.swing.JComboBox<String> jComboBoxTipoComida;
     private javax.swing.JLabel jLabelAgregarComida;
     private javax.swing.JLabel jLabelArchivoSeleccionado;
     private javax.swing.JLabel jLabelCamposRequeridos;

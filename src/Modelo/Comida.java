@@ -3,21 +3,23 @@ package Modelo;
 import java.util.*;
 
 public class Comida {
-
+     private String Foto;
     private String Codigo; 
     private String Nombre;
-    private String Foto;
-    private EnumTipoComida Tipo;
+   
+    private String Tipo;
     private float Valor;
 
-    public Comida(String Codigo, String Nombre, String Foto, EnumTipoComida Tipo, float Valor) {
+    public Comida(String Foto, String Codigo, String Nombre, String Tipo, float Valor) {
+        this.Foto = Foto;
         this.Codigo = Codigo;
         this.Nombre = Nombre;
-        this.Foto = Foto;
         this.Tipo = Tipo;
         this.Valor = Valor;
     }
 
+
+ 
     
     
     
@@ -45,13 +47,15 @@ public class Comida {
         this.Foto = Foto;
     }
 
-    public EnumTipoComida getTipo() {
+    public String getTipo() {
         return Tipo;
     }
 
-    public void setTipo(EnumTipoComida Tipo) {
+    public void setTipo(String Tipo) {
         this.Tipo = Tipo;
     }
+
+
 
     public float getValor() {
         return Valor;

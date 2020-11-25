@@ -7,13 +7,14 @@ package Servidor.Servicios;
 
 import Modelo.Comida;
 import Servidor.Acceso.IComidaRepository;
+import java.util.ArrayList;
 
 /**
  *
  * @author Victor
  */
 public class ComidaService {
-    private IComidaRepository RepositorioComida;
+    private final IComidaRepository RepositorioComida;
     public ComidaService(IComidaRepository RepositorioComida ){
         this.RepositorioComida=RepositorioComida;
     
@@ -23,6 +24,10 @@ public class ComidaService {
         return this.RepositorioComida.AgregarComida(objComida);
         
     
+    }
+  public ArrayList<Comida> listarComidas()
+    {
+        return this.RepositorioComida.listarComidas();
     }
     
         

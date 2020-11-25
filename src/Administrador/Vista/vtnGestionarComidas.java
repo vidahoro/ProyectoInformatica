@@ -6,6 +6,7 @@
 package Administrador.Vista;
 
 
+import Administrador.Servicios.ComidaServicesInt;
 import Servidor.Acceso.ComidaRepositoryImplArray;
 import Modelo.Comida;
 import Servidor.Acceso.ComidaRepositoryImplArray;
@@ -20,7 +21,7 @@ import javax.swing.JButton;
  * @author Victor
  */
 public class vtnGestionarComidas extends javax.swing.JInternalFrame {
-    private IComidaRepository ComidaRepository;
+    private ComidaServicesInt ComidaServices;
     //private Comida objcomida;
     /**
      * Creates new form vtnGestionarComidas
@@ -38,12 +39,12 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         model.addColumn("Acciones");
         this.jTableListaComidas.setModel(model);
     
-    }
+    }  
     
     private void llenarTabla(){
         //DefaultTableModel model =(DefaultTableModel) this.jTableListaComidas.getModel();
-        limpiarTabla();
-        ArrayList<Comida> ListaDeComidas = this.ComidaRepository.listarComidas();
+       // limpiarTabla();
+        ArrayList<Comida> ListaDeComidas = this.ComidaServices.listarComidas();
         for (Comida objcomida : ListaDeComidas) {
             llenarFila(objcomida);
         }        
@@ -65,11 +66,11 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         
         JButton JButtonEliminarUsuario = new JButton();
         JButtonEliminarUsuario.setName("Eliminar");
-        JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trush.png")));
+        JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
 
         JButton JButtonEditarUsuario = new JButton();
         JButtonEditarUsuario.setName("Editar");
-        JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Edit Button.png")));
+        JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
 
         Object [] fila= { objComidaPorListar.getFoto(),objComidaPorListar.getCodigo(),objComidaPorListar.getNombre(),
             objComidaPorListar.getTipo(),JButtonEliminarUsuario, JButtonEditarUsuario};
@@ -101,6 +102,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         jTextFieldBuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableListaComidas = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -130,20 +132,20 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
 
         jTableListaComidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Foto", "Código", "Nombre", "Tipo", "Valor", "Acciones"
+                "Foto", "Código", "Nombre", "Tipo", "Valor", "Eliminar", "Editar"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -157,11 +159,21 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         jTableListaComidas.setRowHeight(25);
         jScrollPane1.setViewportView(jTableListaComidas);
 
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jButton1)
+                .addContainerGap(419, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(49, 49, 49)
@@ -177,7 +189,10 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 359, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButton1)
+                .addContainerGap(316, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -209,8 +224,14 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBuscarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        llenarTabla();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAgregarComida;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
