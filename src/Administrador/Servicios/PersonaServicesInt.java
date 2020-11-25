@@ -7,7 +7,6 @@ package Administrador.Servicios;
 
 import java.util.ArrayList;
 import Modelo.Administrador;
-import Modelo.Comida;
 
 /**
  *
@@ -18,7 +17,5 @@ public interface PersonaServicesInt {
     public int registrarPersona(String nombres, String apellidos,String  tipoIdentificacion,String  numeroIdentificacion, String imagenBase64);
     public Administrador consultarPersona(String login, String Password);
     public void editarAdmin(Administrador Admin);
-    public ArrayList<Comida> listarComidas();
-    public int registrarComida(String Foto, String Codigo, String Nombre, String Tipo, float Valor);
     //public ArrayList<Administrador> listarPersonas();
 }

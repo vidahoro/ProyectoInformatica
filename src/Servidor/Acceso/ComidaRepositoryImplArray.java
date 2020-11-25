@@ -44,7 +44,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
 
     @Override
     public ArrayList<Comida> listarComidas() {
-    /* 
+     
         ArrayList<Comida> ListaDeComidas;
         
         try {
@@ -52,7 +52,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
         
             Gson objConvertidor= new Gson();
             PeticionDTO objPeticion= new PeticionDTO();            
-            objPeticion.setAccion("listarComidas");            
+            objPeticion.setAccion("listarPersonas");            
             String JSON = objConvertidor.toJson(objPeticion);
             String respuestaJSON=objCliente.enviarPeticion(JSON);
            
@@ -67,7 +67,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
             ListaDeComidas=null;
         }
             
-       */ 
+        
         return ListaDeComidas;
     
         

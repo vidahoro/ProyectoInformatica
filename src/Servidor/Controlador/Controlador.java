@@ -84,8 +84,8 @@ public class Controlador {
                 objResultado=AgregarComida(objComida);
                  
             break;
-            case "listarComidas":
-                objResultado=listarComidas();   
+            case "listarPersonas":
+                objResultado=listarPersonas();   
             break;
             case "identificarPersona":
                 String usuario,password;
@@ -170,13 +170,13 @@ public class Controlador {
         }
         return objResultado;
     }
-    private ResultadoDTO listarComidas()
+    private ResultadoDTO listarPersonas()
     {       
         ResultadoDTO objResultado=new ResultadoDTO(); 
-        ArrayList<Comida> listado= this.objComidaService.listarComidas();
-        String listadoComidasComoJSON=objConvertidor.toJson(listado);                    
+        ArrayList<Persona> listado= this.objPersonaService.listarPersonas();
+        String listadoPersonasComoJSON=objConvertidor.toJson(listado);                    
         objResultado.setCodigoResultado(1);
-        objResultado.setJSONResultado(listadoComidasComoJSON);                    
+        objResultado.setJSONResultado(listadoPersonasComoJSON);                    
                
         return objResultado;
     }

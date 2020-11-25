@@ -5,7 +5,8 @@
  */
 package Administrador.Vista;
 
-import Administrador.Servicios.PersonaServicesInt;
+
+import Administrador.Servicios.ComidaServicesInt;
 import Servidor.Acceso.ComidaRepositoryImplArray;
 import Modelo.Comida;
 import Servidor.Acceso.ComidaRepositoryImplArray;
@@ -13,20 +14,20 @@ import Servidor.Acceso.IComidaRepository;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.JButton;
+
+
 /**
  *
  * @author Victor
  */
 public class vtnGestionarComidas extends javax.swing.JInternalFrame {
-    private PersonaServicesInt personaServices;
+    private ComidaServicesInt ComidaServices;
+    //private Comida objcomida;
     /**
      * Creates new form vtnGestionarComidas
      */
-    public vtnGestionarComidas(PersonaServicesInt personaServices) {
-        this.personaServices=personaServices;
+    public vtnGestionarComidas() {
         initComponents();
-        
-        this.jTableListaComidas.setDefaultRenderer(Object.class, new Render());
     }
      private void InicializarTabla(){
         DefaultTableModel model = new DefaultTableModel();
@@ -42,8 +43,8 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     
     private void llenarTabla(){
         //DefaultTableModel model =(DefaultTableModel) this.jTableListaComidas.getModel();
-        limpiarTabla();
-        ArrayList<Comida> ListaDeComidas = this.personaServices.listarComidas();
+       // limpiarTabla();
+        ArrayList<Comida> ListaDeComidas = this.ComidaServices.listarComidas();
         for (Comida objcomida : ListaDeComidas) {
             llenarFila(objcomida);
         }        
@@ -54,13 +55,15 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableListaComidas.getModel();
         int filas= this.jTableListaComidas.getRowCount();
         for (int i=0; filas>i;i++ ){
-            modelo.removeRow(0);        
+            modelo.removeRow(0);
+        
         }
     }
     
     
     private void llenarFila(Comida objComidaPorListar)
-    {        
+    {
+        
         JButton JButtonEliminarUsuario = new JButton();
         JButtonEliminarUsuario.setName("Eliminar");
         JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
@@ -70,12 +73,21 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
 
         Object [] fila= { objComidaPorListar.getFoto(),objComidaPorListar.getCodigo(),objComidaPorListar.getNombre(),
-        objComidaPorListar.getTipo(), objComidaPorListar.getValor(), JButtonEliminarUsuario, JButtonEditarUsuario};
+            objComidaPorListar.getTipo(),JButtonEliminarUsuario, JButtonEditarUsuario};
         
+       
+
         DefaultTableModel model = (DefaultTableModel) this.jTableListaComidas.getModel();
         model.addRow(fila);
+        
+        
+        
+        
     }
-       
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,7 +123,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextFieldBuscar.setToolTipText("Buscar por código de Comida");
+        jTextFieldBuscar.setText("Buscar por código de Comida");
         jTextFieldBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBuscarActionPerformed(evt);
@@ -120,7 +132,10 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
 
         jTableListaComidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "Foto", "Código", "Nombre", "Tipo", "Valor", "Eliminar", "Editar"
@@ -193,10 +208,14 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-       
+   
+    
+    
+    
+    
     private void jButtonAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarComidaActionPerformed
         // TODO add your handling code here:
-        vtnAgregarComida vtnAdd = new vtnAgregarComida(this.personaServices);
+        vtnAgregarComida vtnAdd = new vtnAgregarComida();
         vtnAdd.setVisible(true);
         this.getParent().add(vtnAdd);
     }//GEN-LAST:event_jButtonAgregarComidaActionPerformed
