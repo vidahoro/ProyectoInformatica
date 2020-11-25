@@ -25,4 +25,8 @@ public class AdministradorService {
     {
         return this.repositorioAdministrador.consultarPersona(login, contrasenia);
     }
+
+    public void editarAdmin(String user, String newname, String newlastname, String newpassword) {
+        this.repositorioAdministrador.editarAdmin(user, newname, newlastname, newpassword);
+    }
 }

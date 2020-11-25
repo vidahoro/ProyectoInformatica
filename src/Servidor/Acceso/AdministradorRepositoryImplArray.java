@@ -59,5 +59,18 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
         
         return objAdmin;
     }
+
+    @Override
+    public void editarAdmin(String user, String newname, String newlastname, String newpassword) {
+        for (int i = 0; i < listaAdministradores.size(); i++) {
+            Administrador AdminAux = listaAdministradores.get(i);
+            if (user.equals(AdminAux.getLogin())) {
+                AdminAux.setNombre(newname);
+                AdminAux.setApellido(newlastname);
+                AdminAux.setConstrasenia(newpassword);
+                listaAdministradores.set(i, AdminAux);
+            }
+        }
+    }
     
 }

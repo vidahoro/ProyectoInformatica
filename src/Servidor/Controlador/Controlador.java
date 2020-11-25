@@ -94,6 +94,15 @@ public class Controlador {
                 password=VectorR[1];
                 objResultado=consultarAdmin(usuario, password);
             break;
+            case "editarAdmin":
+                String user, newname, newlastname, newpassword;
+                String VectorE[]=argumentosPeticion.split(",");
+                user=VectorE[0];
+                newname=VectorE[1];
+                newlastname=VectorE[2];
+                newpassword=VectorE[3];
+                objResultado=editarAdmin(user, newname, newlastname, newpassword);
+            break;
         }
         resultadoJSON=objConvertidor.toJson(objResultado);
         return resultadoJSON;
@@ -200,5 +209,11 @@ public class Controlador {
         }
     return objResultadoDTO;
     
+    }
+
+    private ResultadoDTO editarAdmin(String user, String newname, String newlastname, String newpassword) {
+        ResultadoDTO objResultadoDTO = new ResultadoDTO();
+        objAdministradorService.editarAdmin(user, newname, newlastname, newpassword);
+        return objResultadoDTO;
     }
 }

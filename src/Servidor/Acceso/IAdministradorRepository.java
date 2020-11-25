@@ -14,4 +14,5 @@ import Modelo.Administrador;
 public interface IAdministradorRepository {
     public boolean existeAdministrador(String login, String contrasenia);
     public Administrador consultarPersona(String login, String contrasenia);
+    public void editarAdmin(String user, String newname, String newlastname, String newpassword);
 }

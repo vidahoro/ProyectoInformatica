@@ -139,4 +139,31 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         return listadoPersonas;
     }
 */    
+
+    @Override
+    public void editarAdmin(Administrador Admin) {
+        String login = Admin.getLogin();
+        String password = Admin.getConstrasenia();
+        String name = Admin.getNombre();
+        String lastname = Admin.getApellido();
+        try{
+            objCliente.crearConexion();
+            
+            Gson objConvertidor= new Gson();
+            PeticionDTO objPeticion= new PeticionDTO();
+            String argumentos= login+","+name+","+lastname+","+password;
+            
+            objPeticion.setAccion("editarAdmin");
+            objPeticion.setArgumentos(argumentos);
+            
+            String JSON = objConvertidor.toJson(objPeticion);
+            String respuestaJSON=objCliente.enviarPeticion(JSON);
+            
+            ResultadoDTO objResultado= objConvertidor.fromJson(respuestaJSON, ResultadoDTO.class); 
+            objCliente.cerrarConexion();
+        }
+        catch (IOException ex){
+            
+        }
+    }
 }

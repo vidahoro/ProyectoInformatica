@@ -307,7 +307,6 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         if(resultado==1)
         {
             AdminReferencia = this.personaServices.consultarPersona(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
-            System.out.println(AdminReferencia.getLogin());
             GUIMenuPrincipal vtnMenu = new GUIMenuPrincipal(this.personaServices,jTextFieldUsuario.getText(), AdminReferencia);
             this.setVisible(false);
             vtnMenu.setVisible(true);

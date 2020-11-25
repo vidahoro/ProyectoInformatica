@@ -9,6 +9,7 @@ import Administrador.Servicios.PersonaServicesInt;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import Modelo.Administrador;
+import Utilidades.Utilidades;
 import java.awt.Toolkit;
 /**
  *
@@ -113,6 +114,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jLabelTendencias = new javax.swing.JLabel();
         jPanelComidas = new javax.swing.JPanel();
         jLabelComidas = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
@@ -350,9 +352,9 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
         jPanelTendenciasLayout.setHorizontalGroup(
             jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTendenciasLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(jLabelTendencias)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanelTendenciasLayout.setVerticalGroup(
             jPanelTendenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,13 +400,19 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
             .addComponent(jPanelTendencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(26, 85, 118));
+        jLabel1.setText("Dejar vacío si desea mantener la contraseña actual");
+
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
         jPanelCenter.setLayout(jPanelCenterLayout);
         jPanelCenterLayout.setHorizontalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addGap(231, 231, 231)
+                .addContainerGap(232, Short.MAX_VALUE)
                 .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanelCenterLayout.createSequentialGroup()
                             .addComponent(jButtonCancelar)
@@ -420,14 +428,13 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
                         .addComponent(jPasswordOld, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPasswordNew, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelCamposRequeridos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCenterLayout.createSequentialGroup()
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelDatos)
                 .addGap(15, 15, 15)
                 .addComponent(jLabelNombre)
@@ -445,13 +452,15 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
                 .addComponent(jLabelPasswordNew)
                 .addGap(9, 9, 9)
                 .addComponent(jPasswordNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCamposRequeridos)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelCamposRequeridos)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEdit)
                     .addComponent(jButtonCancelar))
-                .addGap(23, 23, 23))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCenter, java.awt.BorderLayout.CENTER);
@@ -493,7 +502,32 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         // TODO add your handling code here:
-        
+        if (jTextFieldNombre.getText().equals("") || jTextFieldApellido.getText().equals("") || jPasswordOld.getText().equals("")) {
+            Utilidades.mensajeAdvertencia("Error, Campos vacios", "Atención");
+        }else{
+            if (jPasswordOld.getText().equals(AdminReferencia.getConstrasenia())) {
+                AdminReferencia.setNombre(jTextFieldNombre.getText());
+                AdminReferencia.setApellido(jTextFieldApellido.getText());
+                if (jPasswordNew.getText().equals("")) {
+                    AdminReferencia.setConstrasenia(jPasswordOld.getText());
+                    this.personaServices.editarAdmin(AdminReferencia);
+                    setVisible(false);
+                    GUIDatosAdmin vtnDatos = new GUIDatosAdmin(this.personaServices, AdminReferencia);
+                    vtnDatos.setVisible(true);
+                }else if(jPasswordNew.getText().length()>8 && jPasswordNew.getText().length()<15){
+                    AdminReferencia.setConstrasenia(jPasswordNew.getText());
+                    this.personaServices.editarAdmin(AdminReferencia);
+                    setVisible(false);
+                    GUIDatosAdmin vtnDatos = new GUIDatosAdmin(this.personaServices, AdminReferencia);
+                    vtnDatos.setVisible(true);
+                }else{
+                    Utilidades.mensajeAdvertencia("Contraseña nueva debe tener entre 8 y 15 caracteres", "Atención");
+                }
+                
+            }else{
+                Utilidades.mensajeAdvertencia("Por favor ingrese contraseña actual para confirmar cambios", "Atención");
+            }
+        }
     }//GEN-LAST:event_jButtonEditActionPerformed
 
 
@@ -507,6 +541,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonLogOut;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAdminName;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelCamposRequeridos;
