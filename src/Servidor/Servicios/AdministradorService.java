@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Servidor.Servicios;
+import Modelo.Administrador;
 import Servidor.Acceso.IAdministradorRepository;
 /**
  *
@@ -19,5 +20,9 @@ public class AdministradorService {
     public boolean existeAdministrador(String login, String contrasenia)
     {
         return this.repositorioAdministrador.existeAdministrador(login, contrasenia);
+    }
+    public Administrador consultarPersona(String login, String contrasenia)
+    {
+        return this.repositorioAdministrador.consultarPersona(login, contrasenia);
     }
 }

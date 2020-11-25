@@ -22,7 +22,6 @@ public class GUILoginAdmin extends javax.swing.JFrame {
     
     private final PersonaServicesInt personaServices;
     private Administrador AdminReferencia;
-    private ArrayList<Administrador> listaAdministradores;
     /**
      * Creates new form JFrameLoginAdmin
      */
@@ -307,14 +306,8 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         }
         if(resultado==1)
         {
-            AdministradorRepositoryImplArray AdminRepo = new AdministradorRepositoryImplArray();
-            listaAdministradores = AdminRepo.getListaAdministradores();
-            for (int i = 0; i < listaAdministradores.size(); i++) {
-                Administrador AdminAux = listaAdministradores.get(i);
-                if(AdminAux.getLogin().equals(jTextFieldUsuario.getText())){
-                    AdminReferencia = AdminAux;
-                }
-            }
+            AdminReferencia = this.personaServices.consultarPersona(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
+            System.out.println(AdminReferencia.getLogin());
             GUIMenuPrincipal vtnMenu = new GUIMenuPrincipal(this.personaServices,jTextFieldUsuario.getText(), AdminReferencia);
             this.setVisible(false);
             vtnMenu.setVisible(true);

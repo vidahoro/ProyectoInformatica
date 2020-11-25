@@ -5,6 +5,7 @@
  */
 package Servidor.Controlador;
 
+import Modelo.Administrador;
 import Modelo.Comida;
 import com.google.gson.Gson;
 import java.util.ArrayList;
@@ -86,7 +87,13 @@ public class Controlador {
             case "listarPersonas":
                 objResultado=listarPersonas();   
             break;
-            
+            case "identificarPersona":
+                String usuario,password;
+                String VectorR[]=argumentosPeticion.split(",");
+                usuario=VectorR[0];
+                password=VectorR[1];
+                objResultado=consultarAdmin(usuario, password);
+            break;
         }
         resultadoJSON=objConvertidor.toJson(objResultado);
         return resultadoJSON;
@@ -141,7 +148,20 @@ public class Controlador {
         return objResultado;
     }
     */
-     private ResultadoDTO listarPersonas()
+    private ResultadoDTO consultarAdmin(String usuario, String password){
+        Administrador objAdminEncontrado;
+        ResultadoDTO objResultado = new ResultadoDTO();
+        if (this.objAdministradorService.existeAdministrador(usuario, password)) {
+            objAdminEncontrado=this.objAdministradorService.consultarPersona(usuario, password);
+            String objAdminComoJSON=objConvertidor.toJson(objAdminEncontrado);
+            objResultado.setCodigoResultado(1);
+            objResultado.setJSONResultado(objAdminComoJSON);
+        }else{
+            objResultado.setCodigoResultado(-1);
+        }
+        return objResultado;
+    }
+    private ResultadoDTO listarPersonas()
     {       
         ResultadoDTO objResultado=new ResultadoDTO(); 
         ArrayList<Persona> listado= this.objPersonaService.listarPersonas();

@@ -5,10 +5,13 @@
  */
 package Servidor.Acceso;
 
+import Modelo.Administrador;
+
 /**
  *
  * @author Victor
  */
 public interface IAdministradorRepository {
     public boolean existeAdministrador(String login, String contrasenia);
+    public Administrador consultarPersona(String login, String contrasenia);
 }

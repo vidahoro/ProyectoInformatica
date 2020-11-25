@@ -6,7 +6,7 @@
 package Administrador.Servicios;
 
 import java.util.ArrayList;
-import Modelo.dominio.Persona;
+import Modelo.Administrador;
 
 /**
  *
@@ -15,6 +15,6 @@ import Modelo.dominio.Persona;
 public interface PersonaServicesInt {
     public int iniciarSesion(String usuario, String contrasenia);
     public int registrarPersona(String nombres, String apellidos,String  tipoIdentificacion,String  numeroIdentificacion, String imagenBase64);
-    public Persona consultarPersona(String tipoIdentificacion,String  numeroIdentificacion);
-    public ArrayList<Persona> listarPersonas();
+    public Administrador consultarPersona(String login, String Password);
+    //public ArrayList<Administrador> listarPersonas();
 }

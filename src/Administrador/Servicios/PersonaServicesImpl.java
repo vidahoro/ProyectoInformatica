@@ -5,6 +5,7 @@
  */
 package Administrador.Servicios;
 
+import Modelo.Administrador;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
@@ -76,15 +77,15 @@ public class PersonaServicesImpl implements PersonaServicesInt{
     }
 
     @Override
-    public Persona consultarPersona(String tipoIdentificacion, String numeroIdentificacion) {
+    public Administrador consultarPersona(String login, String password) {
       
-       Persona objPersonaRetornar = null;
+       Administrador objAdminRetornar = null;
         try {
             objCliente.crearConexion();
         
             Gson objConvertidor= new Gson();
             PeticionDTO objPeticion= new PeticionDTO();
-            String argumentos= tipoIdentificacion+","+numeroIdentificacion;
+            String argumentos= login+","+password;
             
             objPeticion.setAccion("identificarPersona");
             objPeticion.setArgumentos(argumentos);
@@ -99,17 +100,17 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         
             if(objResultado.getCodigoResultado()==1)
             {
-                objPersonaRetornar  = objConvertidor.fromJson(objResultado.getJSONResultado(), Persona.class); 
+                objAdminRetornar  = objConvertidor.fromJson(objResultado.getJSONResultado(), Administrador.class); 
             }
             
         } 
         catch (IOException ex) {
-            objPersonaRetornar=null;
+            objAdminRetornar=null;
         }
             
-        return objPersonaRetornar;
+        return objAdminRetornar;
     }
-
+/*
     @Override
     public ArrayList<Persona> listarPersonas() {
         ArrayList<Persona> listadoPersonas;
@@ -137,5 +138,5 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         
         return listadoPersonas;
     }
-    
+*/    
 }

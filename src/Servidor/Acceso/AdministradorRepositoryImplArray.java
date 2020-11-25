@@ -43,5 +43,21 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
         }
         return bandera;
     }
+
+    @Override
+    public Administrador consultarPersona(String login, String contrasenia) {
+        System.out.println("ejecutando método consultar persona");
+        Administrador objAdmin= null;
+        for (int i = 0; i < listaAdministradores.size(); i++) {
+            if(listaAdministradores.get(i).getLogin().equalsIgnoreCase(login) && listaAdministradores.get(i).getConstrasenia().equalsIgnoreCase(contrasenia))
+            {
+                objAdmin=listaAdministradores.get(i);
+                System.out.println("Persona encontrada");
+                break;
+            }
+        }
+        
+        return objAdmin;
+    }
     
 }
