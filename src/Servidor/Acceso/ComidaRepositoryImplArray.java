@@ -58,7 +58,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
         System.out.println("ejcutando método existe comida");
         for (int i = 0; i < ListaDeComidas.size(); i++) {
             System.out.println("Codigo: -" + ListaDeComidas.get(i).getCodigo()+ "- Nombre -" + ListaDeComidas.get(i).getNombre()+" - Tipo -"+ListaDeComidas.get(i).getTipo());
-            if(ListaDeComidas.get(i).getCodigo().equalsIgnoreCase(Codigo) && ListaDeComidas.get(i).getNombre().equalsIgnoreCase(Nombre) && ListaDeComidas.get(i).getTipo().equalsIgnoreCase(Tipo))
+            if(ListaDeComidas.get(i).getCodigo().equalsIgnoreCase(Codigo) || ListaDeComidas.get(i).getNombre().equalsIgnoreCase(Nombre) && ListaDeComidas.get(i).getTipo().equalsIgnoreCase(Tipo))
             {
                 bandera=true;
                 System.out.println("Comida encontrada");
