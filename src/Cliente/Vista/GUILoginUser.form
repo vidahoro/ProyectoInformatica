@@ -243,6 +243,9 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Ingresar Contrase&#xf1;a"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordFieldContraseniaKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonLogIN">
               <Properties>

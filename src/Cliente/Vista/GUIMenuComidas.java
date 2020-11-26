@@ -101,7 +101,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         JButton JButtonEditarUsuario = new JButton();
         JButtonEditarUsuario.setName("Editar");
         JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
-        */
+        */             
         Object [] fila= { objComidaPorListar.getFoto(), objComidaPorListar.getNombre(), objComidaPorListar.getValor()};
         
         if (objComidaPorListar.getTipo().equals("Especial")) {
@@ -336,6 +336,11 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jButtonCancelar.setBackground(new java.awt.Color(242, 153, 74));
         jButtonCancelar.setForeground(new java.awt.Color(26, 85, 118));
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jButtonOrdenar.setBackground(new java.awt.Color(242, 153, 74));
         jButtonOrdenar.setForeground(new java.awt.Color(26, 85, 118));
@@ -429,6 +434,13 @@ public class GUIMenuComidas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        GUILoginUser vtnLogin = new GUILoginUser(personaServices);
+        vtnLogin.setVisible(true);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments

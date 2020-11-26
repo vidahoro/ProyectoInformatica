@@ -12,6 +12,7 @@ import Utilidades.Utilidades;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -158,6 +159,11 @@ public class GUILoginUser extends javax.swing.JFrame {
         jLabelContrasena.setText("Contraseña:");
 
         jPasswordFieldContrasenia.setToolTipText("Ingresar Contraseña");
+        jPasswordFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldContraseniaKeyPressed(evt);
+            }
+        });
 
         jButtonLogIN.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogIN.setForeground(new java.awt.Color(26, 85, 118));
@@ -318,7 +324,12 @@ public class GUILoginUser extends javax.swing.JFrame {
 
     private void jButtonLogINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogINActionPerformed
         // TODO add your handling code here:
-        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(),jComboBoxTipoID.getSelectedItem()+"", jPasswordFieldContrasenia.getText());
+        int resultado;
+        if(jTextFieldUsuario.getText().equals("") || jPasswordFieldContrasenia.getText().equals("")){
+            resultado = 2;
+        }else{
+            resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(),jComboBoxTipoID.getSelectedItem()+"", jPasswordFieldContrasenia.getText());
+        }
         if(resultado==1)
         {
             GUIMenuComidas vtnMenu = new GUIMenuComidas(personaServices);
@@ -335,6 +346,13 @@ public class GUILoginUser extends javax.swing.JFrame {
             Utilidades.mensajeAdvertencia("Usuario o contraseña incorrecta", "Atención");
         }
     }//GEN-LAST:event_jButtonLogINActionPerformed
+
+    private void jPasswordFieldContraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseniaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonLogINActionPerformed(null);
+        }
+    }//GEN-LAST:event_jPasswordFieldContraseniaKeyPressed
 
     /**
      * @param args the command line arguments
