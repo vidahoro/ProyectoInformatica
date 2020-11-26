@@ -199,13 +199,15 @@ public class Controlador {
     }
     private ResultadoDTO AgregarComida(Comida objComida){
         ResultadoDTO objResultadoDTO = new ResultadoDTO();
-        boolean bandera=this.objComidaService.AgregarComida(objComida);
-        if (bandera==true){
+        String Codigo = objComida.getCodigo();
+        String Nombre = objComida.getNombre();
+        String Tipo = objComida.getTipo();
+        
+        if(this.objComidaService.existeComida(Codigo, Nombre, Tipo)==false){
+            this.objComidaService.AgregarComida(objComida);
             objResultadoDTO.setCodigoResultado(1);
-        }
-        else
-        {
-        objResultadoDTO.setCodigoResultado(-1);
+        }else{
+            objResultadoDTO.setCodigoResultado(-1);
         }
     return objResultadoDTO;
     

@@ -19,6 +19,6 @@ public interface PersonaServicesInt {
     public Administrador consultarPersona(String login, String Password);
     public void editarAdmin(Administrador Admin);
     public ArrayList<Comida> listarComidas();
-    public int registrarComida(String Foto, String Codigo, String Nombre, String Tipo, float Valor);
+    public int AgregarComida(String Foto, String Codigo, String Nombre, String Tipo, float Valor);
     //public ArrayList<Administrador> listarPersonas();
 }

@@ -16,6 +16,6 @@ public interface IComidaRepository {
     public boolean AgregarComida(Comida objcomida);
     public ArrayList<Comida> listarComidas();
     public Comida consultarComida(String Codigo);    
-    public boolean existeComida(String numeroIdentificacion,String tipoIdentificacion, String contrasenia);
+    public boolean existeComida(String Codigo,String Nombre, String Tipo);
     
 }

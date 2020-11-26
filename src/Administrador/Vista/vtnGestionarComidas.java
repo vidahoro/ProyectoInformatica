@@ -12,8 +12,11 @@ import Servidor.Acceso.ComidaRepositoryImplArray;
 import Servidor.Acceso.IComidaRepository;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Image;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import java.util.Base64;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
@@ -32,6 +35,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         initComponents();
         
         this.jTableListaComidas.setDefaultRenderer(Object.class, new Render());
+        llenarTabla();
     }
      private void InicializarTabla(){
         DefaultTableModel model = new DefaultTableModel();
@@ -65,7 +69,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     
     
     private void llenarFila(Comida objComidaPorListar)
-    {        
+    {   
         JButton JButtonEliminarUsuario = new JButton();
         JButtonEliminarUsuario.setName("Eliminar");
         JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
@@ -79,6 +83,17 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         
         DefaultTableModel model = (DefaultTableModel) this.jTableListaComidas.getModel();
         model.addRow(fila);
+        /*
+        byte[] data;        
+            System.out.println("imagen: " + objPersona.getImagen());
+            data =  Base64.getDecoder().decode(objPersona.getImagen());
+            
+            ImageIcon imageIcon = new ImageIcon(data);
+            
+            Image img1= new ImageIcon(imageIcon.getImage()).getImage();
+            ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
+            this.jLabelImagenSeleccionada.setIcon(imageIcon);
+        */
     }
        
     /**
@@ -135,7 +150,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -163,7 +178,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jButton1)
-                .addGap(73, 73, 73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jButtonAgregarComida)
                 .addContainerGap(177, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

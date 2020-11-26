@@ -199,7 +199,7 @@ public class PersonaServicesImpl implements PersonaServicesInt{
     }
     
     @Override
-    public int registrarComida(String Foto, String Codigo, String Nombre, String Tipo, float Valor) {
+    public int AgregarComida(String Foto, String Codigo, String Nombre, String Tipo, float Valor) {
         int codigoResultado;
         try {
             this.objCliente.crearConexion();
@@ -218,6 +218,8 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         } catch (IOException ex) {
            codigoResultado=0;
         }
+        
         return codigoResultado;
     }
+    
 }

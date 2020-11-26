@@ -26,7 +26,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     
    public ComidaRepositoryImplArray(){
        this.ListaDeComidas= new ArrayList();
-       Comida objComida = new Comida("", "1", "comida1", "Bebida", 12);
+       Comida objComida = new Comida("/Recursos/exitoso.png", "1", "comida1", "Bebida", 12);
        this.ListaDeComidas.add(objComida);
       
    }
@@ -44,35 +44,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
 
     @Override
     public ArrayList<Comida> listarComidas() {
-    /* 
-        ArrayList<Comida> ListaDeComidas;
-        
-        try {
-            objCliente.crearConexion();
-        
-            Gson objConvertidor= new Gson();
-            PeticionDTO objPeticion= new PeticionDTO();            
-            objPeticion.setAccion("listarComidas");            
-            String JSON = objConvertidor.toJson(objPeticion);
-            String respuestaJSON=objCliente.enviarPeticion(JSON);
-           
-            ResultadoDTO objResultado= objConvertidor.fromJson(respuestaJSON, ResultadoDTO.class); 
-            String listaJSON = objResultado.getJSONResultado();
-            java.lang.reflect.Type listType = new TypeToken<ArrayList<Comida>>(){}.getType();
-            ListaDeComidas = objConvertidor.fromJson(listaJSON, listType);
-            objCliente.cerrarConexion();
-        
-        } 
-        catch (IOException ex) {
-            ListaDeComidas=null;
-        }
-            
-       */ 
-        return ListaDeComidas;
-    
-        
-        
-        
+        return ListaDeComidas;        
     }
 
     @Override
@@ -81,14 +53,20 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     }
 
     @Override
-    public boolean existeComida(String numeroIdentificacion, String tipoIdentificacion, String contrasenia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean existeComida(String Codigo, String Nombre, String Tipo) {
+        boolean bandera=false;
+        System.out.println("ejcutando método existe comida");
+        for (int i = 0; i < ListaDeComidas.size(); i++) {
+            System.out.println("Codigo: -" + ListaDeComidas.get(i).getCodigo()+ "- Nombre -" + ListaDeComidas.get(i).getNombre()+" - Tipo -"+ListaDeComidas.get(i).getTipo());
+            if(ListaDeComidas.get(i).getCodigo().equalsIgnoreCase(Codigo) && ListaDeComidas.get(i).getNombre().equalsIgnoreCase(Nombre) && ListaDeComidas.get(i).getTipo().equalsIgnoreCase(Tipo))
+            {
+                bandera=true;
+                System.out.println("Comida encontrada");
+                break;
+            }
+        }
+        
+        return bandera;
     }
-
-
   
-  
-    
-    
-    
 }

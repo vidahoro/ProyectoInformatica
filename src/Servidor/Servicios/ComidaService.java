@@ -14,22 +14,22 @@ import java.util.ArrayList;
  * @author Victor
  */
 public class ComidaService {
+    
     private final IComidaRepository RepositorioComida;
+    
     public ComidaService(IComidaRepository RepositorioComida ){
-        this.RepositorioComida=RepositorioComida;
-    
+        this.RepositorioComida=RepositorioComida;    
     }
-    public boolean AgregarComida(Comida objComida){
     
-        return this.RepositorioComida.AgregarComida(objComida);
-        
-    
+    public boolean AgregarComida(Comida objComida){    
+        return this.RepositorioComida.AgregarComida(objComida);            
     }
-  public ArrayList<Comida> listarComidas()
-    {
+    public ArrayList<Comida> listarComidas(){
         return this.RepositorioComida.listarComidas();
     }
     
-        
+    public boolean existeComida(String Codigo, String Nombre, String Tipo) {
+        return this.RepositorioComida.existeComida(Codigo, Nombre, Tipo);
+    }
     
 }

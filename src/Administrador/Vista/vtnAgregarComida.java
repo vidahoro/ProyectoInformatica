@@ -9,6 +9,13 @@ package Administrador.Vista;
 import Administrador.Servicios.PersonaServicesInt;
 import Modelo.EnumTipoComida;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
@@ -21,6 +28,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
     /** Creates new form vtnAgregarComida */
     public vtnAgregarComida(PersonaServicesInt personaServices) {
         initComponents();
+        this.personaServices=personaServices;
     }
 
     /** This method is called from within the constructor to
@@ -220,24 +228,22 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             this.jLabelArchivoSeleccionado.setText(selectedFile.getAbsolutePath());
             System.out.println(selectedFile.getAbsolutePath());
             
-        
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-        // TODO add your handling code here:
-                 
-            String Foto,  Codigo,  Nombre, Tipo;
+        // TODO add your handling code here:                 
+            String urlFoto, Foto, Codigo, Nombre, Tipo;
             float Valor;
-            
-            
-            Foto=jLabelArchivoSeleccionado.getText();
-            Codigo=jTextFieldCode.getText();
-     
+                       
+            urlFoto=jLabelArchivoSeleccionado.getText();
+            Codigo=jTextFieldCode.getText();     
             Nombre=jTextFieldNombre.getText();
             Tipo=(String) jComboBoxTipoComida.getSelectedItem();
             Valor= Float.parseFloat(this.jTextFieldPrice.getText());
-            int codigoResultado=this.personaServices.registrarComida(Foto, Codigo, Nombre, Tipo, Valor);
+            Foto= convertirImagenBase64(urlFoto);
+            int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor);
             
             if(codigoResultado==1)
             {
@@ -249,11 +255,33 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             }
             else
             {
-                Utilidades.Utilidades.mensajeAdvertencia("la persona ya se encuentra registra en el sistema", "error en el registro");
+                Utilidades.Utilidades.mensajeAdvertencia("La comida ya se encuentra registra en el sistema", "error en el registro");
             } 
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
-
+    private static String convertirImagenBase64(String urlImagen) {
+        String imagenBase64="";
+        try {
+        
+            File file =  new File(urlImagen); 
+            
+            FileInputStream fileInputStreamReader = new FileInputStream(file);
+            byte[] bytes = new byte[(int)file.length()];
+            fileInputStreamReader.read(bytes);
+            imagenBase64=new String(Base64.getEncoder().encode(bytes), "UTF-8");
+            System.out.println("imagen en base 64: " + imagenBase64);            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            return imagenBase64;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAgregar;
