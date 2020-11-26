@@ -227,6 +227,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
 
     private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
         // TODO add your handling code here:
+        /*
         DefaultTableModel dtm = new DefaultTableModel(); 
         jTextFieldBuscar.addKeyListener(new KeyAdapter(){
             @Override
@@ -236,10 +237,8 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
   
         });
         trs = new TableRowSorter(dtm);
-        jTableListaComidas.setRowSorter(trs);
-        
-        
-        
+        jTableListaComidas.setRowSorter(trs);  
+        */
     }//GEN-LAST:event_jTextFieldBuscarActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
