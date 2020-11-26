@@ -5,6 +5,7 @@
  */
 package Cliente.Servicios;
 
+import Modelo.Comida;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
@@ -138,4 +139,33 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         return listadoPersonas;
     }
     
+    @Override
+    public ArrayList<Comida> listarComidas() {
+        ArrayList<Comida> ListaDeComidas;
+        
+        try {
+            objCliente.crearConexion();
+        
+            Gson objConvertidor= new Gson();
+            PeticionDTO objPeticion= new PeticionDTO();            
+            objPeticion.setAccion("listarComidas");            
+            String JSON = objConvertidor.toJson(objPeticion);
+            String respuestaJSON=objCliente.enviarPeticion(JSON);
+           
+            ResultadoDTO objResultado= objConvertidor.fromJson(respuestaJSON, ResultadoDTO.class); 
+            String listaJSON = objResultado.getJSONResultado();
+            java.lang.reflect.Type listType = new TypeToken<ArrayList<Comida>>(){}.getType();
+            ListaDeComidas = objConvertidor.fromJson(listaJSON, listType);
+            objCliente.cerrarConexion();
+        
+        } 
+        catch (IOException ex) {
+            ListaDeComidas=null;
+        }
+            
+        
+        return ListaDeComidas;
+    
+        
+    }
 }

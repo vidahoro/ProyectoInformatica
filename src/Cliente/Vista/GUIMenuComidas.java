@@ -5,20 +5,29 @@
  */
 package Cliente.Vista;
 
+import Cliente.Servicios.PersonaServicesInt;
+import Modelo.Comida;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author 57321
  */
 public class GUIMenuComidas extends javax.swing.JFrame {
-
+    private final PersonaServicesInt personaServices;
     /**
      * Creates new form JFrameMenu
      */
-    public GUIMenuComidas() {
+    public GUIMenuComidas(PersonaServicesInt personaServices) {
         initComponents();
+        
+        this.personaServices=personaServices;
+        setLocationRelativeTo(null);
+        
+        llenarTabla();
         /*
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -47,6 +56,81 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         */
     }
 
+    private void llenarTabla(){
+        limpiarTabla();
+        ArrayList<Comida> ListaDeComidas = this.personaServices.listarComidas();
+        for (Comida objcomida : ListaDeComidas) {
+            llenarFila(objcomida);
+        }
+    }
+    
+    private void limpiarTabla(){
+        DefaultTableModel modeloB = (DefaultTableModel) this.jTableBebidas.getModel();
+        int filasB= this.jTableBebidas.getRowCount();
+        for (int i=0; filasB>i;i++ ){
+            modeloB.removeRow(0);        
+        }
+        DefaultTableModel modeloCR = (DefaultTableModel) this.jTableFastFood.getModel();
+        int filasCR= this.jTableFastFood.getRowCount();
+        for (int i=0; filasCR>i;i++ ){
+            modeloCR.removeRow(0);        
+        }
+        DefaultTableModel modeloE = (DefaultTableModel) this.jTableEspecial.getModel();
+        int filasE= this.jTableEspecial.getRowCount();
+        for (int i=0; filasE>i;i++ ){
+            modeloE.removeRow(0);        
+        }
+        DefaultTableModel modeloP = (DefaultTableModel) this.jTablePostres.getModel();
+        int filasP= this.jTablePostres.getRowCount();
+        for (int i=0; filasP>i;i++ ){
+            modeloP.removeRow(0);        
+        }
+        DefaultTableModel modeloPA = (DefaultTableModel) this.jTablePedidoActual.getModel();
+        int filasPA= this.jTablePedidoActual.getRowCount();
+        for (int i=0; filasPA>i;i++ ){
+            modeloPA.removeRow(0);        
+        }
+    }
+    
+    private void llenarFila(Comida objComidaPorListar)
+    {   /*
+        JButton JButtonEliminarUsuario = new JButton();
+        JButtonEliminarUsuario.setName("Eliminar");
+        JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
+
+        JButton JButtonEditarUsuario = new JButton();
+        JButtonEditarUsuario.setName("Editar");
+        JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
+        */
+        Object [] fila= { objComidaPorListar.getFoto(), objComidaPorListar.getNombre(), objComidaPorListar.getValor()};
+        
+        if (objComidaPorListar.getTipo().equals("Especial")) {
+            DefaultTableModel modelE = (DefaultTableModel) this.jTableEspecial.getModel();
+            modelE.addRow(fila);
+        }else if (objComidaPorListar.getTipo().equals("Comida Rápida")) {
+            DefaultTableModel modelCR = (DefaultTableModel) this.jTableFastFood.getModel();
+            modelCR.addRow(fila);
+        }else if (objComidaPorListar.getTipo().equals("Postre")) {
+            DefaultTableModel modelP = (DefaultTableModel) this.jTablePostres.getModel();
+            modelP.addRow(fila);
+        }else if (objComidaPorListar.getTipo().equals("Bebida")) {
+            DefaultTableModel modelB = (DefaultTableModel) this.jTableBebidas.getModel();
+            modelB.addRow(fila);
+        }
+        
+        /*
+        byte[] data;        
+            System.out.println("imagen: " + objPersona.getImagen());
+            data =  Base64.getDecoder().decode(objPersona.getImagen());
+            
+            ImageIcon imageIcon = new ImageIcon(data);
+            
+            Image img1= new ImageIcon(imageIcon.getImage()).getImage();
+            ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
+            this.jLabelImagenSeleccionada.setIcon(imageIcon);
+        */
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

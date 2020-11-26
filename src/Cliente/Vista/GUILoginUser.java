@@ -7,12 +7,15 @@ package Cliente.Vista;
 
 import Cliente.Servicios.PersonaServicesInt;
 import Cliente.Vista.GUIMenuComidas;
+import Modelo.Comida;
 import Utilidades.Utilidades;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -56,7 +59,7 @@ public class GUILoginUser extends javax.swing.JFrame {
         this.Image_instagram_link.setText("");
         */
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -318,7 +321,7 @@ public class GUILoginUser extends javax.swing.JFrame {
         int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(),jComboBoxTipoID.getSelectedItem()+"", jPasswordFieldContrasenia.getText());
         if(resultado==1)
         {
-            GUIMenuComidas vtnMenu = new GUIMenuComidas();
+            GUIMenuComidas vtnMenu = new GUIMenuComidas(personaServices);
             vtnMenu.setExtendedState(MAXIMIZED_BOTH);
             this.setVisible(false);
             vtnMenu.setVisible(true);
