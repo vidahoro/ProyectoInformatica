@@ -11,6 +11,7 @@ import Modelo.Comida;
 import Modelo.DTO.PeticionDTO;
 import Modelo.DTO.ResultadoDTO;
 import Modelo.EnumTipoComida;
+import Modelo.dominio.Persona;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
  */
 public class ComidaRepositoryImplArray implements IComidaRepository {
     private ArrayList<Comida> ListaDeComidas;
+    private ArrayList<Comida> listadoComidasEspeciales;
     private  cliente objCliente;
     
    public ComidaRepositoryImplArray(){
@@ -67,6 +69,39 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
         }
         
         return bandera;
+    }
+    /*
+      @Override
+      public ArrayList<Comida> listarComidasEspeciales(String Codigo, String Nombre, String Tipo) {
+       ArrayList<Comida> listadoComidasEspeciales;
+        
+        try {
+            objCliente.crearConexion();
+        
+            Gson objConvertidor= new Gson();
+            PeticionDTO objPeticion= new PeticionDTO();            
+            objPeticion.setAccion("listarComidasEspeciales");            
+            String JSON = objConvertidor.toJson(objPeticion);
+            String respuestaJSON=objCliente.enviarPeticion(JSON);
+           
+            ResultadoDTO objResultado= objConvertidor.fromJson(respuestaJSON, ResultadoDTO.class); 
+            String listaJSON = objResultado.getJSONResultado();
+            java.lang.reflect.Type listType = new TypeToken<ArrayList<Persona>>(){}.getType();
+            listadoComidasEspeciales = objConvertidor.fromJson(listaJSON, listType);
+            objCliente.cerrarConexion();
+        
+        } 
+        catch (IOException ex) {
+            listadoComidasEspeciales=null;
+        }
+            
+        
+        return listadoComidasEspeciales;
+        
+    } */
+    @Override
+    public ArrayList<Comida> listarComidasEspeciales() {
+        return listadoComidasEspeciales;        
     }
   
 }

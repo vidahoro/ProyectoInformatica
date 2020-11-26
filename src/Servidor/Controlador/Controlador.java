@@ -63,7 +63,7 @@ public class Controlador {
             break;            
             case "iniciarSesion":
                 String login, contrasenia;                
-                String vectorL[]=argumentosPeticion.split(",");
+                String vectorL[]=argumentosPeticion.split(",");  // para que sirve el split?
                 login=vectorL[0];
                 contrasenia=vectorL[1];
                 objResultado=iniciarSesion(login, contrasenia);
@@ -103,6 +103,9 @@ public class Controlador {
                 newpassword=VectorE[3];
                 objResultado=editarAdmin(user, newname, newlastname, newpassword);
             break;
+            case "listarComidasEspeciales":
+                objResultado=listarComidasEspeciales();
+            break;
         }
         resultadoJSON=objConvertidor.toJson(objResultado);
         return resultadoJSON;
@@ -113,11 +116,11 @@ public class Controlador {
         ResultadoDTO objResultado=new ResultadoDTO();  
         if(this.objAdministradorService.existeAdministrador(login, contrasenia))
         {
-             objResultado.setCodigoResultado(1);
+            objResultado.setCodigoResultado(1);
         }                
         else
         {
-             objResultado.setCodigoResultado(-1);
+            objResultado.setCodigoResultado(-1);
         }
         return objResultado;
     }
@@ -217,5 +220,15 @@ public class Controlador {
         ResultadoDTO objResultadoDTO = new ResultadoDTO();
         objAdministradorService.editarAdmin(user, newname, newlastname, newpassword);
         return objResultadoDTO;
+    }
+
+    private ResultadoDTO listarComidasEspeciales() {
+        ResultadoDTO objResultado=new ResultadoDTO(); 
+        ArrayList<Comida> listado= this.objComidaService.listarComidasEspeciales();
+        String listadoComidasComoJSON=objConvertidor.toJson(listado);                    
+        objResultado.setCodigoResultado(1);
+        objResultado.setJSONResultado(listadoComidasComoJSON);                    
+               
+        return objResultado;
     }
 }

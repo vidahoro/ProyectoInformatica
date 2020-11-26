@@ -5,6 +5,7 @@
  */
 package Cliente.Servicios;
 
+import Modelo.Comida;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
@@ -137,5 +138,7 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         
         return listadoPersonas;
     }
+
+  
     
 }

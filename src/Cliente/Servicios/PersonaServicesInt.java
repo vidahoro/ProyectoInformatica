@@ -5,6 +5,7 @@
  */
 package Cliente.Servicios;
 
+import Modelo.Comida;
 import java.util.ArrayList;
 import Modelo.dominio.Persona;
 
@@ -17,4 +18,5 @@ public interface PersonaServicesInt {
     public int registrarPersona(String nombres, String apellidos,String  tipoIdentificacion,String  numeroIdentificacion, String imagenBase64);
     public Persona consultarPersona(String tipoIdentificacion,String  numeroIdentificacion);
     public ArrayList<Persona> listarPersonas();
+
 }

@@ -9,6 +9,7 @@ import Modelo.Comida;
 import Servidor.Acceso.IComidaRepository;
 import java.util.ArrayList;
 
+
 /**
  *
  * @author Victor
@@ -30,6 +31,9 @@ public class ComidaService {
     
     public boolean existeComida(String Codigo, String Nombre, String Tipo) {
         return this.RepositorioComida.existeComida(Codigo, Nombre, Tipo);
+    }
+    public ArrayList<Comida> listarComidasEspeciales(){
+        return this.RepositorioComida.listarComidasEspeciales();
     }
     
 }
