@@ -164,6 +164,8 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             }
         });
         jTableListaComidas.setRowHeight(25);
+        jTableListaComidas.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jTableListaComidas.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jTableListaComidas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableListaComidasMouseClicked(evt);
