@@ -7,12 +7,16 @@ package Cliente.Vista;
 
 import Cliente.Servicios.PersonaServicesInt;
 import Cliente.Vista.GUIMenuComidas;
+import Modelo.Comida;
 import Utilidades.Utilidades;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -56,7 +60,7 @@ public class GUILoginUser extends javax.swing.JFrame {
         this.Image_instagram_link.setText("");
         */
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -155,6 +159,11 @@ public class GUILoginUser extends javax.swing.JFrame {
         jLabelContrasena.setText("Contraseña:");
 
         jPasswordFieldContrasenia.setToolTipText("Ingresar Contraseña");
+        jPasswordFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldContraseniaKeyPressed(evt);
+            }
+        });
 
         jButtonLogIN.setBackground(new java.awt.Color(242, 153, 74));
         jButtonLogIN.setForeground(new java.awt.Color(26, 85, 118));
@@ -315,10 +324,15 @@ public class GUILoginUser extends javax.swing.JFrame {
 
     private void jButtonLogINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogINActionPerformed
         // TODO add your handling code here:
-        int resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(),jComboBoxTipoID.getSelectedItem()+"", jPasswordFieldContrasenia.getText());
+        int resultado;
+        if(jTextFieldUsuario.getText().equals("") || jPasswordFieldContrasenia.getText().equals("")){
+            resultado = 2;
+        }else{
+            resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(),jComboBoxTipoID.getSelectedItem()+"", jPasswordFieldContrasenia.getText());
+        }
         if(resultado==1)
         {
-            GUIMenuComidas vtnMenu = new GUIMenuComidas();
+            GUIMenuComidas vtnMenu = new GUIMenuComidas(personaServices);
             vtnMenu.setExtendedState(MAXIMIZED_BOTH);
             this.setVisible(false);
             vtnMenu.setVisible(true);
@@ -332,6 +346,13 @@ public class GUILoginUser extends javax.swing.JFrame {
             Utilidades.mensajeAdvertencia("Usuario o contraseña incorrecta", "Atención");
         }
     }//GEN-LAST:event_jButtonLogINActionPerformed
+
+    private void jPasswordFieldContraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseniaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonLogINActionPerformed(null);
+        }
+    }//GEN-LAST:event_jPasswordFieldContraseniaKeyPressed
 
     /**
      * @param args the command line arguments

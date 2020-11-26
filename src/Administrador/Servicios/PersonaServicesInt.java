@@ -20,5 +20,7 @@ public interface PersonaServicesInt {
     public void editarAdmin(Administrador Admin);
     public ArrayList<Comida> listarComidas();
     public int AgregarComida(String Foto, String Codigo, String Nombre, String Tipo, float Valor);
+    public int eliminarComida(Comida objComida);
     //public ArrayList<Administrador> listarPersonas();
+    public int editarComida(String CodigoOld, Comida objComidaEditada);
 }

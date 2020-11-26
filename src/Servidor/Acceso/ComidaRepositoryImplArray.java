@@ -70,6 +70,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
         
         return bandera;
     }
+
     /*
       @Override
       public ArrayList<Comida> listarComidasEspeciales(String Codigo, String Nombre, String Tipo) {
@@ -102,6 +103,36 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     @Override
     public ArrayList<Comida> listarComidasEspeciales() {
         return listadoComidasEspeciales;        
+    }
+
+    @Override
+    public boolean eliminarComida(Comida objComidaEliminar) {
+        boolean bandera=false;
+        for (int i = 0; i < ListaDeComidas.size(); i++) {
+            if (ListaDeComidas.get(i).getCodigo().equals(objComidaEliminar.getCodigo())) {
+                ListaDeComidas.remove(i);
+                bandera=true;
+                System.out.println("Comida Eliminada");
+                break;
+            }
+        }
+        return bandera;
+    }
+
+    @Override
+    public boolean editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew) {
+        boolean bandera = false;
+        float Valor = Float.parseFloat(ValorNew);
+        Comida ComidaNueva = new Comida(FotoNew, CodigoNew, NombreNew, TipoNew, Valor);
+        for (int i = 0; i < ListaDeComidas.size(); i++) {
+            if (ListaDeComidas.get(i).getCodigo().equals(CodigoOld)) {
+                ListaDeComidas.set(i, ComidaNueva);
+                bandera = true;
+                break;
+            }
+        }
+        return bandera;
+
     }
   
 }

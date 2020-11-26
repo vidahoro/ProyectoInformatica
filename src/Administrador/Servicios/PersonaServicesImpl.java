@@ -222,4 +222,54 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         return codigoResultado;
     }
     
+    @Override
+    public int eliminarComida(Comida objComida) {
+        int codigoResultado;
+        try {
+            this.objCliente.crearConexion();
+            Gson gson= new Gson();
+            PeticionDTO objPeticion= new PeticionDTO();
+            ResultadoDTO objResultado= new ResultadoDTO();
+            String JSONPersona=gson.toJson(objComida);
+            objPeticion.setAccion("eliminarComida");
+            objPeticion.setArgumentos(JSONPersona);
+            String JSONPeticion=gson.toJson(objPeticion);
+            String resultado=objCliente.enviarPeticion(JSONPeticion);
+            objResultado=gson.fromJson(resultado, ResultadoDTO.class);
+            codigoResultado= objResultado.getCodigoResultado();
+            objCliente.cerrarConexion();
+        } catch (IOException ex) {
+           codigoResultado=0;
+        }
+        return codigoResultado;
+    }
+
+    @Override
+    public int editarComida(String CodigoOld, Comida objComidaEditada) {
+        int codigoResultado;
+        
+        String CodigoNew = objComidaEditada.getCodigo();
+        String FotoNew = objComidaEditada.getFoto();
+        String TipoNew = objComidaEditada.getTipo();
+        String ValorNew = Float.toString(objComidaEditada.getValor());
+        String NombreNew = objComidaEditada.getNombre();
+        try {
+            this.objCliente.crearConexion();
+            Gson gson= new Gson();
+            PeticionDTO objPeticion= new PeticionDTO();
+            ResultadoDTO objResultado= new ResultadoDTO();
+            String argumentos= CodigoOld+","+CodigoNew+","+NombreNew+","+TipoNew+","+ValorNew+","+FotoNew;
+            objPeticion.setAccion("editarComida");
+            objPeticion.setArgumentos(argumentos);
+            String JSONPeticion=gson.toJson(objPeticion);
+            String resultado=objCliente.enviarPeticion(JSONPeticion);
+            objResultado=gson.fromJson(resultado, ResultadoDTO.class);
+            codigoResultado= objResultado.getCodigoResultado();
+            objCliente.cerrarConexion();
+        } catch (IOException ex) {
+           codigoResultado=0;
+        }
+        return codigoResultado;
+    }
+    
 }

@@ -69,6 +69,7 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
                 AdminAux.setApellido(newlastname);
                 AdminAux.setConstrasenia(newpassword);
                 listaAdministradores.set(i, AdminAux);
+                break;
             }
         }
     }

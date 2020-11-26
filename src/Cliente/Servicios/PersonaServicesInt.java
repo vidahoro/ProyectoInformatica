@@ -19,4 +19,6 @@ public interface PersonaServicesInt {
     public Persona consultarPersona(String tipoIdentificacion,String  numeroIdentificacion);
     public ArrayList<Persona> listarPersonas();
 
+    public ArrayList<Comida> listarComidas();
+
 }

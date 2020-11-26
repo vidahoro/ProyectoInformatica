@@ -10,6 +10,7 @@ import Servidor.Acceso.ComidaRepositoryImplArray;
 import Modelo.Comida;
 import Servidor.Acceso.ComidaRepositoryImplArray;
 import Servidor.Acceso.IComidaRepository;
+import Utilidades.Utilidades;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Image;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 /**
@@ -105,12 +107,12 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanelPrincipal = new javax.swing.JPanel();
         jButtonAgregarComida = new javax.swing.JButton();
         jTextFieldBuscar = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneTabla = new javax.swing.JScrollPane();
         jTableListaComidas = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jButtonActualizar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -119,7 +121,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         setTitle("Gestionar Comidas");
         setInheritsPopupMenu(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButtonAgregarComida.setBackground(new java.awt.Color(26, 85, 118));
         jButtonAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -162,51 +164,56 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             }
         });
         jTableListaComidas.setRowHeight(25);
-        jScrollPane1.setViewportView(jTableListaComidas);
+        jTableListaComidas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableListaComidasMouseClicked(evt);
+            }
+        });
+        jScrollPaneTabla.setViewportView(jTableListaComidas);
 
-        jButton1.setText("Actualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonActualizarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
+        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
+        jPanelPrincipalLayout.setHorizontalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jButton1)
+                .addComponent(jButtonActualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jButtonAgregarComida)
                 .addContainerGap(177, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                     .addGap(49, 49, 49)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jTextFieldBuscar)
-                        .addComponent(jScrollPane1))
+                        .addComponent(jScrollPaneTabla))
                     .addGap(49, 49, 49)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelPrincipalLayout.setVerticalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonActualizar)
                     .addComponent(jButtonAgregarComida))
                 .addContainerGap(307, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                     .addGap(53, 53, 53)
                     .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanelPrincipal, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -235,17 +242,64 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jTextFieldBuscarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         // TODO add your handling code here:
         llenarTabla();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
+
+    private void jTableListaComidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListaComidasMouseClicked
+        // TODO add your handling code here:
+        int column = this.jTableListaComidas.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/jTableListaComidas.getRowHeight();
+        
+        if(row < jTableListaComidas.getRowCount() && row >= 0 && column < jTableListaComidas.getColumnCount() && column >= 0){
+            Object value = jTableListaComidas.getValueAt(row, column);
+            
+            if(value instanceof JButton){
+                
+                ((JButton)value).doClick();
+                JButton boton = (JButton) value;
+                
+                String Foto   = jTableListaComidas.getValueAt(row, 0).toString();
+                String Codigo = jTableListaComidas.getValueAt(row, 1).toString();
+                String Nombre = jTableListaComidas.getValueAt(row, 2).toString();
+                String Tipo   = jTableListaComidas.getValueAt(row, 3).toString();
+                float Valor   = (Float) jTableListaComidas.getValueAt(row, 4);
+               
+                if(boton.getName().equals("Eliminar")){
+                    try{  
+                        if(Utilidades.mensajeConfirmacion("¿Estás seguro de que quieres eliminar la comida " + Codigo + " " + Nombre+" ?", "Confirmación") == JOptionPane.YES_OPTION){
+                            Comida objComidaEliminar = new Comida(Foto, Codigo, Nombre, Tipo, Valor);
+                            int codigoResultado = personaServices.eliminarComida(objComidaEliminar);
+                            if(codigoResultado==1) {
+                                Utilidades.mensajeExito("Comida Eliminada Exitosamente", "Comida Eliminada");
+                            }
+                            else if(codigoResultado==0) {
+                                Utilidades.mensajeAdvertencia("Error De Conexión", "Error En El Registro");         
+                            }
+                            else {
+                                Utilidades.mensajeAdvertencia("Error al eliminar la comida", "Error");
+                            }
+                        }
+                    }catch(Exception ex){
+                        Utilidades.mensajeError("Error al eliminar usuario. Intentelo de nuevo más tarde", "Error");
+                    }  
+                }else if(boton.getName().equals("Editar")){
+                   Comida objComidaEditar = new Comida(Foto, Codigo, Nombre, Tipo, Valor);
+                   vtnEditarComida vtnEdit = new vtnEditarComida(this.personaServices, objComidaEditar);
+                   vtnEdit.setVisible(true);
+                   this.getParent().add(vtnEdit);                    
+                }
+            }
+        }
+    }//GEN-LAST:event_jTableListaComidasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonAgregarComida;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JScrollPane jScrollPaneTabla;
     private javax.swing.JTable jTableListaComidas;
     private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables

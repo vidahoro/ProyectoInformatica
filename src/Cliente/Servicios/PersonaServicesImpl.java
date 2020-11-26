@@ -141,4 +141,35 @@ public class PersonaServicesImpl implements PersonaServicesInt{
 
   
     
+    @Override
+    public ArrayList<Comida> listarComidas() {
+        ArrayList<Comida> ListaDeComidas;
+        
+        try {
+            objCliente.crearConexion();
+        
+            Gson objConvertidor= new Gson();
+            PeticionDTO objPeticion= new PeticionDTO();            
+            objPeticion.setAccion("listarComidas");            
+            String JSON = objConvertidor.toJson(objPeticion);
+            String respuestaJSON=objCliente.enviarPeticion(JSON);
+           
+            ResultadoDTO objResultado= objConvertidor.fromJson(respuestaJSON, ResultadoDTO.class); 
+            String listaJSON = objResultado.getJSONResultado();
+            java.lang.reflect.Type listType = new TypeToken<ArrayList<Comida>>(){}.getType();
+            ListaDeComidas = objConvertidor.fromJson(listaJSON, listType);
+            objCliente.cerrarConexion();
+        
+        } 
+        catch (IOException ex) {
+            ListaDeComidas=null;
+        }
+            
+        
+        return ListaDeComidas;
+    
+        
+    }
+
+ 
 }
