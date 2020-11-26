@@ -7,6 +7,7 @@
 package Administrador.Vista;
 
 import Administrador.Servicios.PersonaServicesInt;
+import Modelo.Comida;
 import Utilidades.Utilidades;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,12 +24,22 @@ import javax.swing.filechooser.FileSystemView;
  *
  * @author Victor
  */
-public class vtnAgregarComida extends javax.swing.JInternalFrame {
+public class vtnEditarComida extends javax.swing.JInternalFrame {
     private PersonaServicesInt personaServices;
+    private Comida objComidaEditar;
     /** Creates new form vtnAgregarComida */
-    public vtnAgregarComida(PersonaServicesInt personaServices) {
+    public vtnEditarComida(PersonaServicesInt personaServices, Comida objComidaEditar) {
         initComponents();
         this.personaServices=personaServices;
+        this.objComidaEditar=objComidaEditar;
+        
+        jTextFieldCode.setText(objComidaEditar.getCodigo());
+        jTextFieldNombre.setText(objComidaEditar.getNombre());
+        float valor = objComidaEditar.getValor();
+        String valorS = Float.toString(valor);
+        jTextFieldPrice.setText(valorS);
+        jLabelArchivoSeleccionado.setText(objComidaEditar.getFoto());
+        jComboBoxTipoComida.setSelectedItem(objComidaEditar.getTipo());
     }
 
     /** This method is called from within the constructor to
@@ -53,7 +64,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         jLabelFoto = new javax.swing.JLabel();
         jLabelCamposRequeridos = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
-        jButtonAgregar = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
         jButtonSelectFile = new javax.swing.JButton();
         jLabelArchivoSeleccionado = new javax.swing.JLabel();
 
@@ -65,7 +76,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         jLabelAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabelAgregarComida.setForeground(new java.awt.Color(26, 85, 118));
         jLabelAgregarComida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelAgregarComida.setText("Agregar Comida");
+        jLabelAgregarComida.setText("Editar Comida");
 
         jLabelCodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelCodigo.setForeground(new java.awt.Color(26, 85, 118));
@@ -118,11 +129,11 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonAgregar.setBackground(new java.awt.Color(242, 153, 74));
-        jButtonAgregar.setText("Agregar");
-        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditar.setBackground(new java.awt.Color(242, 153, 74));
+        jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAgregarActionPerformed(evt);
+                jButtonEditarActionPerformed(evt);
             }
         });
 
@@ -145,10 +156,10 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                     .addComponent(jLabelAgregarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCamposRequeridos)
                     .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelPrincipalLayout.createSequentialGroup()
                             .addComponent(jButtonCancelar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                            .addComponent(jButtonAgregar))
+                            .addGap(101, 101, 101)
+                            .addComponent(jButtonEditar))
                         .addComponent(jLabelFoto, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButtonSelectFile, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabelValor, javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +205,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
-                    .addComponent(jButtonAgregar))
+                    .addComponent(jButtonEditar))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -227,13 +238,11 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         if (returnValue==JFileChooser.APPROVE_OPTION){
             File selectedFile = jfc.getSelectedFile();
             this.jLabelArchivoSeleccionado.setText(selectedFile.getAbsolutePath());
-            System.out.println(selectedFile.getAbsolutePath());
-            
-            
+            System.out.println(selectedFile.getAbsolutePath());           
         }
     }//GEN-LAST:event_jButtonSelectFileActionPerformed
 
-    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:                 
             String urlFoto, Foto, Codigo, Nombre, Tipo;
             float Valor;
@@ -250,10 +259,12 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                 Tipo=(String) jComboBoxTipoComida.getSelectedItem();
                 Valor= Float.parseFloat(this.jTextFieldPrice.getText());
                 Foto= convertirImagenBase64(urlFoto);
-                int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor);
+                Comida objComidaEditada = new Comida(Foto, Codigo, Nombre, Tipo, Valor);
+                int codigoResultado=this.personaServices.editarComida(objComidaEditar.getCodigo(), objComidaEditada);
 
                 if(codigoResultado==1) {
                     Utilidades.mensajeExito("Registro Exitoso", "Registro Exitoso");
+                    this.setVisible(false);
                 }
                 else if(codigoResultado==0) {
                     Utilidades.mensajeAdvertencia("Error De Conexión", "Error En El Registro");         
@@ -262,7 +273,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                     Utilidades.mensajeAdvertencia("La comida ya se encuentra registrada en el sistema", "Error En El Registro");
                 } 
             }
-    }//GEN-LAST:event_jButtonAgregarActionPerformed
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private static String convertirImagenBase64(String urlImagen) {
         String imagenBase64="";
@@ -276,11 +287,11 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             System.out.println("imagen en base 64: " + imagenBase64);            
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(vtnEditarComida.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(vtnEditarComida.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(vtnEditarComida.class.getName()).log(Level.SEVERE, null, ex);
         }            
             return imagenBase64;
     }
@@ -305,8 +316,8 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonSelectFile;
     private javax.swing.JComboBox<String> jComboBoxTipoComida;
     private javax.swing.JLabel jLabelAgregarComida;

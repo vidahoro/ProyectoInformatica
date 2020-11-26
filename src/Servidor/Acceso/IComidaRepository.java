@@ -17,5 +17,7 @@ public interface IComidaRepository {
     public ArrayList<Comida> listarComidas();
     public Comida consultarComida(String Codigo);    
     public boolean existeComida(String Codigo,String Nombre, String Tipo);
+    public boolean eliminarComida(Comida objComidaEliminar);
+    public boolean editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew);
     
 }

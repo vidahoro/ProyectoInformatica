@@ -31,5 +31,13 @@ public class ComidaService {
     public boolean existeComida(String Codigo, String Nombre, String Tipo) {
         return this.RepositorioComida.existeComida(Codigo, Nombre, Tipo);
     }
+
+    public boolean eliminarComida(Comida objComidaEliminar) {
+        return this.RepositorioComida.eliminarComida(objComidaEliminar);
+    }
+
+    public boolean editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew) {
+        return this.RepositorioComida.editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew);
+    }
     
 }

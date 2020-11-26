@@ -103,6 +103,21 @@ public class Controlador {
                 newpassword=VectorE[3];
                 objResultado=editarAdmin(user, newname, newlastname, newpassword);
             break;
+            case "eliminarComida":
+                Comida objComidaEliminar= objConvertidor.fromJson(argumentosPeticion, Comida.class);
+                objResultado=eliminarComida(objComidaEliminar);
+            break;
+            case "editarComida":
+                String CodigoOld, NombreOld, TipoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew;
+                String VectorFood[] = argumentosPeticion.split(",");
+                CodigoOld = VectorFood[0];
+                CodigoNew = VectorFood[1];
+                NombreNew = VectorFood[2];
+                TipoNew = VectorFood[3];
+                ValorNew = VectorFood[4];
+                FotoNew = VectorFood[5];
+                objResultado=editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew);
+            break;
         }
         resultadoJSON=objConvertidor.toJson(objResultado);
         return resultadoJSON;
@@ -216,6 +231,39 @@ public class Controlador {
     private ResultadoDTO editarAdmin(String user, String newname, String newlastname, String newpassword) {
         ResultadoDTO objResultadoDTO = new ResultadoDTO();
         objAdministradorService.editarAdmin(user, newname, newlastname, newpassword);
+        return objResultadoDTO;
+    }
+
+    private ResultadoDTO eliminarComida(Comida objComidaEliminar){
+        ResultadoDTO objResultadoDTO = new ResultadoDTO();
+        if (this.objComidaService.eliminarComida(objComidaEliminar)==true) {
+            objResultadoDTO.setCodigoResultado(1);
+        }else{
+            objResultadoDTO.setCodigoResultado(-1);
+        }
+        return objResultadoDTO;
+    }
+
+    private ResultadoDTO editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew) {
+        ResultadoDTO objResultadoDTO = new ResultadoDTO();/*
+        if(this.objComidaService.existeComida(CodigoNew, NombreNew, TipoNew)==false || CodigoOld.equals(CodigoNew)){
+            if (this.objComidaService.editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew)==true) {
+                objResultadoDTO.setCodigoResultado(1);
+            }else{
+                objResultadoDTO.setCodigoResultado(-1);
+            }
+        }else{
+            objResultadoDTO.setCodigoResultado(-1);
+        }*/
+        if (CodigoNew.equals(CodigoOld) && objComidaService.existeComida("", NombreNew, TipoNew)==false) {
+            objComidaService.editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew);
+            objResultadoDTO.setCodigoResultado(1);
+        }else if(objComidaService.existeComida(CodigoNew, NombreNew, TipoNew)==false){
+            objComidaService.editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew);
+            objResultadoDTO.setCodigoResultado(1);
+        }else{
+            objResultadoDTO.setCodigoResultado(-1);
+        }
         return objResultadoDTO;
     }
 }

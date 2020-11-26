@@ -41,10 +41,10 @@
                       <Component id="jLabelAgregarComida" min="-2" pref="247" max="-2" attributes="0"/>
                       <Component id="jLabelCamposRequeridos" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jButtonCancelar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="87" max="32767" attributes="0"/>
-                              <Component id="jButtonAgregar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="jButtonEditar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabelFoto" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonSelectFile" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -95,7 +95,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="38" max="32767" attributes="0"/>
               </Group>
@@ -112,7 +112,7 @@
               <Color blue="76" green="55" red="1a" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Agregar Comida"/>
+            <Property name="text" type="java.lang.String" value="Editar Comida"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCodigo">
@@ -222,15 +222,15 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonAgregar">
+        <Component class="javax.swing.JButton" name="jButtonEditar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="4a" green="99" red="f2" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Agregar"/>
+            <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAgregarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSelectFile">
