@@ -7,6 +7,7 @@ package Servidor.Acceso;
 
 import java.util.ArrayList;
 import Modelo.Administrador;
+import Modelo.Comida;
 
 /**
  *
@@ -15,6 +16,7 @@ import Modelo.Administrador;
 public class AdministradorRepositoryImplArray implements IAdministradorRepository{
 
     private ArrayList<Administrador> listaAdministradores;
+    private ArrayList<Comida> ListaDeComidas;
     
     public AdministradorRepositoryImplArray()
     {
@@ -72,6 +74,36 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
                 break;
             }
         }
+    }
+
+    @Override
+    public Comida consultarComida(String Codigo, String Nombre, String Tipo) {
+        System.out.println("ejecutando método consultar Comida");
+        Comida objComida= null;
+        for (int i = 0; i < ListaDeComidas.size(); i++) {
+            if(ListaDeComidas.get(i).getCodigo().equalsIgnoreCase(Codigo) && ListaDeComidas.get(i).getNombre().equalsIgnoreCase(Nombre) && ListaDeComidas.get(i).getTipo().equalsIgnoreCase(Tipo) )
+            {
+                objComida=ListaDeComidas.get(i);
+                System.out.println("Comida  encontrada");
+                break;
+            }
+        }
+        
+        return objComida;
+    }
+
+    @Override
+    public boolean existeComida(String Codigo, String Nombre, String Tipo) {
+         boolean bandera=false;
+        System.out.println("Codigo:"+Codigo+"Nombre: "+Nombre+"Tipo: "+Tipo);
+        for (Comida objComida : ListaDeComidas) {
+            if(objComida.getCodigo().equals(Codigo) && objComida.getNombre().equals(Nombre)&& objComida.getTipo().equals(Tipo))
+            {
+                bandera=true;
+                break;
+            }
+        }
+        return bandera;
     }
     
 }

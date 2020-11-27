@@ -6,6 +6,7 @@
 package Servidor.Acceso;
 
 import Modelo.Administrador;
+import Modelo.Comida;
 
 /**
  *
@@ -15,4 +16,6 @@ public interface IAdministradorRepository {
     public boolean existeAdministrador(String login, String contrasenia);
     public Administrador consultarPersona(String login, String contrasenia);
     public void editarAdmin(String user, String newname, String newlastname, String newpassword);
+    public Comida consultarComida(String Codigo, String Nombre, String Tipo);
+    public boolean existeComida(String Codigo, String Nombre, String Tipo);
 }

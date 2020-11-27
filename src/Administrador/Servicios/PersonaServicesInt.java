@@ -23,4 +23,5 @@ public interface PersonaServicesInt {
     public int eliminarComida(Comida objComida);
     //public ArrayList<Administrador> listarPersonas();
     public int editarComida(String CodigoOld, Comida objComidaEditada);
+    public Comida consultarComida(String Codigo, String Nombre, String Tipo);
 }

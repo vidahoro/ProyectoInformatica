@@ -34,6 +34,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     private PersonaServicesInt personaServices;
+    
     TableRowSorter trs;
     JLabel JLabelFoto;
     /**
@@ -144,6 +145,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         jScrollPaneTabla = new javax.swing.JScrollPane();
         jTableListaComidas = new javax.swing.JTable();
         jButtonActualizar = new javax.swing.JButton();
+        jButtonBuscarComidas = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -211,22 +213,37 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonBuscarComidas.setText("Buscar");
+        jButtonBuscarComidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarComidasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jButtonActualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(jButtonAgregarComida)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jButtonBuscarComidas)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jButtonActualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addComponent(jButtonAgregarComida)
+                        .addContainerGap(182, Short.MAX_VALUE))))
             .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                    .addGap(49, 49, 49)
                     .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextFieldBuscar)
-                        .addComponent(jScrollPaneTabla))
+                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                            .addGap(49, 49, 49)
+                            .addComponent(jScrollPaneTabla))
+                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(49, 49, 49)))
         );
         jPanelPrincipalLayout.setVerticalGroup(
@@ -236,7 +253,9 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonActualizar)
                     .addComponent(jButtonAgregarComida))
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonBuscarComidas)
+                .addContainerGap(284, Short.MAX_VALUE))
             .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -326,10 +345,31 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTableListaComidasMouseClicked
 
+    private void jButtonBuscarComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarComidasActionPerformed
+        // TODO add your handling code here:
+        
+                
+        Comida objComida=this.personaServices.consultarComida(jTextFieldBuscar.getText(), jTextFieldBuscar.getText(), jTextFieldBuscar.getText());
+
+        if(objComida!=null)
+        {
+            txtNombres.setText(objPersona.getNombres());
+            txtApellidos.setText(objPersona.getApellidos());
+        }
+        else
+        {
+            txtNumero.requestFocus();
+            txtNombres.setText("");
+            txtApellidos.setText("");
+            Utilidades.mensajeAdvertencia("Usuario no encontrado", "Atención");
+        }   
+    }//GEN-LAST:event_jButtonBuscarComidasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonAgregarComida;
+    private javax.swing.JButton jButtonBuscarComidas;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JScrollPane jScrollPaneTabla;
     private javax.swing.JTable jTableListaComidas;

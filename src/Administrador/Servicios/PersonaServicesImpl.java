@@ -271,5 +271,39 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         }
         return codigoResultado;
     }
+
+    @Override
+    public Comida consultarComida(String Codigo, String Nombre, String Tipo) {
+         Comida objComidaRetornar = null;
+        try {
+            objCliente.crearConexion();
+        
+            Gson objConvertidor= new Gson();
+            PeticionDTO objPeticion= new PeticionDTO();
+            String argumentos= Codigo+","+Nombre+","+Tipo;
+            
+            objPeticion.setAccion("consultarComida");
+            objPeticion.setArgumentos(argumentos);
+            
+            String JSON = objConvertidor.toJson(objPeticion);
+            
+            String respuestaJSON=objCliente.enviarPeticion(JSON);
+            
+            
+            ResultadoDTO objResultado= objConvertidor.fromJson(respuestaJSON, ResultadoDTO.class); 
+            objCliente.cerrarConexion();
+        
+            if(objResultado.getCodigoResultado()==1)
+            {
+                objComidaRetornar  = objConvertidor.fromJson(objResultado.getJSONResultado(), Comida.class); 
+            }
+            
+        } 
+        catch (IOException ex) {
+            objComidaRetornar=null;
+        }
+            
+        return objComidaRetornar;
+    }
     
 }

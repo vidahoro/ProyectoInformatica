@@ -5,6 +5,7 @@
  */
 package Servidor.Servicios;
 import Modelo.Administrador;
+import Modelo.Comida;
 import Servidor.Acceso.IAdministradorRepository;
 /**
  *
@@ -12,6 +13,7 @@ import Servidor.Acceso.IAdministradorRepository;
  */
 public class AdministradorService {
     private IAdministradorRepository repositorioAdministrador;
+   
     
     public AdministradorService(IAdministradorRepository repositorioAdministrador)
     {
@@ -28,5 +30,14 @@ public class AdministradorService {
 
     public void editarAdmin(String user, String newname, String newlastname, String newpassword) {
         this.repositorioAdministrador.editarAdmin(user, newname, newlastname, newpassword);
+    }
+    
+    public Comida consultarComida(String Codigo,  String Nombre, String  Tipo)
+    {
+        return this.repositorioAdministrador.consultarComida(Codigo, Nombre, Tipo);
+    }   
+    public boolean existeComida(String Codigo,  String Nombre, String  Tipo)
+    {
+        return this.repositorioAdministrador.existeComida(Codigo, Nombre, Tipo);
     }
 }

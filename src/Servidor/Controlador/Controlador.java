@@ -50,12 +50,13 @@ public class Controlador {
         String resultadoJSON="";
         ResultadoDTO objResultado=new ResultadoDTO();
         switch (accion) {
-            case "consultarPersona":
-                String tipoIdentificacion, numeroIdentificacion;                
+        case "consultarComida":
+                String Codigo,  Nombre,  Tipo;                  
                 String vector[]=argumentosPeticion.split(",");
-                tipoIdentificacion=vector[0];
-                numeroIdentificacion=vector[1];
-              //  objResultado=consultarPersona(tipoIdentificacion, numeroIdentificacion);                
+                Codigo=vector[0];
+                Nombre=vector[1];
+                Tipo= vector[2];
+                objResultado=consultarComida(Codigo,  Nombre,  Tipo);                
             break;
             case "registrarPersona":                
                 Persona objPersona= objConvertidor.fromJson(argumentosPeticion, Persona.class);
@@ -103,9 +104,6 @@ public class Controlador {
                 newpassword=VectorE[3];
                 objResultado=editarAdmin(user, newname, newlastname, newpassword);
             break;
-
-            case "listarComidasEspeciales":
-                objResultado=listarComidasEspeciales();
 
             case "eliminarComida":
                 Comida objComidaEliminar= objConvertidor.fromJson(argumentosPeticion, Comida.class);
@@ -158,15 +156,15 @@ public class Controlador {
          return objResultado;
     }
     */
-    /*
-    private ResultadoDTO consultarPersona(String tipoIdentificacion, String numeroIdentificacion)
+    
+    private ResultadoDTO consultarComida(String Codigo,  String Nombre, String  Tipo)
     {
-        Persona objPersonaEncontrada;
+        Comida objComidaEncontrada;
         ResultadoDTO objResultado=new ResultadoDTO(); 
-        if(this.objPersonaService.existePersona(tipoIdentificacion, numeroIdentificacion)==true)
+        if(this.objAdministradorService.existeComida(Codigo, Nombre, Tipo)==true)
         {
-            objPersonaEncontrada=this.objPersonaService.consultarPersona(tipoIdentificacion, numeroIdentificacion);
-            String objPersonaComoJSON=objConvertidor.toJson(objPersonaEncontrada);                    
+            objComidaEncontrada=this.objAdministradorService.consultarComida(Codigo, Nombre, Tipo);
+            String objPersonaComoJSON=objConvertidor.toJson(objComidaEncontrada);                    
             objResultado.setCodigoResultado(1);
             objResultado.setJSONResultado(objPersonaComoJSON);                    
         }
@@ -176,7 +174,7 @@ public class Controlador {
         }
         return objResultado;
     }
-    */
+    
     private ResultadoDTO consultarAdmin(String usuario, String password){
         Administrador objAdminEncontrado;
         ResultadoDTO objResultado = new ResultadoDTO();
