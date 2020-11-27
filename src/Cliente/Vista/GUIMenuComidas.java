@@ -5,26 +5,14 @@
  */
 package Cliente.Vista;
 
-
-
-
-import Administrador.Vista.vtnAgregarComida;
 import Cliente.Servicios.PersonaServicesInt;
 
 import Modelo.Comida;
 import java.awt.Image;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 
 
@@ -34,8 +22,6 @@ import javax.swing.JButton;
  * @author 57321
  */
 public class GUIMenuComidas extends javax.swing.JFrame {
-
- 
 
     private final PersonaServicesInt personaServices;
 
@@ -78,22 +64,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         
     
     }
-    /*
-    private void llenarTablaEspecial(){
-        limpiarTablaEspecial();
-        ArrayList<Comida> ListaDeComidas = this.personaServices.listarComidas();
-        for (Comida objcomida : ListaDeComidas) {
-            llenarFilaEspecial(objcomida);
-        }  
-    }
-    private void limpiarTablaEspecial(){
-    
-    
-    }
-    private void llenarFilaEspecial(Comida objcomida){
-    
-    }
-    */
+
     private void llenarTabla(){
         limpiarTabla();
         ArrayList<Comida> ListaDeComidas = this.personaServices.listarComidas();
@@ -161,27 +132,6 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             modelB.addRow(fila);
         }
         
-    }
-    
-    private static String convertirImagenBase64(String urlImagen) {
-        String imagenBase64="";
-        try {        
-            File file =  new File(urlImagen); 
-            
-            FileInputStream fileInputStreamReader = new FileInputStream(file);
-            byte[] bytes = new byte[(int)file.length()];
-            fileInputStreamReader.read(bytes);
-            imagenBase64=new String(Base64.getEncoder().encode(bytes), "UTF-8");
-            System.out.println("imagen en base 64: " + imagenBase64);            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
-        }            
-            return imagenBase64;
     }
     
     /**
@@ -296,23 +246,21 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             }
         });
         jTableEspecial.setRowHeight(50);
+        jTableEspecial.getTableHeader().setReorderingAllowed(false);
         jScrollPaneEspecialTab.setViewportView(jTableEspecial);
 
         jTabbedPaneMenu.addTab("Especial", jScrollPaneEspecialTab);
 
         jTableFastFood.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Fotografía", "Nombre", "Valor", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -320,23 +268,21 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             }
         });
         jTableFastFood.setRowHeight(50);
+        jTableFastFood.getTableHeader().setReorderingAllowed(false);
         jScrollPaneFastFoodTab.setViewportView(jTableFastFood);
 
         jTabbedPaneMenu.addTab("Comida Rápida", jScrollPaneFastFoodTab);
 
         jTablePostres.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Fotografía", "Nombre", "Valor", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -344,23 +290,21 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             }
         });
         jTablePostres.setRowHeight(50);
+        jTablePostres.getTableHeader().setReorderingAllowed(false);
         jScrollPanePostresTab.setViewportView(jTablePostres);
 
         jTabbedPaneMenu.addTab("Postres", jScrollPanePostresTab);
 
         jTableBebidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Fotografía", "Nombre", "Valor", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -368,16 +312,14 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             }
         });
         jTableBebidas.setRowHeight(50);
+        jTableBebidas.getTableHeader().setReorderingAllowed(false);
         jScrollPaneBebidasTab.setViewportView(jTableBebidas);
 
         jTabbedPaneMenu.addTab("Bebidas", jScrollPaneBebidasTab);
 
         jTablePedidoActual.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre", "Valor", "Cantidad"
@@ -392,6 +334,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             }
         });
         jTablePedidoActual.setRowHeight(25);
+        jTablePedidoActual.getTableHeader().setReorderingAllowed(false);
         jScrollPaneActualTab.setViewportView(jTablePedidoActual);
 
         jTabbedPaneMenu.addTab("Pedido Actual", jScrollPaneActualTab);
@@ -399,6 +342,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jButtonCancelar.setBackground(new java.awt.Color(242, 153, 74));
         jButtonCancelar.setForeground(new java.awt.Color(26, 85, 118));
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -408,6 +352,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jButtonOrdenar.setBackground(new java.awt.Color(242, 153, 74));
         jButtonOrdenar.setForeground(new java.awt.Color(26, 85, 118));
         jButtonOrdenar.setText("Ordenar");
+        jButtonOrdenar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
@@ -418,24 +363,24 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
                         .addComponent(jButtonCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
                         .addComponent(jButtonOrdenar))
-                    .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
-                    .addComponent(jLabelQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelQuestion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(jLabelQuestion)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonOrdenar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -478,17 +423,18 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         FooterLayout.setVerticalGroup(
             FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FooterLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelDireccion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelNumero)
-                .addContainerGap())
-            .addGroup(FooterLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Image_Twitter_link)
-                    .addComponent(Image_instagram_link)
-                    .addComponent(Image_Facebook_link))
+                .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FooterLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelDireccion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelNumero))
+                    .addGroup(FooterLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Image_Twitter_link)
+                            .addComponent(Image_instagram_link)
+                            .addComponent(Image_Facebook_link))))
                 .addContainerGap())
         );
 

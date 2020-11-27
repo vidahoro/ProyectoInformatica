@@ -6,17 +6,13 @@
 package Cliente.Vista;
 
 import Cliente.Servicios.PersonaServicesInt;
-import Cliente.Vista.GUIMenuComidas;
-import Modelo.Comida;
 import Utilidades.Utilidades;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *

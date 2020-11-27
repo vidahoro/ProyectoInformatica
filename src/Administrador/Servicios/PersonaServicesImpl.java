@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Modelo.dominio.Persona;
 import Modelo.DTO.PeticionDTO;
 import Modelo.DTO.ResultadoDTO;
 
@@ -54,30 +53,6 @@ public class PersonaServicesImpl implements PersonaServicesInt{
     }
 
     @Override
-    public int registrarPersona(String nombres, String apellidos, String tipoIdentificacion, String numeroIdentificacion, String imagenBase64) {
-       
-        int codigoResultado;
-        try {
-            this.objCliente.crearConexion();
-            Gson gson= new Gson();
-            PeticionDTO objPeticion= new PeticionDTO();
-            ResultadoDTO objResultado= new ResultadoDTO();
-            Persona objPersona= new Persona(tipoIdentificacion, numeroIdentificacion, nombres, apellidos,imagenBase64);
-            String JSONPersona=gson.toJson(objPersona);
-            objPeticion.setAccion("registrarPersona");
-            objPeticion.setArgumentos(JSONPersona);
-            String JSONPeticion=gson.toJson(objPeticion);
-            String resultado=objCliente.enviarPeticion(JSONPeticion);
-            objResultado=gson.fromJson(resultado, ResultadoDTO.class);
-            codigoResultado= objResultado.getCodigoResultado();
-            objCliente.cerrarConexion();
-        } catch (IOException ex) {
-           codigoResultado=0;
-        }
-        return codigoResultado;
-    }
-
-    @Override
     public Administrador consultarPersona(String login, String password) {
       
        Administrador objAdminRetornar = null;
@@ -110,36 +85,7 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         }
             
         return objAdminRetornar;
-    }
-/*
-    @Override
-    public ArrayList<Persona> listarPersonas() {
-        ArrayList<Persona> listadoPersonas;
-        
-        try {
-            objCliente.crearConexion();
-        
-            Gson objConvertidor= new Gson();
-            PeticionDTO objPeticion= new PeticionDTO();            
-            objPeticion.setAccion("listarPersonas");            
-            String JSON = objConvertidor.toJson(objPeticion);
-            String respuestaJSON=objCliente.enviarPeticion(JSON);
-           
-            ResultadoDTO objResultado= objConvertidor.fromJson(respuestaJSON, ResultadoDTO.class); 
-            String listaJSON = objResultado.getJSONResultado();
-            java.lang.reflect.Type listType = new TypeToken<ArrayList<Persona>>(){}.getType();
-           listadoPersonas = objConvertidor.fromJson(listaJSON, listType);
-            objCliente.cerrarConexion();
-        
-        } 
-        catch (IOException ex) {
-            listadoPersonas=null;
-        }
-            
-        
-        return listadoPersonas;
-    }
-*/    
+    }  
 
     @Override
     public void editarAdmin(Administrador Admin) {
@@ -273,14 +219,14 @@ public class PersonaServicesImpl implements PersonaServicesInt{
     }
 
     @Override
-    public Comida consultarComida(String Codigo, String Nombre, String Tipo) {
+    public Comida consultarComida(String Codigo) {
          Comida objComidaRetornar = null;
         try {
             objCliente.crearConexion();
         
             Gson objConvertidor= new Gson();
             PeticionDTO objPeticion= new PeticionDTO();
-            String argumentos= Codigo+","+Nombre+","+Tipo;
+            String argumentos= Codigo;
             
             objPeticion.setAccion("consultarComida");
             objPeticion.setArgumentos(argumentos);

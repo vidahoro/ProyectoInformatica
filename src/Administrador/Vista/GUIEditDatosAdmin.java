@@ -514,7 +514,7 @@ public class GUIEditDatosAdmin extends javax.swing.JFrame {
                     setVisible(false);
                     GUIDatosAdmin vtnDatos = new GUIDatosAdmin(this.personaServices, AdminReferencia);
                     vtnDatos.setVisible(true);
-                }else if(jPasswordNew.getText().length()>8 && jPasswordNew.getText().length()<15){
+                }else if(jPasswordNew.getText().length()>=8 && jPasswordNew.getText().length()<=15){
                     AdminReferencia.setConstrasenia(jPasswordNew.getText());
                     this.personaServices.editarAdmin(AdminReferencia);
                     setVisible(false);

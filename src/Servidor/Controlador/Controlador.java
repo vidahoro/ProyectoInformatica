@@ -50,13 +50,11 @@ public class Controlador {
         String resultadoJSON="";
         ResultadoDTO objResultado=new ResultadoDTO();
         switch (accion) {
-        case "consultarComida":
-                String Codigo,  Nombre,  Tipo;                  
+            case "consultarComida":
+                String Codigo;                  
                 String vector[]=argumentosPeticion.split(",");
                 Codigo=vector[0];
-                Nombre=vector[1];
-                Tipo= vector[2];
-                objResultado=consultarComida(Codigo,  Nombre,  Tipo);                
+                objResultado=consultarComida(Codigo);                
             break;
             case "registrarPersona":                
                 Persona objPersona= objConvertidor.fromJson(argumentosPeticion, Persona.class);
@@ -64,7 +62,7 @@ public class Controlador {
             break;            
             case "iniciarSesion":
                 String login, contrasenia;                
-                String vectorL[]=argumentosPeticion.split(",");  // para que sirve el split?
+                String vectorL[]=argumentosPeticion.split(",");
                 login=vectorL[0];
                 contrasenia=vectorL[1];
                 objResultado=iniciarSesion(login, contrasenia);
@@ -157,13 +155,13 @@ public class Controlador {
     }
     */
     
-    private ResultadoDTO consultarComida(String Codigo,  String Nombre, String  Tipo)
+    private ResultadoDTO consultarComida(String Codigo)
     {
         Comida objComidaEncontrada;
         ResultadoDTO objResultado=new ResultadoDTO(); 
-        if(this.objAdministradorService.existeComida(Codigo, Nombre, Tipo)==true)
+        if(this.objComidaService.existeComida(Codigo)==true)
         {
-            objComidaEncontrada=this.objAdministradorService.consultarComida(Codigo, Nombre, Tipo);
+            objComidaEncontrada=this.objComidaService.consultarComida(Codigo);
             String objPersonaComoJSON=objConvertidor.toJson(objComidaEncontrada);                    
             objResultado.setCodigoResultado(1);
             objResultado.setJSONResultado(objPersonaComoJSON);                    
@@ -188,6 +186,7 @@ public class Controlador {
         }
         return objResultado;
     }
+    
     private ResultadoDTO listarComidas()
     {       
         ResultadoDTO objResultado=new ResultadoDTO(); 
@@ -198,6 +197,7 @@ public class Controlador {
                
         return objResultado;
     }
+    
     private ResultadoDTO iniciarSesionPersona(String numeroIdentificacion,String TipoIdentificacion, String contrasenia){
        
         ResultadoDTO objResultado = new ResultadoDTO();
@@ -208,20 +208,15 @@ public class Controlador {
         else
         {
         objResultado.setCodigoResultado(-1);
-        }
-        
-        
-        return objResultado;
-        
-    
+        }        
+        return objResultado;   
     }
+    
     private ResultadoDTO AgregarComida(Comida objComida){
         ResultadoDTO objResultadoDTO = new ResultadoDTO();
         String Codigo = objComida.getCodigo();
-        String Nombre = objComida.getNombre();
-        String Tipo = objComida.getTipo();
         
-        if(this.objComidaService.existeComida(Codigo, Nombre, Tipo)==false){
+        if(this.objComidaService.existeComida(Codigo)==false){
             this.objComidaService.AgregarComida(objComida);
             objResultadoDTO.setCodigoResultado(1);
         }else{
@@ -237,17 +232,6 @@ public class Controlador {
         return objResultadoDTO;
     }
 
-
-    private ResultadoDTO listarComidasEspeciales() {
-        ResultadoDTO objResultado=new ResultadoDTO(); 
-        ArrayList<Comida> listado= this.objComidaService.listarComidasEspeciales();
-        String listadoComidasComoJSON=objConvertidor.toJson(listado);                    
-        objResultado.setCodigoResultado(1);
-        objResultado.setJSONResultado(listadoComidasComoJSON);                    
-               
-        return objResultado;
-    }
-
     private ResultadoDTO eliminarComida(Comida objComidaEliminar){
         ResultadoDTO objResultadoDTO = new ResultadoDTO();
         if (this.objComidaService.eliminarComida(objComidaEliminar)==true) {
@@ -259,20 +243,12 @@ public class Controlador {
     }
 
     private ResultadoDTO editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew) {
-        ResultadoDTO objResultadoDTO = new ResultadoDTO();/*
-        if(this.objComidaService.existeComida(CodigoNew, NombreNew, TipoNew)==false || CodigoOld.equals(CodigoNew)){
-            if (this.objComidaService.editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew)==true) {
-                objResultadoDTO.setCodigoResultado(1);
-            }else{
-                objResultadoDTO.setCodigoResultado(-1);
-            }
-        }else{
-            objResultadoDTO.setCodigoResultado(-1);
-        }*/
-        if (CodigoNew.equals(CodigoOld) && objComidaService.existeComida("", NombreNew, TipoNew)==false) {
+        ResultadoDTO objResultadoDTO = new ResultadoDTO();
+        
+        if (CodigoNew.equals(CodigoOld)) {
             objComidaService.editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew);
             objResultadoDTO.setCodigoResultado(1);
-        }else if(objComidaService.existeComida(CodigoNew, NombreNew, TipoNew)==false){
+        }else if(objComidaService.existeComida(CodigoNew)==false){
             objComidaService.editarComida(CodigoOld, CodigoNew, NombreNew, TipoNew, ValorNew, FotoNew);
             objResultadoDTO.setCodigoResultado(1);
         }else{

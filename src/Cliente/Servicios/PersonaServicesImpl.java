@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Modelo.dominio.Persona;
+import Modelo.Persona;
 import Modelo.DTO.PeticionDTO;
 import Modelo.DTO.ResultadoDTO;
 
@@ -51,7 +51,7 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         
         return codigoResultado;    
     }
-
+/*
     @Override
     public int registrarPersona(String nombres, String apellidos, String tipoIdentificacion, String numeroIdentificacion, String imagenBase64) {
        
@@ -75,7 +75,7 @@ public class PersonaServicesImpl implements PersonaServicesInt{
         }
         return codigoResultado;
     }
-
+*/
     @Override
     public Persona consultarPersona(String tipoIdentificacion, String numeroIdentificacion) {
       

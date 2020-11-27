@@ -5,8 +5,7 @@ import java.util.*;
 public class Comida {
     private String Foto;
     private String Codigo; 
-    private String Nombre;
-   
+    private String Nombre;   
     private String Tipo;
     private float Valor;
 
@@ -18,11 +17,6 @@ public class Comida {
         this.Valor = Valor;
     }
 
-
- 
-    
-    
-    
     public String getCodigo() {
         return Codigo;
     }
@@ -54,8 +48,6 @@ public class Comida {
     public void setTipo(String Tipo) {
         this.Tipo = Tipo;
     }
-
-
 
     public float getValor() {
         return Valor;

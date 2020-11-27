@@ -14,14 +14,9 @@ import java.util.ArrayList;
  */
 public interface IComidaRepository {
     public boolean AgregarComida(Comida objcomida);
-    public ArrayList<Comida> listarComidas();
-    public Comida consultarComida(String Codigo);    
-    public boolean existeComida(String Codigo,String Nombre, String Tipo);
-
-    public ArrayList<Comida> listarComidasEspeciales();
-
+    public ArrayList<Comida> listarComidas();   
+    public boolean existeComida(String Codigo);
     public boolean eliminarComida(Comida objComidaEliminar);
     public boolean editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew);
-    
-
+    public Comida consultarComida(String codigo);
 }

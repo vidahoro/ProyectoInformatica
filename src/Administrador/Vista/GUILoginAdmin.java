@@ -7,12 +7,10 @@ package Administrador.Vista;
 
 import Administrador.Servicios.PersonaServicesInt;
 import Modelo.Administrador;
-import Servidor.Acceso.AdministradorRepositoryImplArray;
 import Utilidades.Utilidades;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 /**
  *
@@ -113,7 +111,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addGap(226, 226, 226))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,11 +145,6 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jLabelContrasena.setText("Contraseña:");
 
         jTextFieldUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuarioActionPerformed(evt);
-            }
-        });
 
         jLabelOlvidarC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelOlvidarC.setForeground(new java.awt.Color(26, 85, 118));
@@ -282,7 +275,7 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelFooter, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
+            .addComponent(jPanelFooter, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelCentral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,8 +286,8 @@ public class GUILoginAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jPanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(32, 32, 32)
+                .addComponent(jPanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jPanelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -332,10 +325,6 @@ public class GUILoginAdmin extends javax.swing.JFrame {
             jButtonLogINActionPerformed(null);
         }
     }//GEN-LAST:event_jPasswordFieldContraseniaKeyPressed
-
-    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

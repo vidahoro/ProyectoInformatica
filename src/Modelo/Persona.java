@@ -1,7 +1,4 @@
 package Modelo;
-
-
-
 /**
  * 
  */
@@ -11,46 +8,11 @@ public class Persona {
     private String nombres;
     private String apellidos;
     private String contrasenia;
-    //private String contrasena;
-    /**
-     * Default constructor
-     
-    /**
-    public Persona() {
-    }
-
-    
-    private EnumTipoID TipoID;
-
-   
-    private String ID;
-
-    
-    private String Contraseña;
-
-    
-    private String Nombre;
-
-  
-    private String Apellido;
-
-   
-    private EnumGenero Genero;
-
-
-    
-    public Set<Factura> Factura;
-     * @param numeroIdentificacion    
-     * @param contrasenia    
-    */
-
- 
 
     public Persona(String numeroIdentificacion,String tipoIdentificacion, String contrasenia) {
         this.numeroIdentificacion = numeroIdentificacion;
         this.tipoIdentificacion = tipoIdentificacion;
-        this.contrasenia = contrasenia;
-       
+        this.contrasenia = contrasenia;   
     }
 
     public String getContrasenia() {
@@ -95,8 +57,5 @@ public class Persona {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-
-    
-    
 
 }

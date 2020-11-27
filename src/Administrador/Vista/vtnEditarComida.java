@@ -82,12 +82,6 @@ public class vtnEditarComida extends javax.swing.JInternalFrame {
         jLabelCodigo.setForeground(new java.awt.Color(26, 85, 118));
         jLabelCodigo.setText("*Código");
 
-        jTextFieldCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodeActionPerformed(evt);
-            }
-        });
-
         jLabelName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(26, 85, 118));
         jLabelName.setText("*Nombre");
@@ -97,21 +91,10 @@ public class vtnEditarComida extends javax.swing.JInternalFrame {
         jLabelTipo.setText("*Tipo");
 
         jComboBoxTipoComida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Especial", "Comida Rápida", "Postre", "Bebida" }));
-        jComboBoxTipoComida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoComidaActionPerformed(evt);
-            }
-        });
 
         jLabelValor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelValor.setForeground(new java.awt.Color(26, 85, 118));
         jLabelValor.setText("*Valor");
-
-        jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPriceActionPerformed(evt);
-            }
-        });
 
         jLabelFoto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelFoto.setForeground(new java.awt.Color(26, 85, 118));
@@ -213,18 +196,6 @@ public class vtnEditarComida extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCodeActionPerformed
-
-    private void jComboBoxTipoComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoComidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoComidaActionPerformed
-
-    private void jTextFieldPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPriceActionPerformed
-
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -248,7 +219,9 @@ public class vtnEditarComida extends javax.swing.JInternalFrame {
             if(jTextFieldCode.getText().equals("") || jTextFieldNombre.getText().equals("") || jTextFieldPrice.getText().equals("")){
                 Utilidades.mensajeAdvertencia("Error, Campos vacios", "Atención");
             }else if(comprobarNumeroValido(jTextFieldPrice.getText())==false){
-                
+            
+            }else if(Float.parseFloat(jTextFieldPrice.getText())<0){
+                Utilidades.mensajeError("Precio no válido", "Error");  
             }else if(jLabelArchivoSeleccionado.getText().equals("No hay archivos seleccionados")){
                 Utilidades.mensajeAdvertencia("Fotografía no seleccionada", "Atención");
             }else{

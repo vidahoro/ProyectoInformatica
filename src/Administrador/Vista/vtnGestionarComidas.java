@@ -7,26 +7,16 @@ package Administrador.Vista;
 
 import Administrador.Servicios.PersonaServicesInt;
 import Modelo.Comida;
-import Servidor.Acceso.IComidaRepository;
 import Utilidades.Utilidades;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Image;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 /**
  *
@@ -47,17 +37,6 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         this.jTableListaComidas.setDefaultRenderer(Object.class, new Render());
         llenarTabla();
     }
-     private void InicializarTabla(){
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Foto");
-        model.addColumn("Código");
-        model.addColumn("Nombre");
-        model.addColumn("Tipo");
-        model.addColumn("Valor");
-        model.addColumn("Acciones");
-        this.jTableListaComidas.setModel(model);
-    
-    }  
     
     private void llenarTabla(){
         //DefaultTableModel model =(DefaultTableModel) this.jTableListaComidas.getModel();
@@ -108,27 +87,6 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         model.addRow(fila);
 
     }
-    
-    private static String convertirImagenBase64(String urlImagen) {
-        String imagenBase64="";
-        try {        
-            File file =  new File(urlImagen); 
-            
-            FileInputStream fileInputStreamReader = new FileInputStream(file);
-            byte[] bytes = new byte[(int)file.length()];
-            fileInputStreamReader.read(bytes);
-            imagenBase64=new String(Base64.getEncoder().encode(bytes), "UTF-8");
-            System.out.println("imagen en base 64: " + imagenBase64);            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
-        }            
-            return imagenBase64;
-    }
        
     /**
      * This method is called from within the constructor to initialize the form.
@@ -167,9 +125,9 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         });
 
         jTextFieldBuscar.setToolTipText("Buscar por código de Comida");
-        jTextFieldBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscarActionPerformed(evt);
+        jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscarKeyPressed(evt);
             }
         });
 
@@ -199,6 +157,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         jTableListaComidas.setRowHeight(50);
         jTableListaComidas.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jTableListaComidas.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jTableListaComidas.getTableHeader().setReorderingAllowed(false);
         jTableListaComidas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableListaComidasMouseClicked(evt);
@@ -225,44 +184,36 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(50, 50, 50)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(jButtonBuscarComidas)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                         .addComponent(jButtonActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addGap(59, 59, 59)
                         .addComponent(jButtonAgregarComida)
-                        .addContainerGap(182, Short.MAX_VALUE))))
-            .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                    .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                            .addGap(49, 49, 49)
-                            .addComponent(jScrollPaneTabla))
-                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(49, 49, 49)))
+                        .addGap(144, 144, 144))
+                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPaneTabla)
+                            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                .addComponent(jTextFieldBuscar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonBuscarComidas)))
+                        .addGap(50, 50, 50))))
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(30, 30, 30)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonActualizar)
                     .addComponent(jButtonAgregarComida))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonBuscarComidas)
+                    .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonBuscarComidas)
-                .addContainerGap(284, Short.MAX_VALUE))
-            .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
 
         getContentPane().add(jPanelPrincipal, java.awt.BorderLayout.CENTER);
@@ -275,23 +226,8 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         vtnAgregarComida vtnAdd = new vtnAgregarComida(this.personaServices);
         vtnAdd.setVisible(true);
         this.getParent().add(vtnAdd);
+        vtnAdd.toFront();
     }//GEN-LAST:event_jButtonAgregarComidaActionPerformed
-
-    private void jTextFieldBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscarActionPerformed
-        // TODO add your handling code here:
-        /*
-        DefaultTableModel dtm = new DefaultTableModel(); 
-        jTextFieldBuscar.addKeyListener(new KeyAdapter(){
-            @Override
-            public void keyReleased(KeyEvent ke) {
-               trs.setRowFilter(RowFilter.regexFilter("(?i)"+jTextFieldBuscar, 1));
-            }
-  
-        });
-        trs = new TableRowSorter(dtm);
-        jTableListaComidas.setRowSorter(trs);  
-        */
-    }//GEN-LAST:event_jTextFieldBuscarActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         // TODO add your handling code here:
@@ -339,31 +275,32 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
                    Comida objComidaEditar = new Comida(Foto, Codigo, Nombre, Tipo, Valor);
                    vtnEditarComida vtnEdit = new vtnEditarComida(this.personaServices, objComidaEditar);
                    vtnEdit.setVisible(true);
-                   this.getParent().add(vtnEdit);                    
+                   this.getParent().add(vtnEdit);
+                   vtnEdit.toFront();
                 }
             }
         }
     }//GEN-LAST:event_jTableListaComidasMouseClicked
 
     private void jButtonBuscarComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarComidasActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:              
+        Comida objComida=this.personaServices.consultarComida(jTextFieldBuscar.getText());
         
-                
-        Comida objComida=this.personaServices.consultarComida(jTextFieldBuscar.getText(), jTextFieldBuscar.getText(), jTextFieldBuscar.getText());
-
-        if(objComida!=null)
-        {
-            txtNombres.setText(objPersona.getNombres());
-            txtApellidos.setText(objPersona.getApellidos());
+        if(objComida!=null) {
+            limpiarTabla();
+            llenarFila(objComida);
         }
-        else
-        {
-            txtNumero.requestFocus();
-            txtNombres.setText("");
-            txtApellidos.setText("");
-            Utilidades.mensajeAdvertencia("Usuario no encontrado", "Atención");
+        else {
+            Utilidades.mensajeAdvertencia("Comida no encontrada", "Atención");
         }   
     }//GEN-LAST:event_jButtonBuscarComidasActionPerformed
+
+    private void jTextFieldBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonBuscarComidasActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTextFieldBuscarKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -10,8 +10,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import Modelo.Administrador;
-//import Servidor.Acceso.AdministradorRepositoryImplArray;
-import java.util.ArrayList;
 /**
  *
  * @author Victor
@@ -20,7 +18,6 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
     
     private PersonaServicesInt personaServices;
     private Administrador AdminReferencia;
-    private ArrayList<Administrador> listaAdministradores;
     /**
      * Creates new form JFrameGestionarComidass
      */
@@ -35,14 +32,7 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
         vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas(this.personaServices);
         objvtnGestionarComidas.setVisible(true);
         this.jDesktopPaneCentral.add(objvtnGestionarComidas);
-        
-        /*
-        vtnAgregarComida objvtnAgregarComida= new vtnAgregarComida();
-        objvtnAgregarComida.setVisible(true);
-        this.jDesktopPaneCentral.add(objvtnAgregarComida);        
-        */
-        
-        
+               
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
@@ -69,27 +59,9 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
         ImageIcon img10= new ImageIcon(img9.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.Image_iconoadmin_link.setIcon(img10);
         this.Image_iconoadmin_link.setText("");
-        
-        /*
-        if(AdminReferencia == null){
-            AdministradorRepositoryImplArray AdminRepo = new AdministradorRepositoryImplArray();
-            listaAdministradores = AdminRepo.getListaAdministradores();
-            for (int i = 0; i < listaAdministradores.size(); i++) {
-                Administrador AdminAux = listaAdministradores.get(i);
-                if(AdminAux.getLogin().equals(login)){
-                    AdminReferencia = AdminAux;
-                }
-            }
-        }
-        */
           
         String AdminName = AdminReferencia.getNombre();
-        jLabelAdminName.setText(AdminName);
-        
-
-        
-      
-        
+        jLabelAdminName.setText(AdminName);       
     }
 
     /**
@@ -386,12 +358,11 @@ public class GUIMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelTendenciasMouseClicked
 
     private void jLabelGestionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGestionarMouseClicked
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:        
         vtnGestionarComidas objvtnGestionarComidas= new vtnGestionarComidas(personaServices);
         this.jDesktopPaneCentral.add(objvtnGestionarComidas);
         objvtnGestionarComidas.setVisible(true);
-        
+        objvtnGestionarComidas.toFront();
     }//GEN-LAST:event_jLabelGestionarMouseClicked
 
     private void Image_iconoadmin_linkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Image_iconoadmin_linkMouseClicked

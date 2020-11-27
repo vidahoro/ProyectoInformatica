@@ -33,43 +33,33 @@ public class Restaurante {
     public void ListarTiposMasSolicitados() {
         
     }
-
     public void ListarComidasSolicitadasSemana() {
         
     }
-
     public void IngresarCliente() {
         
     }
-
     public void RegistrarCliente() {
         
     }
-
     public void VerMenu() {
         
     }
-
     public void RealizarPedido() {
         
     }
-
     public void NotificarPedidoRealizado() {
         
     }
-
     public void NotificarPedidoOrdenado() {
         
     }
-
     public void GenerarFactura() {
         
     }
-
     public void PrecioTotal() {
         
     }
-
     public void CantidadComida() {
         
     }

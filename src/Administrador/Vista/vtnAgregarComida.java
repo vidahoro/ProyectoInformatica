@@ -71,12 +71,6 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         jLabelCodigo.setForeground(new java.awt.Color(26, 85, 118));
         jLabelCodigo.setText("*Código");
 
-        jTextFieldCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodeActionPerformed(evt);
-            }
-        });
-
         jLabelName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(26, 85, 118));
         jLabelName.setText("*Nombre");
@@ -86,21 +80,10 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         jLabelTipo.setText("*Tipo");
 
         jComboBoxTipoComida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Especial", "Comida Rápida", "Postre", "Bebida" }));
-        jComboBoxTipoComida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoComidaActionPerformed(evt);
-            }
-        });
 
         jLabelValor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelValor.setForeground(new java.awt.Color(26, 85, 118));
         jLabelValor.setText("*Valor");
-
-        jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPriceActionPerformed(evt);
-            }
-        });
 
         jLabelFoto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelFoto.setForeground(new java.awt.Color(26, 85, 118));
@@ -140,28 +123,25 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelCamposRequeridos)
-                            .addComponent(jLabelFoto)
-                            .addComponent(jButtonSelectFile)
-                            .addComponent(jLabelValor)
-                            .addComponent(jLabelTipo)
-                            .addComponent(jLabelName)
-                            .addComponent(jLabelCodigo)
-                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxTipoComida, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelArchivoSeleccionado)
-                            .addComponent(jLabelAgregarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCode, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
                         .addComponent(jButtonCancelar)
-                        .addGap(87, 87, 87)
-                        .addComponent(jButtonAgregar)))
+                        .addGap(88, 88, 88)
+                        .addComponent(jButtonAgregar))
+                    .addComponent(jLabelCamposRequeridos)
+                    .addComponent(jLabelFoto)
+                    .addComponent(jButtonSelectFile)
+                    .addComponent(jLabelValor)
+                    .addComponent(jLabelTipo)
+                    .addComponent(jLabelName)
+                    .addComponent(jLabelCodigo)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxTipoComida, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelArchivoSeleccionado)
+                    .addComponent(jLabelAgregarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCode, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         jPanelPrincipalLayout.setVerticalGroup(
@@ -197,25 +177,13 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonAgregar))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelPrincipal, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCodeActionPerformed
-
-    private void jComboBoxTipoComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoComidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoComidaActionPerformed
-
-    private void jTextFieldPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPriceActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
@@ -229,9 +197,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
         if (returnValue==JFileChooser.APPROVE_OPTION){
             File selectedFile = jfc.getSelectedFile();
             this.jLabelArchivoSeleccionado.setText(selectedFile.getAbsolutePath());
-            System.out.println(selectedFile.getAbsolutePath());
-            
-            
+            System.out.println(selectedFile.getAbsolutePath());         
         }
     }//GEN-LAST:event_jButtonSelectFileActionPerformed
 
@@ -242,7 +208,9 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             if(jTextFieldCode.getText().equals("") || jTextFieldNombre.getText().equals("") || jTextFieldPrice.getText().equals("")){
                 Utilidades.mensajeAdvertencia("Error, Campos vacios", "Atención");
             }else if(comprobarNumeroValido(jTextFieldPrice.getText())==false){
-                
+            
+            }else if(Float.parseFloat(jTextFieldPrice.getText())<0){
+                Utilidades.mensajeError("Precio no válido", "Error");  
             }else if(jLabelArchivoSeleccionado.getText().equals("No hay archivos seleccionados")){
                 Utilidades.mensajeAdvertencia("Fotografía no seleccionada", "Atención");
             }else{
@@ -301,8 +269,7 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
             System.out.println("Error numero no valido");
             Utilidades.mensajeError("Precio no válido", "Error");
             bandera=false;
-        }
-        
+        }     
         return bandera;        
     }
     

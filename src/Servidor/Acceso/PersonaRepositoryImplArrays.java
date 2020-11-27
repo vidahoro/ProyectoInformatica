@@ -20,11 +20,7 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
         Persona objPersona= new Persona("1234","T.I.","12345");
         this.objPersonas.add(objPersona);
     }
-    /*
-    public ArrayList<Persona> getListaAdministradores() {
-    return objPersonas;
-    }
-    */
+
    @Override
     public boolean existePersona(String numeroIdentificacion,String tipoIdentificacion, String contrasenia) {
          System.out.println("NumeroID: "+numeroIdentificacion+"Tipo: "+tipoIdentificacion+"Contraseña: "+contrasenia);
@@ -39,15 +35,7 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
         }
     return bandera;
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
+   
     @Override
     public boolean registrarPersona(Persona objPersona)
     {
@@ -71,27 +59,9 @@ public class PersonaRepositoryImplArrays implements IPersonaRepository{
                 System.out.println("Persona encontrada");
                 break;
             }
-        }
-        
+        }        
         return objPersona;
     }
-    /*
-    @Override
-    public boolean existePersona(String tipoIdentificacion, String numeroIdentificacion)
-    {
-        boolean bandera=false;
-        System.out.println("ejecutando método existe persona");
-        for (int i = 0; i < objPersonas.size(); i++) {
-             System.out.println("tipo: -" + objPersonas.get(i).getTipoIdentificacion()+ "-numero -" + objPersonas.get(i).getNumeroIdentificacion()+"-");
-            if(objPersonas.get(i).getTipoIdentificacion().equalsIgnoreCase(tipoIdentificacion) && objPersonas.get(i).getNumeroIdentificacion().equalsIgnoreCase(numeroIdentificacion))
-            {
-                bandera=true;
-                System.out.println("Persona encontrada");
-                break;
-            }
-        }
-        
-        return bandera;
-    } */
+
     
 }
