@@ -29,8 +29,9 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
    public ComidaRepositoryImplArray(){
        this.ListaDeComidas= new ArrayList();
        Comida objComida = new Comida("/Recursos/exitoso.png", "1", "comida1", "Bebida", 12);
+       //Comida objComida1 = new Comida("", "2" , "Changua", "Especial", 400000);
        this.ListaDeComidas.add(objComida);
-      
+       //this.ListaDeComidas.add(objComida1);
    }
    
      @Override

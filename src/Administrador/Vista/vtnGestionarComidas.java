@@ -6,19 +6,25 @@
 package Administrador.Vista;
 
 import Administrador.Servicios.PersonaServicesInt;
-import Servidor.Acceso.ComidaRepositoryImplArray;
 import Modelo.Comida;
-import Servidor.Acceso.ComidaRepositoryImplArray;
 import Servidor.Acceso.IComidaRepository;
 import Utilidades.Utilidades;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
@@ -29,6 +35,7 @@ import javax.swing.table.TableRowSorter;
 public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     private PersonaServicesInt personaServices;
     TableRowSorter trs;
+    JLabel JLabelFoto;
     /**
      * Creates new form vtnGestionarComidas
      */
@@ -72,31 +79,63 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     
     private void llenarFila(Comida objComidaPorListar)
     {   
-        JButton JButtonEliminarUsuario = new JButton();
-        JButtonEliminarUsuario.setName("Eliminar");
-        JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
-
-        JButton JButtonEditarUsuario = new JButton();
-        JButtonEditarUsuario.setName("Editar");
-        JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
-
-        Object [] fila= { objComidaPorListar.getFoto(),objComidaPorListar.getCodigo(),objComidaPorListar.getNombre(),
-        objComidaPorListar.getTipo(), objComidaPorListar.getValor(), JButtonEliminarUsuario, JButtonEditarUsuario};
-        
-        DefaultTableModel model = (DefaultTableModel) this.jTableListaComidas.getModel();
-        model.addRow(fila);
-        /*
+       /*
+       JLabel JLabelFoto = new JLabel();
+       JLabelFoto.setName("Foto");
+       JLabelFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
+       */
+        JButton JButtonFoto = new JButton();
+        JButtonFoto.setName("Foto");
+        JButtonFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Salpicon.png")));       
+       
+      
+        /*          
         byte[] data;        
-            System.out.println("imagen: " + objPersona.getImagen());
-            data =  Base64.getDecoder().decode(objPersona.getImagen());
+            System.out.println("Foto: " + objComidaPorListar.getFoto());
+            data =  Base64.getDecoder().decode(objComidaPorListar.getFoto());
             
             ImageIcon imageIcon = new ImageIcon(data);
             
             Image img1= new ImageIcon(imageIcon.getImage()).getImage();
             ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
-            this.jLabelImagenSeleccionada.setIcon(imageIcon);
+            this.JLabelFoto.setIcon(imageIcon);
+        
         */
-    }
+        JButton JButtonEliminarComida = new JButton();
+        JButtonEliminarComida.setName("Eliminar");
+        JButtonEliminarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
+
+        JButton JButtonEditarComida = new JButton();
+        JButtonEditarComida.setName("Editar");
+        JButtonEditarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
+
+        Object [] fila= { JButtonFoto,objComidaPorListar.getCodigo(),objComidaPorListar.getNombre(),
+        objComidaPorListar.getTipo(), objComidaPorListar.getValor(), JButtonEliminarComida, JButtonEditarComida};
+        
+        DefaultTableModel model = (DefaultTableModel) this.jTableListaComidas.getModel();
+        model.addRow(fila);
+
+    }/*
+     private static String convertirImagenBase64(String urlImagen) {
+        String imagenBase64="";
+        try {        
+            File file =  new File(urlImagen); 
+            
+            FileInputStream fileInputStreamReader = new FileInputStream(file);
+            byte[] bytes = new byte[(int)file.length()];
+            fileInputStreamReader.read(bytes);
+            imagenBase64=new String(Base64.getEncoder().encode(bytes), "UTF-8");
+            System.out.println("imagen en base 64: " + imagenBase64);            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        }            
+            return imagenBase64;
+    }*/
        
     /**
      * This method is called from within the constructor to initialize the form.
@@ -163,7 +202,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTableListaComidas.setRowHeight(25);
+        jTableListaComidas.setRowHeight(50);
         jTableListaComidas.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jTableListaComidas.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jTableListaComidas.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -8,14 +8,24 @@ package Cliente.Vista;
 
 
 
+import Administrador.Vista.vtnAgregarComida;
 import Cliente.Servicios.PersonaServicesInt;
 
 import Modelo.Comida;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 
 
 
@@ -39,7 +49,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         llenarTabla();
-        /*
+        
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
         ImageIcon img2= new ImageIcon(img1.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         this.Image_restaurant_link.setIcon(img2);
@@ -60,12 +70,9 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         this.Image_instagram_link.setIcon(img8);
         this.Image_instagram_link.setText("");
         
-        Image img9 = new ImageIcon(getClass().getResource("/Recursos/IconoAdmin.png")).getImage();        
-        ImageIcon img10= new ImageIcon(img9.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-        this.Image_iconoadmin_link.setIcon(img10);
-        this.Image_iconoadmin_link.setText("");
-        */
+    
     }
+    /*
     private void llenarTablaEspecial(){
         limpiarTablaEspecial();
         ArrayList<Comida> ListaDeComidas = this.personaServices.listarComidas();
@@ -80,7 +87,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
     private void llenarFilaEspecial(Comida objcomida){
     
     }
-
+    */
     private void llenarTabla(){
         limpiarTabla();
         ArrayList<Comida> ListaDeComidas = this.personaServices.listarComidas();
@@ -118,7 +125,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
     }
     
     private void llenarFila(Comida objComidaPorListar)
-    {   /*
+    {   
         JButton JButtonEliminarUsuario = new JButton();
         JButtonEliminarUsuario.setName("Eliminar");
         JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
@@ -126,7 +133,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         JButton JButtonEditarUsuario = new JButton();
         JButtonEditarUsuario.setName("Editar");
         JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
-        */             
+                     
         Object [] fila= { objComidaPorListar.getFoto(), objComidaPorListar.getNombre(), objComidaPorListar.getValor()};
         
         if (objComidaPorListar.getTipo().equals("Especial")) {
@@ -155,6 +162,8 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             this.jLabelImagenSeleccionada.setIcon(imageIcon);
         */
     }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

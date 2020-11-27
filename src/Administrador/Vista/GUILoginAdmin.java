@@ -147,6 +147,11 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jLabelContrasena.setText("Contraseña:");
 
         jTextFieldUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsuarioActionPerformed(evt);
+            }
+        });
 
         jLabelOlvidarC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelOlvidarC.setForeground(new java.awt.Color(26, 85, 118));
@@ -327,6 +332,10 @@ public class GUILoginAdmin extends javax.swing.JFrame {
             jButtonLogINActionPerformed(null);
         }
     }//GEN-LAST:event_jPasswordFieldContraseniaKeyPressed
+
+    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

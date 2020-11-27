@@ -3,7 +3,7 @@ package Modelo;
 import java.util.*;
 
 public class Comida {
-     private String Foto;
+    private String Foto;
     private String Codigo; 
     private String Nombre;
    
