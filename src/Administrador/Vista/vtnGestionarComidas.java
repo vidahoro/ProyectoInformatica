@@ -86,7 +86,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         ImageIcon imageIcon = new ImageIcon(data);
             
         Image img1= new ImageIcon(imageIcon.getImage()).getImage();
-        ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
+        ImageIcon img2=new ImageIcon(img1.getScaledInstance(35, 35, Image.SCALE_SMOOTH));                 
 
         JButton JButtonFoto = new JButton();
         JButtonFoto.setName("Foto");

@@ -139,7 +139,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         ImageIcon imageIcon = new ImageIcon(data);
             
         Image img1= new ImageIcon(imageIcon.getImage()).getImage();
-        ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
+        ImageIcon img2=new ImageIcon(img1.getScaledInstance(35, 35  , Image.SCALE_SMOOTH));                 
 
         JButton JButtonFoto = new JButton();
         JButtonFoto.setName("Foto");
@@ -463,31 +463,33 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         FooterLayout.setHorizontalGroup(
             FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FooterLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNumero)
-                    .addGroup(FooterLayout.createSequentialGroup()
-                        .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                        .addComponent(Image_Facebook_link)
-                        .addGap(46, 46, 46)
-                        .addComponent(Image_Twitter_link)
-                        .addGap(32, 32, 32)
-                        .addComponent(Image_instagram_link)))
-                .addGap(43, 43, 43))
+                    .addComponent(jLabelDireccion)
+                    .addComponent(jLabelNumero))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(Image_Facebook_link)
+                .addGap(64, 64, 64)
+                .addComponent(Image_Twitter_link)
+                .addGap(64, 64, 64)
+                .addComponent(Image_instagram_link)
+                .addGap(80, 80, 80))
         );
         FooterLayout.setVerticalGroup(
             FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FooterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabelDireccion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelNumero)
+                .addContainerGap())
+            .addGroup(FooterLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
                 .addGroup(FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDireccion)
                     .addComponent(Image_Twitter_link)
                     .addComponent(Image_instagram_link)
                     .addComponent(Image_Facebook_link))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelNumero)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getContentPane().add(Footer, java.awt.BorderLayout.PAGE_END);
