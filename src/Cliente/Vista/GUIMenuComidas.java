@@ -48,6 +48,12 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         this.personaServices=personaServices;
         setLocationRelativeTo(null);
         
+        this.jTableBebidas.setDefaultRenderer(Object.class, new Render());
+        this.jTableEspecial.setDefaultRenderer(Object.class, new Render());
+        this.jTableFastFood.setDefaultRenderer(Object.class, new Render());
+        this.jTablePedidoActual.setDefaultRenderer(Object.class, new Render());
+        this.jTablePostres.setDefaultRenderer(Object.class, new Render());
+        
         llenarTabla();
         
         Image img1 = new ImageIcon(getClass().getResource("/Recursos/restaurant.png")).getImage();        
@@ -126,15 +132,20 @@ public class GUIMenuComidas extends javax.swing.JFrame {
     
     private void llenarFila(Comida objComidaPorListar)
     {   
-        JButton JButtonEliminarUsuario = new JButton();
-        JButtonEliminarUsuario.setName("Eliminar");
-        JButtonEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
+        byte[] data;        
+        System.out.println("Foto: " + objComidaPorListar.getFoto());
+        data =  Base64.getDecoder().decode(objComidaPorListar.getFoto());
+            
+        ImageIcon imageIcon = new ImageIcon(data);
+            
+        Image img1= new ImageIcon(imageIcon.getImage()).getImage();
+        ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
 
-        JButton JButtonEditarUsuario = new JButton();
-        JButtonEditarUsuario.setName("Editar");
-        JButtonEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
+        JButton JButtonFoto = new JButton();
+        JButtonFoto.setName("Foto");
+        JButtonFoto.setIcon(img2);
                      
-        Object [] fila= { objComidaPorListar.getFoto(), objComidaPorListar.getNombre(), objComidaPorListar.getValor()};
+        Object [] fila= {JButtonFoto, objComidaPorListar.getNombre(), objComidaPorListar.getValor(), 0};
         
         if (objComidaPorListar.getTipo().equals("Especial")) {
             DefaultTableModel modelE = (DefaultTableModel) this.jTableEspecial.getModel();
@@ -150,20 +161,28 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             modelB.addRow(fila);
         }
         
-        /*
-        byte[] data;        
-            System.out.println("imagen: " + objPersona.getImagen());
-            data =  Base64.getDecoder().decode(objPersona.getImagen());
-            
-            ImageIcon imageIcon = new ImageIcon(data);
-            
-            Image img1= new ImageIcon(imageIcon.getImage()).getImage();
-            ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
-            this.jLabelImagenSeleccionada.setIcon(imageIcon);
-        */
     }
     
-    
+    private static String convertirImagenBase64(String urlImagen) {
+        String imagenBase64="";
+        try {        
+            File file =  new File(urlImagen); 
+            
+            FileInputStream fileInputStreamReader = new FileInputStream(file);
+            byte[] bytes = new byte[(int)file.length()];
+            fileInputStreamReader.read(bytes);
+            imagenBase64=new String(Base64.getEncoder().encode(bytes), "UTF-8");
+            System.out.println("imagen en base 64: " + imagenBase64);            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
+        }            
+            return imagenBase64;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -222,11 +241,11 @@ public class GUIMenuComidas extends javax.swing.JFrame {
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(Image_restaurant_link)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHeaderNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSlogan, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +264,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
 
         jLabelQuestion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelQuestion.setForeground(new java.awt.Color(26, 85, 118));
+        jLabelQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelQuestion.setText("¿Qué quieres comer hoy?");
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(242, 153, 74));
@@ -275,6 +295,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableEspecial.setRowHeight(50);
         jScrollPaneEspecialTab.setViewportView(jTableEspecial);
 
         jTabbedPaneMenu.addTab("Especial", jScrollPaneEspecialTab);
@@ -298,6 +319,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableFastFood.setRowHeight(50);
         jScrollPaneFastFoodTab.setViewportView(jTableFastFood);
 
         jTabbedPaneMenu.addTab("Comida Rápida", jScrollPaneFastFoodTab);
@@ -321,6 +343,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTablePostres.setRowHeight(50);
         jScrollPanePostresTab.setViewportView(jTablePostres);
 
         jTabbedPaneMenu.addTab("Postres", jScrollPanePostresTab);
@@ -344,6 +367,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableBebidas.setRowHeight(50);
         jScrollPaneBebidasTab.setViewportView(jTableBebidas);
 
         jTabbedPaneMenu.addTab("Bebidas", jScrollPaneBebidasTab);
@@ -367,6 +391,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTablePedidoActual.setRowHeight(25);
         jScrollPaneActualTab.setViewportView(jTablePedidoActual);
 
         jTabbedPaneMenu.addTab("Pedido Actual", jScrollPaneActualTab);
@@ -389,21 +414,20 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelQuestion)
-                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanelCentralLayout.createSequentialGroup()
-                            .addComponent(jButtonCancelar)
-                            .addGap(386, 386, 386)
-                            .addComponent(jButtonOrdenar))
-                        .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+                        .addComponent(jButtonCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonOrdenar))
+                    .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+                    .addComponent(jLabelQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabelQuestion)
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -411,7 +435,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonOrdenar))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -444,7 +468,7 @@ public class GUIMenuComidas extends javax.swing.JFrame {
                     .addComponent(jLabelNumero)
                     .addGroup(FooterLayout.createSequentialGroup()
                         .addComponent(jLabelDireccion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                         .addComponent(Image_Facebook_link)
                         .addGap(46, 46, 46)
                         .addComponent(Image_Twitter_link)

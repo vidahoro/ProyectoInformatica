@@ -78,29 +78,20 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
     
     
     private void llenarFila(Comida objComidaPorListar)
-    {   
-       /*
-       JLabel JLabelFoto = new JLabel();
-       JLabelFoto.setName("Foto");
-       JLabelFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
-       */
+    { 
+        byte[] data;        
+        System.out.println("Foto: " + objComidaPorListar.getFoto());
+        data =  Base64.getDecoder().decode(objComidaPorListar.getFoto());
+            
+        ImageIcon imageIcon = new ImageIcon(data);
+            
+        Image img1= new ImageIcon(imageIcon.getImage()).getImage();
+        ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
+
         JButton JButtonFoto = new JButton();
         JButtonFoto.setName("Foto");
-        JButtonFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Salpicon.png")));       
-       
-      
-        /*          
-        byte[] data;        
-            System.out.println("Foto: " + objComidaPorListar.getFoto());
-            data =  Base64.getDecoder().decode(objComidaPorListar.getFoto());
-            
-            ImageIcon imageIcon = new ImageIcon(data);
-            
-            Image img1= new ImageIcon(imageIcon.getImage()).getImage();
-            ImageIcon img2=new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));                 
-            this.JLabelFoto.setIcon(imageIcon);
-        
-        */
+        JButtonFoto.setIcon(img2);       
+         
         JButton JButtonEliminarComida = new JButton();
         JButtonEliminarComida.setName("Eliminar");
         JButtonEliminarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
@@ -115,8 +106,9 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) this.jTableListaComidas.getModel();
         model.addRow(fila);
 
-    }/*
-     private static String convertirImagenBase64(String urlImagen) {
+    }
+    
+    private static String convertirImagenBase64(String urlImagen) {
         String imagenBase64="";
         try {        
             File file =  new File(urlImagen); 
@@ -135,7 +127,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             Logger.getLogger(vtnAgregarComida.class.getName()).log(Level.SEVERE, null, ex);
         }            
             return imagenBase64;
-    }*/
+    }
        
     /**
      * This method is called from within the constructor to initialize the form.
