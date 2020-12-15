@@ -38,7 +38,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     @Override
     public boolean existeComida(String Codigo) {
         boolean bandera=false;
-        System.out.println("ejcutando método existe comida");
+        System.out.println("ejecutando método existe comida");
         for (int i = 0; i < ListaDeComidas.size(); i++) {
             System.out.println("Codigo: -" + ListaDeComidas.get(i).getCodigo()+ "- Nombre -" + ListaDeComidas.get(i).getNombre()+" - Tipo -"+ListaDeComidas.get(i).getTipo());
             if(ListaDeComidas.get(i).getCodigo().equalsIgnoreCase(Codigo))

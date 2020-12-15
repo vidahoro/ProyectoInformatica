@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+import BaseDeDatos.capaAccesoDatos.ComidaRepositoryImplBaseDtos;
 
 /**
  *
@@ -220,8 +221,8 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                 Tipo=(String) jComboBoxTipoComida.getSelectedItem();
                 Valor= Float.parseFloat(this.jTextFieldPrice.getText());
                 Foto= convertirImagenBase64(urlFoto);
-                int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor);
-
+                int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor); // aqui hice un cambio
+                        // int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor); 
                 if(codigoResultado==1) {
                     Utilidades.mensajeExito("Registro Exitoso", "Registro Exitoso");
                 }
