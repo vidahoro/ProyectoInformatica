@@ -5,7 +5,10 @@
  */
 package Servidor.Acceso;
 
+import Servidor.Conexion.ConexionBD;
 import Modelo.Comida;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,16 +17,41 @@ import java.util.ArrayList;
  */
 public class ComidaRepositoryImplArray implements IComidaRepository {
     private ArrayList<Comida> ListaDeComidas;
+    private final ConexionBD conexionABaseDeDatos;
     
-   public ComidaRepositoryImplArray(){
+    public ComidaRepositoryImplArray(){
        this.ListaDeComidas= new ArrayList();
+       conexionABaseDeDatos= new ConexionBD();
     }
    
     @Override
     public boolean AgregarComida(Comida objcomida) {
-        
+       /* 
        return this.ListaDeComidas.add(objcomida);
+        */
+              
+        conexionABaseDeDatos.conectar();
+        int resultado=-1;
+        try {            
+            PreparedStatement sentencia = null;
+            String consulta = "insert into comidas(comidas.Foto,comidas.Codigo,comidas.Nombre,comidas.Tipo,comidas.Valor) values(?,?,?,?,?)";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);
+            
+            sentencia.setString(1, objcomida.getFoto());
+            sentencia.setString(2, objcomida.getCodigo());
+            sentencia.setString(3, objcomida.getNombre());
+            sentencia.setString(4, objcomida.getTipo());
+            sentencia.setFloat(5, objcomida.getValor());
+            resultado = sentencia.executeUpdate(); 
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+
+        } catch (SQLException e) {
+                  System.out.println("error en la inserción: "+e.getMessage());         
+        }
         
+        return resultado == 1;
+    
     }
 
     public ArrayList<Comida> getListaDeComidas() {
