@@ -8,6 +8,7 @@ package Servidor.Acceso;
 import Servidor.Conexion.ConexionBD;
 import Modelo.Comida;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -26,10 +27,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
    
     @Override
     public boolean AgregarComida(Comida objcomida) {
-       /* 
-       return this.ListaDeComidas.add(objcomida);
-        */
-              
+
         conexionABaseDeDatos.conectar();
         int resultado=-1;
         try {            
@@ -60,7 +58,29 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
 
     @Override
     public ArrayList<Comida> listarComidas() {
-        return ListaDeComidas;        
+        ArrayList<Comida> Comidas = new ArrayList();
+        
+        conexionABaseDeDatos.conectar();
+        try{
+            PreparedStatement sentencia = null;
+            String consulta = "select * from comidas";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);            
+            ResultSet res = sentencia.executeQuery();
+            while(res.next()){
+                Comida objComida= new Comida(null, null, null, null, 0);
+                objComida.setCodigo(res.getString("Codigo"));
+                objComida.setFoto(res.getString("Foto"));
+                objComida.setNombre(res.getString("Nombre"));
+                objComida.setTipo(res.getString("Tipo"));
+                objComida.setValor(res.getFloat("Valor"));
+                Comidas.add(objComida);
+            }
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+        }catch(SQLException e){
+            System.out.println("error en la inserción: "+e.getMessage()); 
+        }
+        return Comidas;
     }
 
     @Override
