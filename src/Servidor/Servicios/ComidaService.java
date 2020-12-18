@@ -33,8 +33,8 @@ public class ComidaService {
         return this.RepositorioComida.existeComida(Codigo);
     }
         
-    public boolean eliminarComida(Comida objComidaEliminar) {
-        return this.RepositorioComida.eliminarComida(objComidaEliminar);
+    public boolean eliminarComida(Comida objComida) {
+        return this.RepositorioComida.eliminarComida(objComida);
     }
     
 

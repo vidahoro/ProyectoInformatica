@@ -66,7 +66,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
         ImageIcon imageIcon = new ImageIcon(data);
             
         Image img1= new ImageIcon(imageIcon.getImage()).getImage();
-        ImageIcon img2=new ImageIcon(img1.getScaledInstance(35, 35, Image.SCALE_SMOOTH));                 
+        ImageIcon img2=new ImageIcon(img1.getScaledInstance(40, 40, Image.SCALE_SMOOTH));                 
 
         JButton JButtonFoto = new JButton();
         JButtonFoto.setName("Foto");
@@ -74,11 +74,11 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
          
         JButton JButtonEliminarComida = new JButton();
         JButtonEliminarComida.setName("Eliminar");
-        JButtonEliminarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Trash.png")));
+        JButtonEliminarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Delete_Button.png")));
 
         JButton JButtonEditarComida = new JButton();
         JButtonEditarComida.setName("Editar");
-        JButtonEditarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/EditButton.png")));
+        JButtonEditarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Edit_Button.png")));
 
         Object [] fila= { JButtonFoto,objComidaPorListar.getCodigo(),objComidaPorListar.getNombre(),
         objComidaPorListar.getTipo(), objComidaPorListar.getValor(), JButtonEliminarComida, JButtonEditarComida};
@@ -270,7 +270,10 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
                         }
                     }catch(Exception ex){
                         Utilidades.mensajeError("Error al eliminar usuario. Intentelo de nuevo más tarde", "Error");
-                    }  
+                    } 
+                    
+                    
+                    
                 }else if(boton.getName().equals("Editar")){
                    Comida objComidaEditar = new Comida(Foto, Codigo, Nombre, Tipo, Valor);
                    vtnEditarComida vtnEdit = new vtnEditarComida(this.personaServices, objComidaEditar);

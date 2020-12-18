@@ -100,7 +100,36 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     }
 
     @Override
-    public boolean eliminarComida(Comida objComidaEliminar) {
+    public boolean eliminarComida(Comida objComida) {
+        
+        
+        
+        conexionABaseDeDatos.conectar();
+        int resultado=-1;
+        try {            
+            PreparedStatement sentencia = null;
+            String consulta = "delete from comidas where comidas.Codigo=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);            
+            sentencia.setString(1, objComida.getCodigo());
+            resultado = sentencia.executeUpdate(); 
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+
+        } catch (SQLException e) {
+                  System.out.println("error en la eliminación: "+e.getMessage());         
+        }
+        
+        return resultado == 1;
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         boolean bandera=false;
         for (int i = 0; i < ListaDeComidas.size(); i++) {
             if (ListaDeComidas.get(i).getCodigo().equals(objComidaEliminar.getCodigo())) {
@@ -111,7 +140,10 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
             }
         }
         return bandera;
-    }
+        
+        */
+        
+    
 
     @Override
     public boolean editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew) {
@@ -139,5 +171,6 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
         }
         return objComida;
     }
-  
 }
+  
+
