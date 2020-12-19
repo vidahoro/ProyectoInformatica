@@ -12,6 +12,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import Servidor.Conexion.ConexionBD;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author 57321
@@ -20,6 +25,9 @@ public class GUILoginAdmin extends javax.swing.JFrame {
     
     private final PersonaServicesInt personaServices;
     private Administrador AdminReferencia;
+    ConexionBD cc = new ConexionBD();
+    Connection con = cc.getConnection();
+    
     /**
      * Creates new form JFrameLoginAdmin
      */
@@ -145,6 +153,11 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         jLabelContrasena.setText("Contraseña:");
 
         jTextFieldUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsuarioActionPerformed(evt);
+            }
+        });
 
         jLabelOlvidarC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelOlvidarC.setForeground(new java.awt.Color(26, 85, 118));
@@ -160,6 +173,11 @@ public class GUILoginAdmin extends javax.swing.JFrame {
             }
         });
 
+        jPasswordFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldContraseniaActionPerformed(evt);
+            }
+        });
         jPasswordFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPasswordFieldContraseniaKeyPressed(evt);
@@ -296,27 +314,9 @@ public class GUILoginAdmin extends javax.swing.JFrame {
 
     private void jButtonLogINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogINActionPerformed
         // TODO add your handling code here:
-        int resultado;
-        if(jTextFieldUsuario.getText().equals("") || jPasswordFieldContrasenia.getText().equals("")){
-            resultado=2;
-        }else{
-            resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
-        }
-        if(resultado==1)
-        {
-            AdminReferencia = this.personaServices.consultarPersona(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
-            GUIMenuPrincipal vtnMenu = new GUIMenuPrincipal(this.personaServices,jTextFieldUsuario.getText(), AdminReferencia);
-            this.setVisible(false);
-            vtnMenu.setVisible(true);
-        }
-        else if(resultado==0)
-        {
-            Utilidades.mensajeAdvertencia("Error al realizar la conexión", "Atención");
-        }
-        else
-        {
-            Utilidades.mensajeAdvertencia("Usuario o contraseña incorrecta", "Atención");
-        }
+        validarAdministrador();
+        
+        
     }//GEN-LAST:event_jButtonLogINActionPerformed
 
     private void jPasswordFieldContraseniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseniaKeyPressed
@@ -326,11 +326,62 @@ public class GUILoginAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordFieldContraseniaKeyPressed
 
+    private void jPasswordFieldContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldContraseniaActionPerformed
+
+    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
+    private void validarAdministrador(){
+    
+    
+        int resultado=0;
+        String contrasenia= String.valueOf(jPasswordFieldContrasenia.getPassword());
+        String login=jTextFieldUsuario.getText();
+        String SQL = "select * from administradores where administradores='"+login+"' and contrasenia='"+contrasenia+"'";
+        try{
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()){
+                resultado=1;
+                
+                /*      
+            if(jTextFieldUsuario.getText().equals("") || jPasswordFieldContrasenia.getText().equals("")){
+                resultado=2;
+            }else{
+                resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
+            }
+                
+            */
+            if(resultado==1)
+            {
+                AdminReferencia = this.personaServices.consultarPersona(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
+                GUIMenuPrincipal vtnMenu = new GUIMenuPrincipal(this.personaServices,jTextFieldUsuario.getText(), AdminReferencia);
+                this.setVisible(false);
+                vtnMenu.setVisible(true);
+            }
+            else if(resultado==0)
+            {
+                Utilidades.mensajeAdvertencia("Error al realizar la conexión", "Atención");
+            }
+            else
+            {
+                Utilidades.mensajeAdvertencia("Usuario o contraseña incorrecta", "Atención");
+            }  
 
+            }
+        } 
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Errorsisas" + e.getMessage() );
+        
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Footer;

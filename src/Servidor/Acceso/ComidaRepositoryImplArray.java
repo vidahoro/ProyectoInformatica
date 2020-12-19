@@ -28,7 +28,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     @Override
     public boolean AgregarComida(Comida objcomida) {
 
-        conexionABaseDeDatos.conectar();
+    
         int resultado=-1;
         try {            
             PreparedStatement sentencia = null;
