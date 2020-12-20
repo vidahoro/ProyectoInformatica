@@ -8,30 +8,43 @@ package Servidor.Acceso;
 
 import java.util.ArrayList;
 import Modelo.Persona;
+import Servidor.Conexion.ConexionBD;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class PersonaRepositoryImplArrays implements IPersonaRepository{
 
-   private ArrayList<Persona> objPersonas;
-        
+    private ArrayList<Persona> objPersonas;
+    private final ConexionBD conexionABaseDeDatos;
+    
     public PersonaRepositoryImplArrays()
     {
-        this.objPersonas=new ArrayList();
-        Persona objPersona= new Persona("1234","T.I.","12345");
-        this.objPersonas.add(objPersona);
+        conexionABaseDeDatos = new ConexionBD();
     }
 
    @Override
     public boolean existePersona(String numeroIdentificacion,String tipoIdentificacion, String contrasenia) {
-         System.out.println("NumeroID: "+numeroIdentificacion+"Tipo: "+tipoIdentificacion+"Contraseña: "+contrasenia);
+        System.out.println("NumeroID: "+numeroIdentificacion+"Tipo: "+tipoIdentificacion+"Contraseña: "+contrasenia);
         boolean bandera=false;
 
-        for (Persona objPersona : objPersonas) {
-            if(objPersona.getNumeroIdentificacion().equals(numeroIdentificacion) && objPersona.getTipoIdentificacion().equals(tipoIdentificacion) && objPersona.getContrasenia().equals(contrasenia))
-            {
-                bandera=true;
-                break;
+        conexionABaseDeDatos.conectar();
+        try{
+            PreparedStatement sentencia = null;
+            String consulta = "select * from clientes where clientes.numeroIdentificacion=? and clientes.tipoIdentificacion=? and clientes.contrasenia=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);
+            sentencia.setString(1, numeroIdentificacion);
+            sentencia.setString(2, tipoIdentificacion);
+            sentencia.setString(3, contrasenia);
+            ResultSet res = sentencia.executeQuery();
+            while(res.next()){
+                bandera = true;
             }
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+        }catch(SQLException e){
+            System.out.println("Error en la verificación: "+e.getMessage());
         }
     return bandera;
     }
