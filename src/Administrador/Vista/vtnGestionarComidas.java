@@ -124,7 +124,7 @@ public class vtnGestionarComidas extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextFieldBuscar.setToolTipText("Buscar por código de Comida");
+        jTextFieldBuscar.setToolTipText("Buscar por nombre de Comida");
         jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldBuscarKeyPressed(evt);

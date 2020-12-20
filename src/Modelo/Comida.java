@@ -16,7 +16,11 @@ public class Comida {
         this.Tipo = Tipo;
         this.Valor = Valor;
     }
-
+    
+    public Comida(){
+        
+    }
+    
     public String getCodigo() {
         return Codigo;
     }

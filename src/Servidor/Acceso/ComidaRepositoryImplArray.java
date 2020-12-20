@@ -17,11 +17,10 @@ import java.util.ArrayList;
  * @author Victor
  */
 public class ComidaRepositoryImplArray implements IComidaRepository {
-    private ArrayList<Comida> ListaDeComidas;
+    
     private final ConexionBD conexionABaseDeDatos;
     
     public ComidaRepositoryImplArray(){
-       this.ListaDeComidas= new ArrayList();
        conexionABaseDeDatos= new ConexionBD();
     }
    
@@ -158,14 +157,30 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     }
 
     @Override
-    public Comida consultarComida(String codigo) {
+    public Comida consultarComida(String Nombre) {
         Comida objComida = null;
-        for (int i = 0; i < ListaDeComidas.size(); i++) {
-            if (ListaDeComidas.get(i).getCodigo().equals(codigo)) {
-                objComida = ListaDeComidas.get(i);
-                break;
+        conexionABaseDeDatos.conectar(); 
+        
+        try {            
+            PreparedStatement sentencia = null;
+            String consulta = "select comidas.Codigo, comidas.Foto, comidas.Tipo, comidas.Valor from comidas where comidas.Nombre=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);            
+            sentencia.setString(1, Nombre);
+            ResultSet res = sentencia.executeQuery();
+            while(res.next()){
+                objComida= new Comida();
+                objComida.setNombre(Nombre);
+                objComida.setFoto(res.getString("Foto"));
+                objComida.setCodigo(res.getString("Codigo"));
+                objComida.setTipo(res.getString("Tipo"));
+                objComida.setValor(res.getFloat("Valor"));
             }
-        }
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+
+        } catch (SQLException e) {
+                  System.out.println("error en la consulta de un empleado: "+e.getMessage());         
+        } 
         return objComida;
     }
 }

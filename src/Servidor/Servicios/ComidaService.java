@@ -43,8 +43,8 @@ public class ComidaService {
 
     }
 
-    public Comida consultarComida(String Codigo) {
-        return this.RepositorioComida.consultarComida(Codigo);
+    public Comida consultarComida(String Nombre) {
+        return this.RepositorioComida.consultarComida(Nombre);
     }
     
 }

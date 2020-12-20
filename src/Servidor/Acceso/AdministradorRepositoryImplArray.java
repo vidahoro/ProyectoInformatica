@@ -18,16 +18,11 @@ import java.sql.SQLException;
  */
 public class AdministradorRepositoryImplArray implements IAdministradorRepository{
 
-    private ArrayList<Administrador> listaAdministradores;
     private final ConexionBD conexionABaseDeDatos;
     
     public AdministradorRepositoryImplArray()
     {
         conexionABaseDeDatos = new ConexionBD();
-    }
-
-    public ArrayList<Administrador> getListaAdministradores() {
-        return listaAdministradores;
     }
         
     @Override

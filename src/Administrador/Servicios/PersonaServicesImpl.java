@@ -219,14 +219,14 @@ public class PersonaServicesImpl implements PersonaServicesInt{
     }
 
     @Override
-    public Comida consultarComida(String Codigo) {
+    public Comida consultarComida(String Nombre) {
          Comida objComidaRetornar = null;
         try {
             objCliente.crearConexion();
         
             Gson objConvertidor= new Gson();
             PeticionDTO objPeticion= new PeticionDTO();
-            String argumentos= Codigo;
+            String argumentos= Nombre;
             
             objPeticion.setAccion("consultarComida");
             objPeticion.setArgumentos(argumentos);

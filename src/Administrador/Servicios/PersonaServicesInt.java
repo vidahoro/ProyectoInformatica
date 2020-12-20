@@ -21,5 +21,5 @@ public interface PersonaServicesInt {
     public int AgregarComida(String Foto, String Codigo, String Nombre, String Tipo, float Valor);
     public int eliminarComida(Comida objComida);
     public int editarComida(String CodigoOld, Comida objComidaEditada);
-    public Comida consultarComida(String Codigo);
+    public Comida consultarComida(String Nombre);
 }

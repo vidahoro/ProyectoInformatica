@@ -51,10 +51,10 @@ public class Controlador {
         ResultadoDTO objResultado=new ResultadoDTO();
         switch (accion) {
             case "consultarComida":
-                String Codigo;                  
+                String Nombre;                  
                 String vector[]=argumentosPeticion.split(",");
-                Codigo=vector[0];
-                objResultado=consultarComida(Codigo);                
+                Nombre=vector[0];
+                objResultado=consultarComida(Nombre);                
             break;
             case "registrarPersona":                
                 Persona objPersona= objConvertidor.fromJson(argumentosPeticion, Persona.class);
@@ -155,13 +155,12 @@ public class Controlador {
     }
     */
     
-    private ResultadoDTO consultarComida(String Codigo)
+    private ResultadoDTO consultarComida(String Nombre)
     {
         Comida objComidaEncontrada;
         ResultadoDTO objResultado=new ResultadoDTO(); 
-        if(this.objComidaService.existeComida(Codigo)==true)
-        {
-            objComidaEncontrada=this.objComidaService.consultarComida(Codigo);
+        objComidaEncontrada=this.objComidaService.consultarComida(Nombre);
+        if(objComidaEncontrada!=null){
             String objPersonaComoJSON=objConvertidor.toJson(objComidaEncontrada);                    
             objResultado.setCodigoResultado(1);
             objResultado.setJSONResultado(objPersonaComoJSON);                    
