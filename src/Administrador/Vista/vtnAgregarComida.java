@@ -220,10 +220,14 @@ public class vtnAgregarComida extends javax.swing.JInternalFrame {
                 Tipo=(String) jComboBoxTipoComida.getSelectedItem();
                 Valor= Float.parseFloat(this.jTextFieldPrice.getText());
                 Foto= convertirImagenBase64(urlFoto);
-                int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor); // aqui hice un cambio
-                        // int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor); 
+                int codigoResultado=this.personaServices.AgregarComida(Foto, Codigo, Nombre, Tipo, Valor);
+                
                 if(codigoResultado==1) {
                     Utilidades.mensajeExito("Registro Exitoso", "Registro Exitoso");
+                    jTextFieldCode.setText("");
+                    jTextFieldNombre.setText("");
+                    jTextFieldPrice.setText("");
+                    jLabelArchivoSeleccionado.setText("No hay archivos seleccionados");
                 }
                 else if(codigoResultado==0) {
                     Utilidades.mensajeAdvertencia("Error De Conexión", "Error En El Registro");         

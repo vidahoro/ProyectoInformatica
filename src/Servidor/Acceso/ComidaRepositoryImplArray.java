@@ -28,7 +28,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     @Override
     public boolean AgregarComida(Comida objcomida) {
 
-    
+        conexionABaseDeDatos.conectar();
         int resultado=-1;
         try {            
             PreparedStatement sentencia = null;
@@ -50,10 +50,6 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
         
         return resultado == 1;
     
-    }
-
-    public ArrayList<Comida> getListaDeComidas() {
-        return ListaDeComidas;
     }
 
     @Override
@@ -86,7 +82,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     @Override
     public boolean existeComida(String Codigo) {
         boolean bandera=false;
-        System.out.println("ejecutando método existe comida");
+        System.out.println("ejecutando método existe comida");/*
         for (int i = 0; i < ListaDeComidas.size(); i++) {
             System.out.println("Codigo: -" + ListaDeComidas.get(i).getCodigo()+ "- Nombre -" + ListaDeComidas.get(i).getNombre()+" - Tipo -"+ListaDeComidas.get(i).getTipo());
             if(ListaDeComidas.get(i).getCodigo().equalsIgnoreCase(Codigo))
@@ -95,7 +91,23 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
                 System.out.println("Comida encontrada");
                 break;
             }
-        }        
+        }    */
+        conexionABaseDeDatos.conectar();        
+        try {            
+            PreparedStatement sentencia = null;
+            String consulta = "select comidas.Foto, comidas.Nombre, comidas.Tipo, comidas.Valor from comidas where comidas.Codigo=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);            
+            sentencia.setString(1, Codigo);
+            ResultSet res = sentencia.executeQuery();
+            while(res.next()){
+                bandera=true;
+            }
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+
+        } catch (SQLException e) {
+                  System.out.println("error en la consulta de un empleado: "+e.getMessage());         
+        } 
         return bandera;
     }
 
@@ -120,30 +132,7 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
         }
         
         return resultado == 1;
-    }
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
-        boolean bandera=false;
-        for (int i = 0; i < ListaDeComidas.size(); i++) {
-            if (ListaDeComidas.get(i).getCodigo().equals(objComidaEliminar.getCodigo())) {
-                ListaDeComidas.remove(i);
-                bandera=true;
-                System.out.println("Comida Eliminada");
-                break;
-            }
-        }
-        return bandera;
-        
-        */
-        
-    
+    }           
 
     @Override
     public boolean editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew) {

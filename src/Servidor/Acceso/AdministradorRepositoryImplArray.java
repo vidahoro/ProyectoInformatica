@@ -23,13 +23,6 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
     
     public AdministradorRepositoryImplArray()
     {
-        /*
-        this.listaAdministradores= new ArrayList();
-        Administrador objAdministrador= new Administrador("admin", "admin12345", "ADM", "MIN");
-        this.listaAdministradores.add(objAdministrador);
-        Administrador objAdministrador1 = new Administrador("qwerty", "qwertyuiop", "JD", "BS");
-        this.listaAdministradores.add(objAdministrador1);
-    */
         conexionABaseDeDatos = new ConexionBD();
     }
 
