@@ -82,16 +82,8 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     @Override
     public boolean existeComida(String Codigo) {
         boolean bandera=false;
-        System.out.println("ejecutando método existe comida");/*
-        for (int i = 0; i < ListaDeComidas.size(); i++) {
-            System.out.println("Codigo: -" + ListaDeComidas.get(i).getCodigo()+ "- Nombre -" + ListaDeComidas.get(i).getNombre()+" - Tipo -"+ListaDeComidas.get(i).getTipo());
-            if(ListaDeComidas.get(i).getCodigo().equalsIgnoreCase(Codigo))
-            {
-                bandera=true;
-                System.out.println("Comida encontrada");
-                break;
-            }
-        }    */
+        System.out.println("ejecutando método existe comida");
+        
         conexionABaseDeDatos.conectar();        
         try {            
             PreparedStatement sentencia = null;
@@ -138,13 +130,29 @@ public class ComidaRepositoryImplArray implements IComidaRepository {
     public boolean editarComida(String CodigoOld, String CodigoNew, String NombreNew, String TipoNew, String ValorNew, String FotoNew) {
         boolean bandera = false;
         float Valor = Float.parseFloat(ValorNew);
-        Comida ComidaNueva = new Comida(FotoNew, CodigoNew, NombreNew, TipoNew, Valor);
-        for (int i = 0; i < ListaDeComidas.size(); i++) {
-            if (ListaDeComidas.get(i).getCodigo().equals(CodigoOld)) {
-                ListaDeComidas.set(i, ComidaNueva);
-                bandera = true;
-                break;
-            }
+        
+        conexionABaseDeDatos.conectar();
+        try {            
+            PreparedStatement sentencia = null;
+            String consulta = "update comidas set comidas.Codigo=?,"
+                                                + "comidas.Foto=?,"
+                                                + "comidas.Nombre=?,"
+                                                + "comidas.Tipo=?,"
+                                                + "comidas.Valor=? "
+                                                + "where comidas.Codigo=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);
+            sentencia.setString(1, CodigoNew);
+            sentencia.setString(2, FotoNew);
+            sentencia.setString(3, NombreNew);
+            sentencia.setString(4, TipoNew);
+            sentencia.setFloat(5, Valor);
+            sentencia.setString(6, CodigoOld);
+            sentencia.executeUpdate(); 
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+            bandera = true;
+        } catch (SQLException e) {
+                  System.out.println("error en la actualización: "+e.getMessage());         
         }
         return bandera;
     }
