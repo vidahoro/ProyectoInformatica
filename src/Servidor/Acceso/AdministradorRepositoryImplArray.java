@@ -40,14 +40,8 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
     @Override
     public boolean existeAdministrador(String login, String contrasenia) {
         boolean bandera=false;
-        System.out.println("Login:"+login+"contraseña: "+contrasenia);/*
-        for (Administrador objAdministrador : listaAdministradores) {
-            if(objAdministrador.getLogin().equals(login) && objAdministrador.getConstrasenia().equals(contrasenia))
-            {
-                bandera=true;
-                break;
-            }
-        }*/
+        System.out.println("Login:"+login+"contraseña: "+contrasenia);
+        
         conexionABaseDeDatos.conectar();
         try{
             PreparedStatement sentencia = null;
@@ -70,16 +64,8 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
     @Override
     public Administrador consultarPersona(String login, String contrasenia) {
         System.out.println("ejecutando método consultar persona");
-        Administrador objAdmin= null;/*
-        for (int i = 0; i < listaAdministradores.size(); i++) {
-            if(listaAdministradores.get(i).getLogin().equalsIgnoreCase(login) && listaAdministradores.get(i).getConstrasenia().equalsIgnoreCase(contrasenia))
-            {
-                objAdmin=listaAdministradores.get(i);
-                System.out.println("Persona encontrada");
-                break;
-            }
-        }*/
-        
+        Administrador objAdmin= null;
+
         conexionABaseDeDatos.conectar();        
         try {            
             PreparedStatement sentencia = null;
@@ -106,15 +92,23 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
 
     @Override
     public void editarAdmin(String user, String newname, String newlastname, String newpassword) {
-        for (int i = 0; i < listaAdministradores.size(); i++) {
-            Administrador AdminAux = listaAdministradores.get(i);
-            if (user.equals(AdminAux.getLogin())) {
-                AdminAux.setNombre(newname);
-                AdminAux.setApellido(newlastname);
-                AdminAux.setConstrasenia(newpassword);
-                listaAdministradores.set(i, AdminAux);
-                break;
-            }
+        conexionABaseDeDatos.conectar();
+        try{
+            PreparedStatement sentencia = null;
+            String consulta = "update administradores set administradores.contrasenia=?,"
+                                                        + "administradores.Nombre=?,"
+                                                        + "administradores.Apellido=? "
+                                                        + "where administradores.login=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);
+            sentencia.setString(1, newpassword);
+            sentencia.setString(2, newname);
+            sentencia.setString(3, newlastname);
+            sentencia.setString(4, user);
+            sentencia.executeUpdate();
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();           
+        }catch (SQLException e){
+                  System.out.println("error en la actualización: "+e.getMessage());         
         }
     }
     
