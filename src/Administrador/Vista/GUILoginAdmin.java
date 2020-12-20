@@ -14,9 +14,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import Servidor.Conexion.ConexionBD;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
 /**
  *
  * @author 57321

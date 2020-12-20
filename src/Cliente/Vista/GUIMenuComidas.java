@@ -9,6 +9,7 @@ import Cliente.Servicios.PersonaServicesInt;
 
 import Modelo.Comida;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public class GUIMenuComidas extends javax.swing.JFrame {
         
         this.personaServices=personaServices;
         setLocationRelativeTo(null);
+        Image icon = Toolkit.getDefaultToolkit().getImage("Recursos/restaurant.png");
+        this.setIconImage(icon);
         
         this.jTableBebidas.setDefaultRenderer(Object.class, new Render());
         this.jTableEspecial.setDefaultRenderer(Object.class, new Render());
