@@ -341,8 +341,8 @@ public class GUILoginAdmin extends javax.swing.JFrame {
     private void validarAdministrador(){
     
     
-        int resultado=0;
-        String contrasenia= String.valueOf(jPasswordFieldContrasenia.getPassword());
+        int resultado=0;/*
+        String contrasenia= jPasswordFieldContrasenia.getText();
         String login=jTextFieldUsuario.getText();
         String SQL = "select * from administradores where administradores='"+login+"' and contrasenia='"+contrasenia+"'";
         try{
@@ -350,15 +350,15 @@ public class GUILoginAdmin extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(SQL);
             if (rs.next()){
                 resultado=1;
-                
-                /*      
+            */    
+                      
             if(jTextFieldUsuario.getText().equals("") || jPasswordFieldContrasenia.getText().equals("")){
                 resultado=2;
             }else{
                 resultado=this.personaServices.iniciarSesion(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
             }
                 
-            */
+            
             if(resultado==1)
             {
                 AdminReferencia = this.personaServices.consultarPersona(jTextFieldUsuario.getText(), jPasswordFieldContrasenia.getText());
@@ -375,13 +375,13 @@ public class GUILoginAdmin extends javax.swing.JFrame {
                 Utilidades.mensajeAdvertencia("Usuario o contraseña incorrecta", "Atención");
             }  
 
-            }
+            }/*
         } 
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Errorsisas" + e.getMessage() );
         
         }
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Footer;

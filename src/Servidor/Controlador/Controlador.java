@@ -125,7 +125,7 @@ public class Controlador {
     }
     
     private ResultadoDTO iniciarSesion(String login, String contrasenia)
-    {
+    {System.out.println("aaaa");
         ResultadoDTO objResultado=new ResultadoDTO();  
         if(this.objAdministradorService.existeAdministrador(login, contrasenia))
         {

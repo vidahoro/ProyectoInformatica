@@ -7,6 +7,10 @@ package Servidor.Acceso;
 
 import java.util.ArrayList;
 import Modelo.Administrador;
+import Servidor.Conexion.ConexionBD;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,6 +19,7 @@ import Modelo.Administrador;
 public class AdministradorRepositoryImplArray implements IAdministradorRepository{
 
     private ArrayList<Administrador> listaAdministradores;
+    private final ConexionBD conexionABaseDeDatos;
     
     public AdministradorRepositoryImplArray()
     {
@@ -24,8 +29,8 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
         this.listaAdministradores.add(objAdministrador);
         Administrador objAdministrador1 = new Administrador("qwerty", "qwertyuiop", "JD", "BS");
         this.listaAdministradores.add(objAdministrador1);
-    
-        */
+    */
+        conexionABaseDeDatos = new ConexionBD();
     }
 
     public ArrayList<Administrador> getListaAdministradores() {
@@ -35,13 +40,29 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
     @Override
     public boolean existeAdministrador(String login, String contrasenia) {
         boolean bandera=false;
-        System.out.println("Login:"+login+"contraseña: "+contrasenia);
+        System.out.println("Login:"+login+"contraseña: "+contrasenia);/*
         for (Administrador objAdministrador : listaAdministradores) {
             if(objAdministrador.getLogin().equals(login) && objAdministrador.getConstrasenia().equals(contrasenia))
             {
                 bandera=true;
                 break;
             }
+        }*/
+        conexionABaseDeDatos.conectar();
+        try{
+            PreparedStatement sentencia = null;
+            String consulta = "select * from administradores where administradores.login=? and administradores.contrasenia=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);
+            sentencia.setString(1, login);
+            sentencia.setString(2, contrasenia);
+            ResultSet res = sentencia.executeQuery();
+            while(res.next()){
+                bandera = true;
+            }
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+        }catch(SQLException e){
+            System.out.println("Error en la verificación: "+e.getMessage());
         }
         return bandera;
     }
@@ -49,7 +70,7 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
     @Override
     public Administrador consultarPersona(String login, String contrasenia) {
         System.out.println("ejecutando método consultar persona");
-        Administrador objAdmin= null;
+        Administrador objAdmin= null;/*
         for (int i = 0; i < listaAdministradores.size(); i++) {
             if(listaAdministradores.get(i).getLogin().equalsIgnoreCase(login) && listaAdministradores.get(i).getConstrasenia().equalsIgnoreCase(contrasenia))
             {
@@ -57,7 +78,28 @@ public class AdministradorRepositoryImplArray implements IAdministradorRepositor
                 System.out.println("Persona encontrada");
                 break;
             }
-        }
+        }*/
+        
+        conexionABaseDeDatos.conectar();        
+        try {            
+            PreparedStatement sentencia = null;
+            String consulta = "select administradores.contrasenia, administradores.Nombre, administradores.Apellido from administradores where administradores.login=?";
+            sentencia = conexionABaseDeDatos.getConnection().prepareStatement(consulta);            
+            sentencia.setString(1, login);
+            ResultSet res = sentencia.executeQuery();
+            while(res.next()){
+                objAdmin= new Administrador();
+                objAdmin.setLogin(login);
+                objAdmin.setConstrasenia(res.getString("contrasenia"));
+                objAdmin.setNombre(res.getString("Nombre"));
+                objAdmin.setApellido(res.getString("Apellido"));
+            }
+            sentencia.close();
+            conexionABaseDeDatos.desconectar();
+
+        } catch (SQLException e) {
+                  System.out.println("error en la consulta de un empleado: "+e.getMessage());         
+        }        
         
         return objAdmin;
     }

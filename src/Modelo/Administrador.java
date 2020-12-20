@@ -10,6 +10,10 @@ public class Administrador {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
     }
+    
+    public Administrador(){
+        
+    }
 
     public String getLogin() {
         return login;
